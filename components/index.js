@@ -1,6 +1,7 @@
 // home screen
 import WelcomeMessage from "./home/WelcomeMessage/WelcomeMessage";
 import PopularHomesList from "./home/PopularHomesList/PopularHomesList";
+import PopularHomesCard from "./home/PopularHomesCard/PopularHomesCard";
 
 // common
 import HomeCard from "./common/cards/HomeCard/HomeCard";
@@ -13,4 +14,5 @@ export {
   WelcomeMessage,
   SearchInput,
   PopularHomesList,
+  PopularHomesCard,
 };

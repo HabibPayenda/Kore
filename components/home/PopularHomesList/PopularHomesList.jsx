@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import styles from "./PopularHomesListStyles";
+import PopularHomesCard from "../PopularHomesCard/PopularHomesCard";
 
 const data = [
   {
@@ -40,11 +41,7 @@ const PopularHomesList = () => {
     console.log("View All");
   };
 
-  const renderItem = ({ item }) => (
-    <View>
-      <Text>{item.title}</Text>
-    </View>
-  );
+  const renderItem = ({ item }) => <PopularHomesCard data={item} />;
 
   return (
     <View style={styles.container}>
@@ -60,6 +57,7 @@ const PopularHomesList = () => {
         renderItem={renderItem}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ gap: 10 }}
       />
     </View>
   );
