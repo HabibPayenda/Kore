@@ -1,29 +1,34 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./PopularHomesCardStyles";
 
-const PopularHomesCard = ({ data }) => {
+const PopularHomeCard = ({ data }) => {
   const { title, price, image, rooms, area, address, deal_type } = data;
 
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} resizeMode="cover" />
-      <View style={styles.overlay}>
+      <Image
+        source={image}
+        style={styles.image}
+        resizeMode="stretch"
+        resizeMethod="resize"
+      />
+      <View style={styles.footer}>
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
-            <Feather name="home" size={16} color="#fff" style={styles.icon} />
+            <Feather name="home" size={16} color="#333" style={styles.icon} />
             <Text style={styles.infoText}>{rooms}</Text>
           </View>
           <View style={styles.infoItem}>
-            <Feather name="square" size={16} color="#fff" style={styles.icon} />
+            <Feather name="square" size={16} color="#333" style={styles.icon} />
             <Text style={styles.infoText}>{area} sq ft</Text>
           </View>
           <View style={styles.infoItem}>
             <Feather
               name="map-pin"
               size={16}
-              color="#fff"
+              color="#333"
               style={styles.icon}
             />
             <Text style={styles.infoText}>{address}</Text>
@@ -32,7 +37,7 @@ const PopularHomesCard = ({ data }) => {
             <Feather
               name="dollar-sign"
               size={16}
-              color="#fff"
+              color="#333"
               style={styles.icon}
             />
             <Text style={styles.infoText}>{price}</Text>
@@ -46,4 +51,4 @@ const PopularHomesCard = ({ data }) => {
   );
 };
 
-export default PopularHomesCard;
+export default PopularHomeCard;
