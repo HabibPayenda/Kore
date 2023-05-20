@@ -1,20 +1,23 @@
-import { StyleSheet } from "react-native-web";
+import { StyleSheet } from "react-native";
+import { COLORS, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f7f7f7",
-    borderRadius: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    backgroundColor: COLORS.gray2,
+    borderRadius: SIZES.xSmall,
+    paddingVertical: SIZES.xSmall,
+    paddingHorizontal: SIZES.small,
+    marginTop: SIZES.small,
   },
   icon: {
-    marginRight: 8,
+    marginLeft: SIZES.medium,
+    color: COLORS.primary,
   },
   input: {
     flex: 1,
-    height: 40,
-    fontSize: 16,
+    height: SIZES.large,
+    fontSize: SIZES.medium,
     color: "#333",
   },
 });
