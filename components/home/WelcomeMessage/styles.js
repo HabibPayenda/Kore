@@ -1,16 +1,22 @@
 import { StyleSheet } from "react-native";
-import { FONT } from "../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    fontFamily: FONT.regular,
-    backgroundColor: "#f1c40f",
+    backgroundColor: COLORS.lightWhite,
     padding: 16,
+    alignItems: "flex-end",
   },
-  text: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
+  title: {
+    fontFamily: FONT.regular,
+    color: COLORS.primary,
+    fontSize: SIZES.large,
+    textAlign: "center",
+  },
+  subTitle: {
+    fontFamily: FONT.regular,
+    color: COLORS.primary,
+    fontSize: SIZES.medium,
     textAlign: "center",
   },
 });

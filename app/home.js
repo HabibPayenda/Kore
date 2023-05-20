@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, View, Text } from "react-native";
 import { Stack, useRouter } from "expo-router";
 
 import { COLORS, icons, images, SIZES } from "../constants";
-import { ScreenHeaderBtn } from "../components";
+import { ScreenHeaderBtn, WelcomeMessage } from "../components";
 import styles from "../styles/search";
 const Home = () => {
   const router = useRouter();
@@ -30,7 +30,9 @@ const Home = () => {
             flex: 1,
             padding: SIZES.medium,
           }}
-        ></View>
+        >
+          <WelcomeMessage name={"حبیب"} />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
