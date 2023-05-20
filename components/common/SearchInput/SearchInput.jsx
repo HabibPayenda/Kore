@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import styles from "./searchInput";
+import styles from "./searchInputStyles";
 
 const SearchInput = ({ value, placeholder, onChange }) => {
   return (
