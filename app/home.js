@@ -30,9 +30,7 @@ const Home = () => {
             flex: 1,
             padding: SIZES.medium,
           }}
-        >
-          <Text style={styles.searchTitle}> څه غورې دي؟</Text>
-        </View>
+        ></View>
       </ScrollView>
     </SafeAreaView>
   );
