@@ -40,7 +40,11 @@ const PopularHomesList = () => {
     console.log("View All");
   };
 
-  const renderItem = ({ item }) => <View>{item.title}</View>;
+  const renderItem = ({ item }) => (
+    <View>
+      <Text>{item.title}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
