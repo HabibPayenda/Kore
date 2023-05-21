@@ -2,6 +2,7 @@
 import WelcomeMessage from "./home/WelcomeMessage/WelcomeMessage";
 import PopularHomesList from "./home/PopularHomesList/PopularHomesList";
 import PopularHomesCard from "./home/PopularHomesCard/PopularHomesCard";
+import PopularCarsList from "./home/PopularCarsList/PopularCarsList";
 
 // common
 import HomeCard from "./common/cards/HomeCard/HomeCard";
@@ -15,4 +16,5 @@ export {
   SearchInput,
   PopularHomesList,
   PopularHomesCard,
+  PopularCarsList,
 };
