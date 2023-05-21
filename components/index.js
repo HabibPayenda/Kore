@@ -8,6 +8,7 @@ import PopularCarsCard from "./home/PopularCarsCard/PopularCarsCard";
 // cars screen
 import CarOfferList from "./cars/CarOffersList/CarOfferList";
 import CarOfferCard from "./cars/CarOfferCard/CarOfferCard";
+import CarsList from "./cars/CarsList/CarsList";
 
 // common
 import HomeCard from "./common/cards/HomeCard/HomeCard";
@@ -25,4 +26,5 @@ export {
   PopularCarsCard,
   CarOfferList,
   CarOfferCard,
+  CarsList,
 };
