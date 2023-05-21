@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightWhite,
   },
   header: {
-    paddingVertical: 16,
-    paddingHorizontal: 32,
+    paddingVertical: SIZES.small,
+    paddingHorizontal: SIZES.medium,
     backgroundColor: "#fff",
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: FONT.regular,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.small,
     color: "#333",
   },
   list: {

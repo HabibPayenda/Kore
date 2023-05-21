@@ -14,6 +14,7 @@ import CarsList from "./cars/CarsList/CarsList";
 import HomeCard from "./common/cards/HomeCard/HomeCard";
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 import SearchInput from "./common/SearchInput/SearchInput";
+import CarCard from "./common/cards/CarCard/CarCard";
 
 export {
   HomeCard,
@@ -27,4 +28,5 @@ export {
   CarOfferList,
   CarOfferCard,
   CarsList,
+  CarCard,
 };

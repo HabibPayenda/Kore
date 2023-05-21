@@ -70,6 +70,8 @@ const Cars = () => {
       <ScrollView style={styles.scrollView}>
         <CarOfferList />
         <CarsList DATA={DATA} title="ټیټ ماډل" />
+        <CarsList DATA={DATA} title="مابینی ماډل" />
+        <CarsList DATA={DATA} title="لوړ ماډل" />
       </ScrollView>
     </SafeAreaView>
   );
