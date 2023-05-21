@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import styles from "./CarOffersListStyles";
+import CarOfferCard from "../CarOfferCard/CarOfferCard";
 const DATA = [
   {
     id: "1",
@@ -52,7 +53,7 @@ const CarOfferList = () => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text>{item.make}</Text>
+        <CarOfferCard data={item} />
       </View>
     );
   };
