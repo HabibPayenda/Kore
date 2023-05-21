@@ -4,7 +4,6 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
     width: 200,
-    height: 300,
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: "#fff",
@@ -24,8 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   item: {
-    flexDirection: "row",
     alignItems: "center",
+    flex: 1,
   },
   brand: {
     flexDirection: "row",
@@ -45,8 +44,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
   },
   text: {
-    marginLeft: 8,
-    fontSize: 14,
+    fontSize: SIZES.small,
     color: "#333",
   },
 });

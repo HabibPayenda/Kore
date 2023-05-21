@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
-    marginTop: 16,
+    marginTop: SIZES.large,
   },
   header: {
     flexDirection: "row",
@@ -24,11 +24,10 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   contentContainer: {
-    padding: 16,
+    paddingVertical: SIZES.small,
+    gap: SIZES.small,
   },
-  item: {
-    marginRight: 16,
-  },
+  item: {},
 });
 
 export default styles;

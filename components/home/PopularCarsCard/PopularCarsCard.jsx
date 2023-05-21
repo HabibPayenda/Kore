@@ -20,15 +20,17 @@ const PopularCarsCard = ({ data }) => {
         </View>
         <View style={styles.item}>
           <FontAwesome name="calendar" size={16} color="#333" />
-          <Text style={styles.text}>{year}</Text>
+          <Text style={styles.text}>{2012}</Text>
         </View>
         <View style={styles.item}>
           <FontAwesome name="tint" size={16} color="#333" />
-          <Text style={styles.text}>{fuel}</Text>
+          <Text style={styles.text}>{"Petrol"}</Text>
         </View>
         <View style={styles.item}>
           <FontAwesome name="money" size={16} color="#333" />
-          <Text style={styles.text}>{price}</Text>
+          <Text numberOfLines={1} style={styles.text}>
+            {price}
+          </Text>
         </View>
       </View>
     </View>
