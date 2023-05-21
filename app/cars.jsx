@@ -10,6 +10,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 
 import styles from "../styles/carsStyles";
+import { CarOfferList } from "../components";
 
 const Cars = () => {
   const handleFilter = () => {
@@ -25,7 +26,7 @@ const Cars = () => {
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollView}>
-        {/* Scrollable content here */}
+        <CarOfferList />
       </ScrollView>
     </SafeAreaView>
   );
