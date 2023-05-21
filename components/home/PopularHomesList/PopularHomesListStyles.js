@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,12 +13,16 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   title: {
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
   },
   link: {
-    color: "#007aff",
-    fontSize: 16,
+    color: COLORS.lightWhite,
+    fontSize: SIZES.small,
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: SIZES.medium,
+    borderRadius: 3,
+    fontFamily: FONT.regular,
   },
 });
 
