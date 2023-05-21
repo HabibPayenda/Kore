@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 import styles from "./PopularCarsListStyles";
+import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
 
 const DATA = [
   {
@@ -9,35 +10,35 @@ const DATA = [
     make: "Toyota",
     model: "Camry",
     price: "$20,000",
-    // image: require("./images/car1.jpeg"),
+    image: require("../../../assets/images/car.jpg"),
   },
   {
     id: "2",
     make: "Honda",
     model: "Civic",
     price: "$18,000",
-    // image: require("./images/car2.jpeg"),
+    image: require("../../../assets/images/car.jpg"),
   },
   {
     id: "3",
     make: "Ford",
     model: "Mustang",
     price: "$25,000",
-    // image: require("./images/car3.jpeg"),
+    image: require("../../../assets/images/car.jpg"),
   },
   {
     id: "4",
     make: "Chevrolet",
     model: "Camaro",
     price: "$30,000",
-    // image: require("./images/car4.jpeg"),
+    image: require("../../../assets/images/car.jpg"),
   },
   {
     id: "5",
     make: "Nissan",
     model: "Altima",
     price: "$22,000",
-    // image: require("./images/car5.jpeg"),
+    image: require("../../../assets/images/car.jpg"),
   },
 ];
 
@@ -49,7 +50,7 @@ const PopularCarsList = () => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text>{item.make}</Text>
+        <PopularCarsCard data={item} />
       </View>
     );
   };
