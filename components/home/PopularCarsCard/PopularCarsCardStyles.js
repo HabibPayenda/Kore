@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -26,6 +26,23 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  brand: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-around",
+    alignItems: "center",
+    borderColor: COLORS.gray,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+  },
+  fullItem: {},
+  model: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.medium,
+  },
+  make: {
+    fontFamily: FONT.regular,
   },
   text: {
     marginLeft: 8,

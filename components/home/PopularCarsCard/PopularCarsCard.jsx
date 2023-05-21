@@ -10,13 +10,13 @@ const PopularCarsCard = ({ data }) => {
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
       <View style={styles.footer}>
-        <View style={styles.item}>
-          <FontAwesome name="car" size={16} color="#333" />
-          <Text style={styles.text}>{model}</Text>
-        </View>
-        <View style={styles.item}>
-          <FontAwesome name="cog" size={16} color="#333" />
-          <Text style={styles.text}>{make}</Text>
+        <View style={styles.brand}>
+          <View style={styles.fullItem}>
+            <Text style={styles.model}>{model}</Text>
+          </View>
+          <View style={styles.fullItem}>
+            <Text style={styles.make}>{make}</Text>
+          </View>
         </View>
         <View style={styles.item}>
           <FontAwesome name="calendar" size={16} color="#333" />
