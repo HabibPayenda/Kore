@@ -1,5 +1,7 @@
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { COLORS, icons, images } from "../constants";
+import { ScreenHeaderBtn } from "../components";
 // import * as SplashScreen from "expo-splash-screen";
 
 // SplashScreen.preventAutoHideAsync();
@@ -21,6 +23,15 @@ const Layout = () => {
   return (
     <Stack initialRouteName="home">
       <Stack.Screen name="home" />
+      <Stack.Screen
+        name="cars"
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+          headerTitle: "",
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 };

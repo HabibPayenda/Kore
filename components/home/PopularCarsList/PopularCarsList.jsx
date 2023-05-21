@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 import styles from "./PopularCarsListStyles";
 import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
+import { useNavigation } from "expo-router";
 
 const DATA = [
   {
@@ -43,8 +44,10 @@ const DATA = [
 ];
 
 const PopularCarsList = () => {
+  const navigation = useNavigation();
   const handleViewAll = () => {
     // handle view all functionality here
+    navigation.navigate("cars");
   };
 
   const renderItem = ({ item }) => {
