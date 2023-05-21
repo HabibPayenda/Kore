@@ -20,10 +20,10 @@ const Cars = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Cars</Text>
         <TouchableOpacity onPress={handleFilter}>
           <Feather name="filter" size={24} color="#333" />
         </TouchableOpacity>
+        <Text style={styles.title}>موټر</Text>
       </View>
       <ScrollView style={styles.scrollView}>
         <CarOfferList />
