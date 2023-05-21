@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,18 +7,14 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
     paddingHorizontal: 16,
   },
   title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  link: {
-    fontSize: 16,
-    color: "#f1c40f",
+    fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
+    color: COLORS.secondary,
   },
   contentContainer: {
     paddingVertical: SIZES.small,
