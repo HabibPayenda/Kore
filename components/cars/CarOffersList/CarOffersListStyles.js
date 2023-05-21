@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     color: "#f1c40f",
   },
   contentContainer: {
-    paddingHorizontal: 16,
+    paddingVertical: SIZES.small,
   },
   item: {
     marginRight: 16,

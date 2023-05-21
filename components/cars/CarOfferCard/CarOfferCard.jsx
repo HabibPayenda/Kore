@@ -11,28 +11,54 @@ const CarOfferCard = ({ data }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={data.image} />
       <View style={styles.footer}>
-        <View style={styles.detailContainer}>
-          <FontAwesome name="car" size={16} color="#333" style={styles.icon} />
-          <Text style={styles.detailText}>
-            {model} {make} {year}
-          </Text>
+        <View style={styles.detailContainerTop}>
+          <View style={styles.item}>
+            <FontAwesome
+              name="car"
+              size={16}
+              color="#333"
+              style={styles.icon}
+            />
+            <Text style={styles.text}>{model}</Text>
+          </View>
+          <View style={styles.item}>
+            <FontAwesome name="calendar" size={16} color="#333" />
+            <Text style={styles.text}>{2012}</Text>
+          </View>
+          <View style={styles.item}>
+            <FontAwesome name="tint" size={16} color="#333" />
+            <Text style={styles.text}>{"Petrol"}</Text>
+          </View>
         </View>
-        <View style={styles.detailContainer}>
-          <FontAwesome name="tint" size={16} color="#333" style={styles.icon} />
-          <Text style={styles.detailText}>{fuel}</Text>
-        </View>
-        <View style={styles.detailContainer}>
-          <FontAwesome
-            name="dollar"
-            size={16}
-            color="#333"
-            style={styles.icon}
-          />
-          <Text style={styles.detailText}>{price}</Text>
-        </View>
-        <View style={styles.detailContainer}>
-          <FontAwesome name="tags" size={16} color="#333" style={styles.icon} />
-          <Text style={styles.detailText}>{discount_price}</Text>
+        <View style={styles.priceContainer}>
+          <View style={styles.item}>
+            <FontAwesome
+              name="dollar"
+              size={16}
+              color="#333"
+              style={styles.icon}
+            />
+            <Text
+              style={[
+                styles.detailText,
+                {
+                  textDecorationLine: "underline line-through",
+                  textDecorationColor: "red",
+                },
+              ]}
+            >
+              {price}
+            </Text>
+          </View>
+          <View style={styles.item}>
+            <FontAwesome
+              name="tags"
+              size={16}
+              color="#333"
+              style={styles.icon}
+            />
+            <Text style={styles.detailText}>{12000}</Text>
+          </View>
         </View>
       </View>
     </View>
