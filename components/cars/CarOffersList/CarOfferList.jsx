@@ -60,10 +60,10 @@ const CarOfferList = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Car Offers</Text>
         <TouchableOpacity onPress={handleViewAll}>
-          <Text style={styles.link}>View All</Text>
+          <Text style={styles.link}>ټول</Text>
         </TouchableOpacity>
+        <Text style={styles.title}>تخفیفونه</Text>
       </View>
       <FlatList
         data={DATA}
