@@ -3,13 +3,15 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
+    width: 200,
     borderRadius: 8,
     overflow: "hidden",
     marginBottom: 16,
   },
   image: {
     height: 200,
-    resizeMode: "cover",
+    width: 200,
+    resizeMode: "contain",
   },
   footer: {
     flexDirection: "row",

@@ -23,6 +23,7 @@ const CarsList = ({ DATA, title }) => {
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.list}
         horizontal
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );

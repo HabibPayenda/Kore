@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   list: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    gap: SIZES.small,
+    marginTop: SIZES.small,
   },
   item: {
     marginBottom: 16,
