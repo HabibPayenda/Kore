@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONT, SIZES } from "../../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,19 +15,33 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   footer: {
-    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     padding: 16,
+    borderColor: COLORS.gray,
+    borderTopWidth: 1,
+    gap: SIZES.small,
+  },
+  fullItem: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   item: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     marginRight: 16,
   },
   text: {
     marginLeft: 8,
     color: "#666",
+    fontSize: SIZES.xSmall,
+  },
+  textTitle: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
+    color: COLORS.secondary,
   },
 });
 
