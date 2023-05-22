@@ -10,6 +10,7 @@ import { Feather } from "@expo/vector-icons";
 
 import styles from "../styles/carsStyles";
 import { CarOfferList, CarsList } from "../components";
+import { useNavigation } from "expo-router";
 
 const DATA = [
   {
@@ -53,10 +54,11 @@ const DATA = [
     image: require("../assets/images/car.jpg"),
   },
 ];
-
 const Cars = () => {
+  const navigation = useNavigation();
+
   const handleFilter = () => {
-    // handle filter functionality here
+    navigation.navigate("carFilter");
   };
 
   return (
