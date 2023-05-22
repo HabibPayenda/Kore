@@ -2,13 +2,20 @@ import React from "react";
 import { View, Text, FlatList } from "react-native";
 import styles from "./CarsListStyles";
 import CarCard from "../../common/cards/CarCard/CarCard";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useNavigation } from "expo-router";
 
 const CarsList = ({ DATA, title }) => {
+  const navigation = useNavigation();
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.item}>
-        <CarCard data={item} />
-      </View>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("carDetails")}
+      >
+        <View style={styles.item}>
+          <CarCard data={item} />
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 

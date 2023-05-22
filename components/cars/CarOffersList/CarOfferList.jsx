@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import styles from "./CarOffersListStyles";
 import CarOfferCard from "../CarOfferCard/CarOfferCard";
+import { useNavigation } from "expo-router";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 const DATA = [
   {
     id: "1",
@@ -49,12 +51,16 @@ const CarOfferList = () => {
   const handleViewAll = () => {
     // handle view all functionality here
   };
-
+  const navigation = useNavigation();
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.item}>
-        <CarOfferCard data={item} />
-      </View>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("carDetails")}
+      >
+        <View style={styles.item}>
+          <CarOfferCard data={item} />
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 

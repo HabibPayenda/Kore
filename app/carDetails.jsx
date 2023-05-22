@@ -24,7 +24,6 @@ const CarDetails = () => {
     ],
   };
   const { make, model, fuel, price, year, address, deal, images } = data;
-
   const renderItem = ({ item }) => {
     return <Image source={item} style={styles.image} />;
   };

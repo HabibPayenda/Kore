@@ -4,6 +4,7 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import styles from "./PopularCarsListStyles";
 import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
 import { useNavigation } from "expo-router";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const DATA = [
   {
@@ -52,9 +53,13 @@ const PopularCarsList = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.item}>
-        <PopularCarsCard data={item} />
-      </View>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("carDetails")}
+      >
+        <View style={styles.item}>
+          <PopularCarsCard data={item} />
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 
