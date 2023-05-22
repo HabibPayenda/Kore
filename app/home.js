@@ -11,6 +11,7 @@ import {
 } from "../components";
 import styles from "../styles/search";
 import Sidebar from "../components/home/Sidebar/Sidebar";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const Home = () => {
   const router = useRouter();
   const [sidebarShown, setSidebarShown] = useState(false);
@@ -22,16 +23,24 @@ const Home = () => {
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
-          headerLeft: () => (
-            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-          ),
-          headerRight: () => (
-            <ScreenHeaderBtn
-              iconUrl={icons.menu}
-              handlePress={() => setSidebarShown(!sidebarShown)}
-              dimension="60%"
-            />
-          ),
+          headerLeft: () =>
+            sidebarShown ? null : (
+              <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+            ),
+          headerRight: () =>
+            sidebarShown ? (
+              <ScreenHeaderBtn
+                iconUrl={icons.chevronRight}
+                handlePress={() => setSidebarShown(false)}
+                dimension="60%"
+              />
+            ) : (
+              <ScreenHeaderBtn
+                iconUrl={icons.menu}
+                handlePress={() => setSidebarShown(true)}
+                dimension="60%"
+              />
+            ),
           headerTitle: "",
         }}
       />
