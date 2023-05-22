@@ -1,20 +1,26 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
 import Animated from "react-native-reanimated";
 
 import userImage from "../../../assets/images/user.jpg";
-import { COLORS } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 
 const data = [
-  { title: "Home", icon: "home", link: "Home" },
-  { title: "Profile", icon: "user", link: "Profile" },
-  { title: "Settings", icon: "setting", link: "Settings" },
-  { title: "Notifications", icon: "notification", link: "Notifications" },
-  { title: "Messages", icon: "message1", link: "Messages" },
+  { title: "لومړۍ صفحه", icon: "home", link: "Home" },
+  { title: "پروفایل", icon: "user", link: "Profile" },
+  { title: "تنظیمات", icon: "setting", link: "Settings" },
+  { title: "خبرتیاوې", icon: "notification", link: "Notifications" },
+  { title: "پیغامونه", icon: "message1", link: "Messages" },
 ];
 
 const SidebarItemsList = ({ user }) => {
@@ -23,21 +29,21 @@ const SidebarItemsList = ({ user }) => {
 
   const renderMenuItem = (title, icon, link) => (
     <TouchableOpacity style={styles.menuItem} onPress={() => console.log(link)}>
-      <AntDesign name={icon} size={20} color={COLORS.secondary} />
       <Text style={styles.menuItemText}>{title}</Text>
+      <AntDesign name={icon} size={20} color={COLORS.secondary} />
     </TouchableOpacity>
   );
 
   const renderLinksSection = () => {
     const links = data.map(({ title, icon, link }) => (
-      <View key={title}>{renderMenuItem(title, icon, link)}</View>
+      <ScrollView key={title}>{renderMenuItem(title, icon, link)}</ScrollView>
     ));
 
     return (
       <View>
         <TouchableOpacity style={styles.menuItem} onPress={toggleCollapse}>
+          <Text style={styles.menuItemText}>لینکونه</Text>
           <AntDesign name="menu-fold" size={20} color={COLORS.secondary} />
-          <Text style={styles.menuItemText}>Links</Text>
         </TouchableOpacity>
         <Animated.View
           style={[styles.links, { height: collapsed ? 0 : links.length * 50 }]}
@@ -54,22 +60,22 @@ const SidebarItemsList = ({ user }) => {
         style={styles.menuItem}
         onPress={() => console.log("Suggestions")}
       >
+        <Text style={styles.menuItemText}>پیشنهادونه</Text>
         <Ionicons name="md-bulb" size={20} color={COLORS.secondary} />
-        <Text style={styles.menuItemText}>Suggestions</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuItem}
         onPress={() => console.log("Update")}
       >
+        <Text style={styles.menuItemText}>اپډیټ</Text>
         <FontAwesome name="upload" size={20} color={COLORS.secondary} />
-        <Text style={styles.menuItemText}>Update</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuItem}
         onPress={() => console.log("Logout")}
       >
+        <Text style={styles.menuItemText}>وتل</Text>
         <AntDesign name="logout" size={20} color={COLORS.secondary} />
-        <Text style={styles.menuItemText}>Logout</Text>
       </TouchableOpacity>
     </View>
   );
@@ -91,7 +97,6 @@ const SidebarItemsList = ({ user }) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: COLORS.lightWhite,
     width: "100%",
     height: "100%",
@@ -99,7 +104,11 @@ const styles = StyleSheet.create({
   userProfile: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 30,
+    justifyContent: "center",
+    paddingVertical: SIZES.large,
+    borderColor: "#ddd",
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
   },
   userImage: {
     width: 50,
@@ -109,9 +118,8 @@ const styles = StyleSheet.create({
   },
   userName: {
     color: COLORS.secondary,
-    fontWeight: "bold",
     fontSize: 16,
-    marginBottom: 5,
+    fontFamily: FONT.regular,
   },
   userLocation: {
     color: COLORS.secondary,
@@ -120,29 +128,20 @@ const styles = StyleSheet.create({
   menuItem: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 10,
+    justifyContent: "flex-end",
+    paddingTop: 10,
+    paddingRight: SIZES.xLarge,
   },
   menuItemText: {
     color: COLORS.secondary,
-    fontSize: 16,
-    fontWeight: "bold",
-    marginLeft: 10,
-  },
-  collapsed: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    paddingVertical: 10,
-  },
-  collapsedText: {
-    color: COLORS.secondary,
-    fontSize: 16,
-    fontWeight: "bold",
-    marginLeft: 10,
+    fontSize: SIZES.small,
+    marginRight: 10,
+    fontFamily: FONT.regular,
   },
   links: {
     overflow: "hidden",
     marginBottom: 30,
+    marginRight: SIZES.xLarge,
   },
 });
 

@@ -23,6 +23,7 @@ const Home = () => {
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
+          headerShown: !sidebarShown,
           headerLeft: () =>
             sidebarShown ? null : (
               <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />

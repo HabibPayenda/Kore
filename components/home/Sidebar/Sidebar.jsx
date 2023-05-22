@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
 } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -14,6 +15,7 @@ import Animated, {
 import { COLORS } from "../../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import SidebarItemsList from "../SidebarItemsList/SidebarItemsList";
+import { StatusBar } from "expo-status-bar";
 
 const Sidebar = ({ show, setShow }) => {
   const translateX = useSharedValue(Dimensions.get("window").width + 10);
@@ -29,16 +31,18 @@ const Sidebar = ({ show, setShow }) => {
   }));
 
   return (
-    <View style={[styles.container]}>
-      <Animated.View style={[styles.backgroundContainer, animatedStyle]}>
-        <TouchableWithoutFeedback onPress={() => setShow(false)}>
-          <View style={[{ height: "100%", width: "100%" }]}></View>
-        </TouchableWithoutFeedback>
-      </Animated.View>
-      <Animated.View style={[styles.sidebar, animatedStyle]}>
-        <SidebarItemsList />
-      </Animated.View>
-    </View>
+    <SafeAreaView style={{ zIndex: 101 }}>
+      <View style={[styles.container]}>
+        <Animated.View style={[styles.backgroundContainer, animatedStyle]}>
+          <TouchableWithoutFeedback onPress={() => setShow(false)}>
+            <View style={[{ height: "100%", width: "100%" }]}></View>
+          </TouchableWithoutFeedback>
+        </Animated.View>
+        <Animated.View style={[styles.sidebar, animatedStyle]}>
+          <SidebarItemsList />
+        </Animated.View>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   backgroundContainer: {
-    height: Dimensions.get("window").height,
+    height: Dimensions.get("window").height - 20,
     width: Dimensions.get("window").width,
     backgroundColor: COLORS.lightWhite,
     position: "absolute",
@@ -58,8 +62,9 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     width: Dimensions.get("window").width - 100,
-    height: Dimensions.get("window").height,
+    height: Dimensions.get("window").height - 20,
     backgroundColor: "gray",
+    marginTop: 40,
   },
   button: {
     backgroundColor: "white",
