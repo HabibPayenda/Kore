@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-      <Sidebar show={sidebarShown} />
+      <Sidebar show={sidebarShown} setShow={setSidebarShown} />
       <Stack.Screen
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },

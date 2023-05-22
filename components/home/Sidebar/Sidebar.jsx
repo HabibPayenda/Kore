@@ -14,9 +14,8 @@ import Animated, {
 import { COLORS } from "../../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-const Sidebar = ({ show }) => {
+const Sidebar = ({ show, setShow }) => {
   const translateX = useSharedValue(Dimensions.get("window").width + 10);
-  const opacity = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
@@ -28,15 +27,13 @@ const Sidebar = ({ show }) => {
     ],
   }));
 
-  const opacityStyles = useAnimatedStyle(() => ({
-    opacity: withTiming(show ? 1 : opacity.value),
-  }));
-
   return (
     <View style={[styles.container]}>
-      <Animated.View
-        style={[styles.backgroundContainer, animatedStyle]}
-      ></Animated.View>
+      <Animated.View style={[styles.backgroundContainer, animatedStyle]}>
+        <TouchableWithoutFeedback onPress={() => setShow(false)}>
+          <View style={[{ height: "100%", width: "100%" }]}></View>
+        </TouchableWithoutFeedback>
+      </Animated.View>
       <Animated.View style={[styles.sidebar, animatedStyle]}>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Button 1</Text>
