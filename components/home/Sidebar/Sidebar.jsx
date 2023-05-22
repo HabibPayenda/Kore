@@ -13,6 +13,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { COLORS } from "../../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import SidebarItemsList from "../SidebarItemsList/SidebarItemsList";
 
 const Sidebar = ({ show, setShow }) => {
   const translateX = useSharedValue(Dimensions.get("window").width + 10);
@@ -35,15 +36,7 @@ const Sidebar = ({ show, setShow }) => {
         </TouchableWithoutFeedback>
       </Animated.View>
       <Animated.View style={[styles.sidebar, animatedStyle]}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Button 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Button 2</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Button 3</Text>
-        </TouchableOpacity>
+        <SidebarItemsList />
       </Animated.View>
     </View>
   );
@@ -67,7 +60,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width - 100,
     height: Dimensions.get("window").height,
     backgroundColor: "gray",
-    padding: 20,
   },
   button: {
     backgroundColor: "white",
