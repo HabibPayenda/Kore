@@ -7,7 +7,7 @@ import { COLORS, FONT, SIZES } from "../../../constants";
  */
 const PriceFilter = ({ onPriceChange }) => {
   const [lowestPrice, setLowestPrice] = useState(1);
-  const [highestPrice, setHighestPrice] = useState(50000);
+  const [highestPrice, setHighestPrice] = useState(20);
   /*
    A function to update the lowest price based on the slider value.
    */

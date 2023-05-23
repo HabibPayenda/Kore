@@ -77,12 +77,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 20,
     paddingTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
   },
   filterContainer: {
     flexDirection: "column",
     justifyContent: "space-between",
     marginBottom: 20,
     flex: 1,
+    alignItems: "center",
   },
   filterSection: {
     flex: 1,
