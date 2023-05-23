@@ -9,6 +9,8 @@ import {
 import { CarCard } from "../components";
 import PriceFilter from "../components/carFilter/PriceFilter/PriceFilter";
 import FuelFilter from "../components/carFilter/FuelFilter/FuelFilter";
+import YearFilter from "../components/carFilter/YearFilter/YearFilter";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const CarFilter = ({ cars }) => {
   const [filteredCars, setFilteredCars] = useState(cars);
@@ -50,10 +52,11 @@ const CarFilter = ({ cars }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.filterContainer}>
         <PriceFilter />
         <FuelFilter />
+        <YearFilter />
         <View style={styles.filterSection}>
           {/* Add your year filter component here */}
         </View>
@@ -67,7 +70,7 @@ const CarFilter = ({ cars }) => {
           <CarCard key={car.id} car={car} />
         ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
