@@ -11,6 +11,7 @@ import PriceFilter from "../components/carFilter/PriceFilter/PriceFilter";
 import FuelFilter from "../components/carFilter/FuelFilter/FuelFilter";
 import YearFilter from "../components/carFilter/YearFilter/YearFilter";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { COLORS, FONT } from "../constants";
 
 const CarFilter = ({ cars }) => {
   const [filteredCars, setFilteredCars] = useState(cars);
@@ -53,22 +54,17 @@ const CarFilter = ({ cars }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.filterContainer}>
-        <PriceFilter />
-        <FuelFilter />
-        <YearFilter />
-        <View style={styles.filterSection}>
-          {/* Add your year filter component here */}
+      <ScrollView>
+        <View style={styles.filterContainer}>
+          <PriceFilter />
+          <FuelFilter />
+          <YearFilter />
+          <View style={styles.filterSection}></View>
         </View>
-        {/* Filter button */}
-      </View>
-      <TouchableOpacity style={styles.filterButton} onPress={filterCars}>
-        <Text style={styles.filterButtonText}>Filter</Text>
-      </TouchableOpacity>
-      <ScrollView style={styles.scrollContainer}>
-        {filteredCars?.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))}
+        <TouchableOpacity style={styles.filterButton} onPress={filterCars}>
+          <Text style={styles.filterButtonText}>لټون</Text>
+        </TouchableOpacity>
+        <View style={styles.scrollContainer}></View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -95,13 +91,17 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   filterButton: {
-    backgroundColor: "#00f",
+    backgroundColor: COLORS.primary,
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 3,
     borderRadius: 5,
+    alignItems: "center",
+    width: 100,
+    alignSelf: "flex-end",
   },
   filterButtonText: {
-    color: "#fff",
+    color: COLORS.lightWhite,
+    fontFamily: FONT.regular,
   },
   scrollContainer: {
     flex: 1,

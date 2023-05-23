@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     zIndex: 1000,
     flexDirection: "row",
+    zIndex: 10000,
   },
   label: {
     fontSize: SIZES.medium,
