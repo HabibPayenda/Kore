@@ -6,6 +6,7 @@ import styles from "../styles/carDetailsStyles";
 import { COLORS, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "expo-router";
 
 const CarDetails = () => {
   const data = {
@@ -26,6 +27,12 @@ const CarDetails = () => {
   const { make, model, fuel, price, year, address, deal, images } = data;
   const renderItem = ({ item }) => {
     return <Image source={item} style={styles.image} />;
+  };
+
+  const navigation = useNavigation();
+
+  const hanldeMessage = () => {
+    navigation.navigate("chat");
   };
 
   return (
@@ -91,11 +98,11 @@ const CarDetails = () => {
         <View style={styles.actions}>
           <TouchableOpacity style={styles.button}>
             <FontAwesome name="heart-o" size={SIZES.small} color="#fff" />
-            <Text style={styles.buttonText}>Add to Favorites</Text>
+            <Text style={styles.buttonText}>خوښول</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={hanldeMessage}>
             <FontAwesome name="envelope-o" size={SIZES.small} color="#fff" />
-            <Text style={styles.buttonText}>Message</Text>
+            <Text style={styles.buttonText}>اړیکه</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.primary,
     borderRadius: 3,
-    padding: SIZES.xSmall,
+    paddingHorizontal: SIZES.medium,
+    paddingVertical: 3,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     color: COLORS.lightWhite,
     fontSize: SIZES.small,
+    fontFamily: FONT.regular,
   },
 });
 
