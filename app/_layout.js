@@ -41,6 +41,14 @@ const Layout = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="chat"
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: true,
+          headerTitle: "پیغامونه",
+        }}
+      />
     </Stack>
   );
 };
