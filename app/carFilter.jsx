@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { CarCard } from "../components";
 import PriceFilter from "../components/carFilter/PriceFilter/PriceFilter";
+import FuelFilter from "../components/carFilter/FuelFilter/FuelFilter";
 
 const CarFilter = ({ cars }) => {
   const [filteredCars, setFilteredCars] = useState(cars);
@@ -51,16 +52,8 @@ const CarFilter = ({ cars }) => {
   return (
     <View style={styles.container}>
       <View style={styles.filterContainer}>
-        {/* Price filter section */}
-        <View style={{}}>
-          {/* Add your price filter component here */}
-          <PriceFilter />
-        </View>
-        {/* Fuel filter section */}
-        <View style={styles.filterSection}>
-          {/* Add your fuel filter component here */}
-        </View>
-        {/* Year filter section */}
+        <PriceFilter />
+        <FuelFilter />
         <View style={styles.filterSection}>
           {/* Add your year filter component here */}
         </View>
@@ -86,9 +79,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   filterContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
     marginBottom: 20,
+    flex: 1,
   },
   filterSection: {
     flex: 1,
