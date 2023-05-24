@@ -18,7 +18,7 @@ import { useNavigation } from "expo-router";
 
 const data = [
   { title: "لومړۍ صفحه", icon: "home", link: "Home" },
-  { title: "پروفایل", icon: "user", link: "Profile" },
+  { title: "پروفایل", icon: "user", link: "userProfile" },
   { title: "تنظیمات", icon: "setting", link: "Settings" },
   { title: "خبرتیاوې", icon: "notification", link: "notifications" },
   { title: "پیغامونه", icon: "message1", link: "Messages" },
