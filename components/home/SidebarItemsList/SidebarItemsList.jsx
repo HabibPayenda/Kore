@@ -63,7 +63,7 @@ const SidebarItemsList = ({ user }) => {
     <View>
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => console.log("Suggestions")}
+        onPress={() => navigation.navigate("suggestion")}
       >
         <Text style={styles.menuItemText}>پیشنهادونه</Text>
         <Ionicons name="md-bulb" size={20} color={COLORS.secondary} />
