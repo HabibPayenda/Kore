@@ -2,13 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 import userImage from "../assets/images/user.jpg";
+import UserImage from "../components/userProfile/UserImage/UserImage";
 
 const UserProfile = ({ name, email, phone, address }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={userImage} style={styles.image} />
-      </View>
+      <UserImage />
       <View style={styles.fieldContainer}>
         <Text style={styles.fieldLabel}>Name:</Text>
         <Text style={styles.fieldValue}>{name}</Text>
