@@ -14,21 +14,26 @@ import Animated from "react-native-reanimated";
 
 import userImage from "../../../assets/images/user.jpg";
 import { COLORS, FONT, SIZES } from "../../../constants";
+import { useNavigation } from "expo-router";
 
 const data = [
   { title: "لومړۍ صفحه", icon: "home", link: "Home" },
   { title: "پروفایل", icon: "user", link: "Profile" },
   { title: "تنظیمات", icon: "setting", link: "Settings" },
-  { title: "خبرتیاوې", icon: "notification", link: "Notifications" },
+  { title: "خبرتیاوې", icon: "notification", link: "notifications" },
   { title: "پیغامونه", icon: "message1", link: "Messages" },
 ];
 
 const SidebarItemsList = ({ user }) => {
+  const navigation = useNavigation();
   const [collapsed, setCollapsed] = React.useState(false);
   const toggleCollapse = () => setCollapsed(!collapsed);
 
   const renderMenuItem = (title, icon, link) => (
-    <TouchableOpacity style={styles.menuItem} onPress={() => console.log(link)}>
+    <TouchableOpacity
+      style={styles.menuItem}
+      onPress={() => navigation.navigate(link)}
+    >
       <Text style={styles.menuItemText}>{title}</Text>
       <AntDesign name={icon} size={20} color={COLORS.secondary} />
     </TouchableOpacity>
