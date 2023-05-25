@@ -2,6 +2,8 @@ import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { COLORS, icons, images } from "../constants";
 import { ScreenHeaderBtn } from "../components";
+import { Provider } from "react-redux";
+import store from "../data";
 // import * as SplashScreen from "expo-splash-screen";
 
 // SplashScreen.preventAutoHideAsync();
@@ -21,35 +23,37 @@ const Layout = () => {
   }
 
   return (
-    <Stack initialRouteName="home">
-      <Stack.Screen name="home" />
-      <Stack.Screen
-        name="cars"
-        options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerShadowVisible: false,
-          headerTitle: "",
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="carDetails"
-        options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerShadowVisible: false,
-          headerTitle: "",
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="chat"
-        options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerShadowVisible: true,
-          headerTitle: "پیغامونه",
-        }}
-      />
-    </Stack>
+    <Provider store={store}>
+      <Stack initialRouteName="home">
+        <Stack.Screen name="home" />
+        <Stack.Screen
+          name="cars"
+          options={{
+            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerShadowVisible: false,
+            headerTitle: "",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="carDetails"
+          options={{
+            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerShadowVisible: false,
+            headerTitle: "",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="chat"
+          options={{
+            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerShadowVisible: true,
+            headerTitle: "پیغامونه",
+          }}
+        />
+      </Stack>
+    </Provider>
   );
 };
 
