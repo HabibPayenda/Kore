@@ -6,44 +6,6 @@ import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
 import { useNavigation } from "expo-router";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-const DATA = [
-  {
-    id: "1",
-    make: "Toyota",
-    model: "Camry",
-    price: "$20,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "2",
-    make: "Honda",
-    model: "Civic",
-    price: "$18,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "3",
-    make: "Ford",
-    model: "Mustang",
-    price: "$25,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "4",
-    make: "Chevrolet",
-    model: "Camaro",
-    price: "$30,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "5",
-    make: "Nissan",
-    model: "Altima",
-    price: "$22,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-];
-
 const PopularCarsList = ({ cars }) => {
   const navigation = useNavigation();
   const handleViewAll = () => {
