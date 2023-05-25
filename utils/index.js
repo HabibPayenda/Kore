@@ -1,3 +1,4 @@
+import axios from "axios";
 export const checkImageURL = (url) => {
   if (!url) return false;
   else {
@@ -9,11 +10,8 @@ export const checkImageURL = (url) => {
   }
 };
 
-import axios from "axios";
-import { api } from "../env";
-
 const PropertiesApi = axios.create({
-  baseURL: api,
+  baseURL: process.env.api,
   headers: {
     Accept: "application/json",
     "X-Requested-With": "XMLHttpRequest",

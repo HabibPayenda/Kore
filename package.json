@@ -3,7 +3,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "postinstall": "node_modules/react-native-dotenv/rn-cli.config.js dotenv -e .env"
+
   },
   "dependencies": {
     "@react-native-community/slider": "4.4.2",
