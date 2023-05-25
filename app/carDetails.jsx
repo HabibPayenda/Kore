@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Carousel from "react-native-snap-carousel";
@@ -6,27 +6,20 @@ import styles from "../styles/carDetailsStyles";
 import { COLORS, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter, useSearchParams } from "expo-router";
+import { useDispatch, useSelector } from "react-redux";
+import { getCar } from "../data/carsSlice/carsSlice";
 
 const CarDetails = () => {
-  const data = {
-    id: "5",
-    make: "Nissan",
-    model: "Altima",
-    year: "2022",
-    price: "22,000",
-    fuel: "Petrol",
-    deal: "Sale",
-    address: "Kabul",
-    images: [
-      require("../assets/images/car.jpg"),
-      require("../assets/images/car.jpg"),
-      require("../assets/images/car.jpg"),
-    ],
-  };
-  const { make, model, fuel, price, year, address, deal, images } = data;
+  const params = useSearchParams();
+  const car = useSelector((state) => state.cars.showCar);
+  console.log(car);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCar(params?.id));
+  }, []);
   const renderItem = ({ item }) => {
-    return <Image source={item} style={styles.image} />;
+    return <Image source={{ uri: item }} style={styles.image} />;
   };
 
   const navigation = useNavigation();
@@ -38,7 +31,7 @@ const CarDetails = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Carousel
-        data={images}
+        data={[car?.image_url]}
         renderItem={renderItem}
         sliderWidth={Dimensions.get("window").width}
         itemWidth={Dimensions.get("window").width}
@@ -53,29 +46,29 @@ const CarDetails = () => {
       <ScrollView>
         <View style={styles.details}>
           <View style={styles.middleItem}>
-            <Text style={styles.companyText}>{make}</Text>
+            <Text style={styles.companyText}>{car?.brand}</Text>
           </View>
           <View style={styles.middleItem}>
-            <Text style={styles.nameText}>{model}</Text>
+            <Text style={styles.nameText}>{car?.model}</Text>
           </View>
           <View style={styles.itemsGroup}>
             <View style={styles.item}>
               <FontAwesome name="tint" size={16} color="#666" />
-              <Text style={styles.text}>{fuel}</Text>
+              <Text style={styles.text}>{car?.fuel_type}</Text>
             </View>
             <View style={styles.item}>
               <FontAwesome name="calendar" size={16} color="#666" />
-              <Text style={styles.text}>{year}</Text>
+              <Text style={styles.text}>{car?.year}</Text>
             </View>
           </View>
           <View style={styles.itemsGroup}>
             <View style={styles.item}>
               <FontAwesome name="map-marker" size={16} color="#666" />
-              <Text style={styles.text}>{address}</Text>
+              <Text style={styles.text}>{car?.address?.city}</Text>
             </View>
             <View style={styles.item}>
               <FontAwesome name="bolt" size={16} color="#666" />
-              <Text style={styles.text}>{deal}</Text>
+              <Text style={styles.text}>{car?.deal_info?.deal_type}</Text>
             </View>
           </View>
           <View style={styles.priceItem}>
@@ -84,15 +77,10 @@ const CarDetails = () => {
               size={SIZES.large}
               color={COLORS.lightWhite}
             />
-            <Text style={styles.priceText}>{price}</Text>
+            <Text style={styles.priceText}>{car?.deal_info?.total_price}</Text>
           </View>
           <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              ipsa, culpa fugit dicta quam provident ducimus voluptatibus velit
-              alias dolores ratione ea placeat. Illo vitae, illum temporibus ut
-              sapiente nam.
-            </Text>
+            <Text style={styles.description}>{car?.property?.description}</Text>
           </View>
         </View>
         <View style={styles.actions}>

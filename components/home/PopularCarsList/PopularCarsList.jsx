@@ -16,7 +16,7 @@ const PopularCarsList = ({ cars }) => {
   const renderItem = ({ item }) => {
     return (
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("carDetails")}
+        onPress={() => navigation.navigate("carDetails", { id: item.id })}
       >
         <View style={styles.item}>
           <PopularCarsCard data={item} />
