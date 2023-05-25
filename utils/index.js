@@ -11,7 +11,7 @@ export const checkImageURL = (url) => {
 };
 
 const PropertiesApi = axios.create({
-  baseURL: process.env.api,
+  baseURL: "http://10.10.10.253:3000/api/v1",
   headers: {
     Accept: "application/json",
     "X-Requested-With": "XMLHttpRequest",
@@ -21,12 +21,6 @@ const PropertiesApi = axios.create({
 
 PropertiesApi.interceptors.request.use(
   async (config) => {
-    let token = localStorage.getItem("token");
-    token = token.replace(/['"]+/g, "");
-
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
     return config;
   },
   (error) => {

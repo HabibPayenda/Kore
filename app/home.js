@@ -12,9 +12,18 @@ import {
 import styles from "../styles/search";
 import Sidebar from "../components/home/Sidebar/Sidebar";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllHomes } from "../data/homesSlice";
 const Home = () => {
   const router = useRouter();
   const [sidebarShown, setSidebarShown] = useState(false);
+  const dispatch = useDispatch();
+  const homes = useSelector((state) => state.homes.homes);
+  console.log(homes);
+  useEffect(() => {
+    dispatch(getAllHomes());
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
