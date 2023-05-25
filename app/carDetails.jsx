@@ -9,6 +9,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation, useRouter, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
+import { PlaceholderContainer } from "react-native-loading-placeholder";
 
 const CarDetails = () => {
   const params = useSearchParams();
@@ -26,6 +27,113 @@ const CarDetails = () => {
 
   const hanldeMessage = () => {
     navigation.navigate("chat");
+  };
+
+  const renderSkeleton = () => {
+    return (
+      <PlaceholderContainer
+        loading={true}
+        // Set the color and size of the placeholders
+        backgroundColor="#f0f0f0"
+        highlightColor="#dbdbdb"
+        speed={800}
+      >
+        <View style={{ height: 300 }} />
+        <ScrollView>
+          <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <View style={{ width: 60, height: 20, borderRadius: 4 }} />
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <View style={{ width: 120, height: 24, borderRadius: 4 }} />
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <View style={{ width: 80, height: 20, borderRadius: 4 }} />
+              <View
+                style={{
+                  marginLeft: 20,
+                  width: 80,
+                  height: 20,
+                  borderRadius: 4,
+                }}
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <View style={{ width: 80, height: 20, borderRadius: 4 }} />
+              <View
+                style={{
+                  marginLeft: 20,
+                  width: 100,
+                  height: 20,
+                  borderRadius: 4,
+                }}
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <FontAwesome name="dollar" size={24} color="#f0f0f0" />
+              <View
+                style={{
+                  marginLeft: 10,
+                  width: 120,
+                  height: 24,
+                  borderRadius: 4,
+                }}
+              />
+            </View>
+            <View style={{ width: "100%", height: 100, borderRadius: 4 }} />
+          </View>
+          <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                marginTop: 10,
+              }}
+            >
+              <View
+                style={{
+                  width: 120,
+                  height: 40,
+                  borderRadius: 4,
+                  marginRight: 10,
+                }}
+              />
+              <View style={{ width: 120, height: 40, borderRadius: 4 }} />
+            </View>
+          </View>
+        </ScrollView>
+      </PlaceholderContainer>
+    );
   };
 
   return (
