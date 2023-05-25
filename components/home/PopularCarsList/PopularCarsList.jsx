@@ -44,7 +44,7 @@ const DATA = [
   },
 ];
 
-const PopularCarsList = () => {
+const PopularCarsList = ({ cars }) => {
   const navigation = useNavigation();
   const handleViewAll = () => {
     // handle view all functionality here
@@ -72,7 +72,7 @@ const PopularCarsList = () => {
         <Text style={styles.title}>مشهور موټر</Text>
       </View>
       <FlatList
-        data={DATA}
+        data={cars}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}

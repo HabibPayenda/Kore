@@ -8,11 +8,11 @@ const PopularCarsCard = ({ data }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
+      <Image source={{ uri: data?.image_url }} style={styles.image} />
       <View style={styles.footer}>
         <View style={styles.brand}>
           <View style={styles.fullItem}>
-            <Text style={styles.model}>{model}</Text>
+            <Text style={styles.model}>{data?.brand}</Text>
           </View>
           <View style={styles.fullItem}>
             <Text style={styles.make}>{make}</Text>
@@ -20,16 +20,16 @@ const PopularCarsCard = ({ data }) => {
         </View>
         <View style={styles.item}>
           <FontAwesome name="calendar" size={16} color="#333" />
-          <Text style={styles.text}>{2012}</Text>
+          <Text style={styles.text}>{data?.year}</Text>
         </View>
         <View style={styles.item}>
           <FontAwesome name="tint" size={16} color="#333" />
-          <Text style={styles.text}>{"Petrol"}</Text>
+          <Text style={styles.text}>{data?.fuel_type}</Text>
         </View>
         <View style={styles.item}>
           <FontAwesome name="money" size={16} color="#333" />
           <Text numberOfLines={1} style={styles.text}>
-            {price}
+            {data?.deal_info?.total_price}
           </Text>
         </View>
       </View>

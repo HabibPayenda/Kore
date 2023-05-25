@@ -15,14 +15,17 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../data/homesSlice";
+import { getAllCars } from "../data/carsSlice/carsSlice";
 const Home = () => {
   const router = useRouter();
   const [sidebarShown, setSidebarShown] = useState(false);
   const dispatch = useDispatch();
   const homes = useSelector((state) => state.homes.homes);
-  console.log(homes);
+  const cars = useSelector((state) => state.cars.cars);
+
   useEffect(() => {
     dispatch(getAllHomes());
+    dispatch(getAllCars());
   }, []);
 
   return (
@@ -64,7 +67,7 @@ const Home = () => {
         >
           <WelcomeMessage name={"حبیب"} />
           <PopularHomesList />
-          <PopularCarsList />
+          <PopularCarsList cars={cars} />
         </View>
       </ScrollView>
     </SafeAreaView>
