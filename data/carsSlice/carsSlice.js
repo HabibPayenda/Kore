@@ -118,8 +118,13 @@ export const CarsSlice = createSlice({
       // Code
       state.cars = action.payload.cars;
     });
+    builder.addCase(getCar.pending, (state, action) => {
+      // Code
+      state.loading = "loading";
+    });
     builder.addCase(getCar.fulfilled, (state, action) => {
       // Code
+      state.loading = "ideal";
       state.showCar = action.payload.car;
     });
 

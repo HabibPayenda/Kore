@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+  StyleSheet,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Carousel from "react-native-snap-carousel";
 import styles from "../styles/carDetailsStyles";
@@ -9,12 +16,12 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation, useRouter, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
-import { PlaceholderContainer } from "react-native-loading-placeholder";
+import { LoadingPlaceholder } from "react-native-loading-placeholder";
 
 const CarDetails = () => {
   const params = useSearchParams();
   const car = useSelector((state) => state.cars.showCar);
-  console.log(car);
+  const loading = useSelector((state) => state.cars.loading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCar(params?.id));
@@ -29,181 +36,145 @@ const CarDetails = () => {
     navigation.navigate("chat");
   };
 
-  const renderSkeleton = () => {
+  if (loading == "loading") {
     return (
-      <PlaceholderContainer
-        loading={true}
-        // Set the color and size of the placeholders
-        backgroundColor="#f0f0f0"
-        highlightColor="#dbdbdb"
-        speed={800}
-      >
-        <View style={{ height: 300 }} />
+      <View style={stylesSkeleton.container}>
+        <View style={stylesSkeleton.image} />
+        <View style={stylesSkeleton.items}>
+          <View style={stylesSkeleton.item} />
+          <View style={stylesSkeleton.item} />
+          <View style={stylesSkeleton.item} />
+        </View>
+        <View style={stylesSkeleton.details}>
+          <Text style={stylesSkeleton.detailsText} />
+          <Text style={stylesSkeleton.detailsText} />
+          <Text style={stylesSkeleton.detailsText} />
+          <Text style={stylesSkeleton.detailsText} />
+        </View>
+        <View style={stylesSkeleton.buttons}>
+          <View style={stylesSkeleton.button} />
+          <View style={stylesSkeleton.button} />
+        </View>
+      </View>
+    );
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Carousel
+          data={[car?.image_url]}
+          renderItem={renderItem}
+          sliderWidth={Dimensions.get("window").width}
+          itemWidth={Dimensions.get("window").width}
+          itemHeight={300}
+          sliderHeight={300}
+          autoplay={true}
+          autoplayInterval={5000}
+          loop={true}
+          style={{ height: 300 }}
+          contentContainerStyle={{ height: 300 }}
+        />
         <ScrollView>
-          <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <View style={{ width: 60, height: 20, borderRadius: 4 }} />
+          <View style={styles.details}>
+            <View style={styles.middleItem}>
+              <Text style={styles.companyText}>{car?.brand}</Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <View style={{ width: 120, height: 24, borderRadius: 4 }} />
+            <View style={styles.middleItem}>
+              <Text style={styles.nameText}>{car?.model}</Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <View style={{ width: 80, height: 20, borderRadius: 4 }} />
-              <View
-                style={{
-                  marginLeft: 20,
-                  width: 80,
-                  height: 20,
-                  borderRadius: 4,
-                }}
+            <View style={styles.itemsGroup}>
+              <View style={styles.item}>
+                <FontAwesome name="tint" size={16} color="#666" />
+                <Text style={styles.text}>{car?.fuel_type}</Text>
+              </View>
+              <View style={styles.item}>
+                <FontAwesome name="calendar" size={16} color="#666" />
+                <Text style={styles.text}>{car?.year}</Text>
+              </View>
+            </View>
+            <View style={styles.itemsGroup}>
+              <View style={styles.item}>
+                <FontAwesome name="map-marker" size={16} color="#666" />
+                <Text style={styles.text}>{car?.address?.city}</Text>
+              </View>
+              <View style={styles.item}>
+                <FontAwesome name="bolt" size={16} color="#666" />
+                <Text style={styles.text}>{car?.deal_info?.deal_type}</Text>
+              </View>
+            </View>
+            <View style={styles.priceItem}>
+              <FontAwesome
+                name="dollar"
+                size={SIZES.large}
+                color={COLORS.lightWhite}
               />
+              <Text style={styles.priceText}>
+                {car?.deal_info?.total_price}
+              </Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <View style={{ width: 80, height: 20, borderRadius: 4 }} />
-              <View
-                style={{
-                  marginLeft: 20,
-                  width: 100,
-                  height: 20,
-                  borderRadius: 4,
-                }}
-              />
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.description}>
+                {car?.property?.description}
+              </Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <FontAwesome name="dollar" size={24} color="#f0f0f0" />
-              <View
-                style={{
-                  marginLeft: 10,
-                  width: 120,
-                  height: 24,
-                  borderRadius: 4,
-                }}
-              />
-            </View>
-            <View style={{ width: "100%", height: 100, borderRadius: 4 }} />
           </View>
-          <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                marginTop: 10,
-              }}
-            >
-              <View
-                style={{
-                  width: 120,
-                  height: 40,
-                  borderRadius: 4,
-                  marginRight: 10,
-                }}
-              />
-              <View style={{ width: 120, height: 40, borderRadius: 4 }} />
-            </View>
+          <View style={styles.actions}>
+            <TouchableOpacity style={styles.button}>
+              <FontAwesome name="heart-o" size={SIZES.small} color="#fff" />
+              <Text style={styles.buttonText}>خوښول</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={hanldeMessage}>
+              <FontAwesome name="envelope-o" size={SIZES.small} color="#fff" />
+              <Text style={styles.buttonText}>اړیکه</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
-      </PlaceholderContainer>
+      </SafeAreaView>
     );
-  };
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <Carousel
-        data={[car?.image_url]}
-        renderItem={renderItem}
-        sliderWidth={Dimensions.get("window").width}
-        itemWidth={Dimensions.get("window").width}
-        itemHeight={300}
-        sliderHeight={300}
-        autoplay={true}
-        autoplayInterval={5000}
-        loop={true}
-        style={{ height: 300 }}
-        contentContainerStyle={{ height: 300 }}
-      />
-      <ScrollView>
-        <View style={styles.details}>
-          <View style={styles.middleItem}>
-            <Text style={styles.companyText}>{car?.brand}</Text>
-          </View>
-          <View style={styles.middleItem}>
-            <Text style={styles.nameText}>{car?.model}</Text>
-          </View>
-          <View style={styles.itemsGroup}>
-            <View style={styles.item}>
-              <FontAwesome name="tint" size={16} color="#666" />
-              <Text style={styles.text}>{car?.fuel_type}</Text>
-            </View>
-            <View style={styles.item}>
-              <FontAwesome name="calendar" size={16} color="#666" />
-              <Text style={styles.text}>{car?.year}</Text>
-            </View>
-          </View>
-          <View style={styles.itemsGroup}>
-            <View style={styles.item}>
-              <FontAwesome name="map-marker" size={16} color="#666" />
-              <Text style={styles.text}>{car?.address?.city}</Text>
-            </View>
-            <View style={styles.item}>
-              <FontAwesome name="bolt" size={16} color="#666" />
-              <Text style={styles.text}>{car?.deal_info?.deal_type}</Text>
-            </View>
-          </View>
-          <View style={styles.priceItem}>
-            <FontAwesome
-              name="dollar"
-              size={SIZES.large}
-              color={COLORS.lightWhite}
-            />
-            <Text style={styles.priceText}>{car?.deal_info?.total_price}</Text>
-          </View>
-          <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>{car?.property?.description}</Text>
-          </View>
-        </View>
-        <View style={styles.actions}>
-          <TouchableOpacity style={styles.button}>
-            <FontAwesome name="heart-o" size={SIZES.small} color="#fff" />
-            <Text style={styles.buttonText}>خوښول</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={hanldeMessage}>
-            <FontAwesome name="envelope-o" size={SIZES.small} color="#fff" />
-            <Text style={styles.buttonText}>اړیکه</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  }
 };
+
+const stylesSkeleton = StyleSheet.create({
+  container: {
+    backgroundColor: "#f0f0f0",
+    padding: 20,
+  },
+  image: {
+    width: "100%",
+    height: 300,
+    backgroundColor: "#dbdbdb",
+    marginBottom: 20,
+  },
+  items: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  item: {
+    width: "30%",
+    height: 20,
+    backgroundColor: "#dbdbdb",
+    borderRadius: 4,
+  },
+  details: {
+    marginBottom: 20,
+  },
+  detailsText: {
+    width: "100%",
+    height: 20,
+    backgroundColor: "#dbdbdb",
+    marginBottom: 10,
+    borderRadius: 4,
+  },
+  buttons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
+    width: "45%",
+    height: 40,
+    backgroundColor: "#dbdbdb",
+    borderRadius: 4,
+  },
+});
 
 export default CarDetails;
