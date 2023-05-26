@@ -140,7 +140,7 @@ const stylesSkeleton = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 280,
     backgroundColor: "#dbdbdb",
     marginBottom: 20,
   },
@@ -151,12 +151,12 @@ const stylesSkeleton = StyleSheet.create({
   },
   item: {
     width: "30%",
-    height: 20,
+    height: 18,
     backgroundColor: "#dbdbdb",
     borderRadius: 4,
   },
   details: {
-    marginBottom: 20,
+    marginBottom: SIZES.large,
   },
   detailsText: {
     width: "100%",
