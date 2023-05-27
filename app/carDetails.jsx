@@ -13,15 +13,16 @@ import styles from "../styles/carDetailsStyles";
 import { COLORS, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRouter, useSearchParams } from "expo-router";
+import { useNavigation, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
-import { LoadingPlaceholder } from "react-native-loading-placeholder";
-
+import SkeletonPlaceholder from "expo-react-native-skeleton-placeholder";
+import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
 const CarDetails = () => {
   const params = useSearchParams();
   const car = useSelector((state) => state.cars.showCar);
-  const loading = useSelector((state) => state.cars.loading);
+  // const loading = useSelector((state) => state.cars.loading);
+  const loading = "loading";
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCar(params?.id));
@@ -37,26 +38,7 @@ const CarDetails = () => {
   };
 
   if (loading == "loading") {
-    return (
-      <View style={stylesSkeleton.container}>
-        <View style={stylesSkeleton.image} />
-        <View style={stylesSkeleton.items}>
-          <View style={stylesSkeleton.item} />
-          <View style={stylesSkeleton.item} />
-          <View style={stylesSkeleton.item} />
-        </View>
-        <View style={stylesSkeleton.details}>
-          <Text style={stylesSkeleton.detailsText} />
-          <Text style={stylesSkeleton.detailsText} />
-          <Text style={stylesSkeleton.detailsText} />
-          <Text style={stylesSkeleton.detailsText} />
-        </View>
-        <View style={stylesSkeleton.buttons}>
-          <View style={stylesSkeleton.button} />
-          <View style={stylesSkeleton.button} />
-        </View>
-      </View>
-    );
+    return <CarDetailsSkeleton />;
   } else {
     return (
       <SafeAreaView style={styles.container}>
