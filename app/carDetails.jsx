@@ -21,8 +21,7 @@ import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
 const CarDetails = () => {
   const params = useSearchParams();
   const car = useSelector((state) => state.cars.showCar);
-  // const loading = useSelector((state) => state.cars.loading);
-  const loading = "loading";
+  const loading = useSelector((state) => state.cars.loading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCar(params?.id));
