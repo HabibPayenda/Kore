@@ -16,7 +16,6 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
-import SkeletonPlaceholder from "expo-react-native-skeleton-placeholder";
 import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
 const CarDetails = () => {
   const params = useSearchParams();
@@ -113,49 +112,5 @@ const CarDetails = () => {
     );
   }
 };
-
-const stylesSkeleton = StyleSheet.create({
-  container: {
-    backgroundColor: "#f0f0f0",
-    padding: 20,
-  },
-  image: {
-    width: "100%",
-    height: 280,
-    backgroundColor: "#dbdbdb",
-    marginBottom: 20,
-  },
-  items: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-  item: {
-    width: "30%",
-    height: 18,
-    backgroundColor: "#dbdbdb",
-    borderRadius: 4,
-  },
-  details: {
-    marginBottom: SIZES.large,
-  },
-  detailsText: {
-    width: "100%",
-    height: 20,
-    backgroundColor: "#dbdbdb",
-    marginBottom: 10,
-    borderRadius: 4,
-  },
-  buttons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  button: {
-    width: "45%",
-    height: 40,
-    backgroundColor: "#dbdbdb",
-    borderRadius: 4,
-  },
-});
 
 export default CarDetails;
