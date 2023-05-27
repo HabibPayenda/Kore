@@ -1,12 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Carousel from "react-native-snap-carousel";
 import styles from "../styles/carDetailsStyles";
@@ -17,6 +10,7 @@ import { useNavigation, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
 import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
+
 const CarDetails = () => {
   const params = useSearchParams();
   const car = useSelector((state) => state.cars.showCar);

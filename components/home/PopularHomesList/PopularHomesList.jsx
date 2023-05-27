@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import styles from "./PopularHomesListStyles";
 import PopularHomesCard from "../PopularHomesCard/PopularHomesCard";
+import { useNavigation } from "expo-router";
 
 const data = [
   {
@@ -41,7 +42,17 @@ const PopularHomesList = () => {
     console.log("View All");
   };
 
-  const renderItem = ({ item }) => <PopularHomesCard data={item} />;
+  const navigation = useNavigation();
+
+  const renderItem = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate("homeDetails", item)}
+      >
+        <PopularHomesCard data={item} />
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.container}>
