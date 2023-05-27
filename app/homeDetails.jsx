@@ -1,8 +1,16 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
 import { useSearchParams } from "expo-router";
+import { FONT, SIZES } from "../constants";
 
 const HomeDetails = () => {
   const {
@@ -18,7 +26,7 @@ const HomeDetails = () => {
   } = useSearchParams();
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Swiper
         style={styles.slider}
         showsButtons={false}
@@ -48,7 +56,12 @@ const HomeDetails = () => {
           </View>
         </View>
         <View style={styles.descriptionContainer}>
-          <Text style={styles.description}>{description}</Text>
+          <Text style={styles.description}>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            iusto repudiandae, hic doloribus eaque debitis aliquam accusamus
+            magnam ducimus voluptate assumenda quasi totam dicta esse
+            perspiciatis molestiae tenetur cum blanditiis!
+          </Text>
         </View>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={onFavoritePress}>
@@ -59,7 +72,7 @@ const HomeDetails = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -74,7 +87,7 @@ const styles = StyleSheet.create({
     // flex: 1,
   },
   detailsContainer: {
-    padding: 20,
+    padding: SIZES.large,
   },
   row: {
     flexDirection: "row",
@@ -102,8 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   description: {
-    fontSize: 16,
-    color: "#666",
+    fontFamily: FONT.regular,
   },
   buttonsContainer: {
     flexDirection: "row",
