@@ -52,6 +52,15 @@ const Layout = () => {
             headerTitle: "پیغامونه",
           }}
         />
+        <Stack.Screen
+          name="homeDetails"
+          options={{
+            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerShadowVisible: true,
+            headerTitle: "پیغامونه",
+            headerShown: false,
+          }}
+        />
       </Stack>
     </Provider>
   );

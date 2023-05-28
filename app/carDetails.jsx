@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import Carousel from "react-native-snap-carousel";
 import styles from "../styles/carDetailsStyles";
 import { COLORS, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,6 +9,7 @@ import { useNavigation, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getCar } from "../data/carsSlice/carsSlice";
 import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
+import Swiper from "react-native-swiper";
 
 const CarDetails = () => {
   const params = useSearchParams();
@@ -19,9 +19,6 @@ const CarDetails = () => {
   useEffect(() => {
     dispatch(getCar(params?.id));
   }, []);
-  const renderItem = ({ item }) => {
-    return <Image source={{ uri: item }} style={styles.image} />;
-  };
 
   const navigation = useNavigation();
 
@@ -34,19 +31,15 @@ const CarDetails = () => {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-        <Carousel
-          data={[car?.image_url]}
-          renderItem={renderItem}
-          sliderWidth={Dimensions.get("window").width}
-          itemWidth={Dimensions.get("window").width}
-          itemHeight={300}
-          sliderHeight={300}
+        <Swiper
+          style={styles.slider}
+          showsButtons={false}
           autoplay={true}
-          autoplayInterval={5000}
           loop={true}
-          style={{ height: 300 }}
-          contentContainerStyle={{ height: 300 }}
-        />
+        >
+          <Image style={styles.image} source={{ uri: car?.image_url }} />
+          <Image style={styles.image} source={{ uri: car?.image_url }} />
+        </Swiper>
         <ScrollView>
           <View style={styles.details}>
             <View style={styles.middleItem}>

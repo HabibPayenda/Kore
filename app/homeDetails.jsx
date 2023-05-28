@@ -2,15 +2,16 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
 import { useSearchParams } from "expo-router";
 import { FONT, SIZES } from "../constants";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeDetails = () => {
   const {
@@ -26,65 +27,67 @@ const HomeDetails = () => {
   } = useSearchParams();
 
   return (
-    <ScrollView style={styles.container}>
-      <Swiper
-        style={styles.slider}
-        showsButtons={false}
-        autoplay={true}
-        loop={true}
-      >
-        <Text>hello</Text>
-        <Text>hello</Text>
-      </Swiper>
-      <View style={styles.detailsContainer}>
-        <View style={styles.row}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.price}>{price}</Text>
-        </View>
-        <View style={styles.row}>
-          <View style={styles.detail}>
-            <Icon name="bed" size={20} color="#666" />
-            <Text style={styles.detailText}>{beds} Beds</Text>
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <Swiper
+          style={styles.slider}
+          showsButtons={false}
+          autoplay={true}
+          loop={true}
+        >
+          <Text>hello</Text>
+          <Text>hello</Text>
+        </Swiper>
+        <View style={styles.detailsContainer}>
+          <View style={styles.row}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.price}>{price}</Text>
           </View>
-          <View style={styles.detail}>
-            <Icon name="bath" size={20} color="#666" />
-            <Text style={styles.detailText}>{baths} Baths</Text>
+          <View style={styles.row}>
+            <View style={styles.detail}>
+              <Icon name="bed" size={20} color="#666" />
+              <Text style={styles.detailText}>{beds} Beds</Text>
+            </View>
+            <View style={styles.detail}>
+              <Icon name="bath" size={20} color="#666" />
+              <Text style={styles.detailText}>{baths} Baths</Text>
+            </View>
+            <View style={styles.detail}>
+              <Icon name="square-o" size={20} color="#666" />
+              <Text style={styles.detailText}>{sqft} Sqft</Text>
+            </View>
           </View>
-          <View style={styles.detail}>
-            <Icon name="square-o" size={20} color="#666" />
-            <Text style={styles.detailText}>{sqft} Sqft</Text>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.description}>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+              iusto repudiandae, hic doloribus eaque debitis aliquam accusamus
+              magnam ducimus voluptate assumenda quasi totam dicta esse
+              perspiciatis molestiae tenetur cum blanditiis!
+            </Text>
+          </View>
+          <View style={styles.roomsSection}>
+            <Text>اطاقونه</Text>
+            <Swiper
+              style={styles.slider}
+              showsButtons={false}
+              autoplay={true}
+              loop={true}
+            >
+              <Text>Room 1</Text>
+              <Text>Room 2</Text>
+            </Swiper>
+          </View>
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity style={styles.button} onPress={onFavoritePress}>
+              <Text style={styles.buttonText}>Add to Favorites</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={onMessagePress}>
+              <Text style={styles.buttonText}>Message</Text>
+            </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.descriptionContainer}>
-          <Text style={styles.description}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            iusto repudiandae, hic doloribus eaque debitis aliquam accusamus
-            magnam ducimus voluptate assumenda quasi totam dicta esse
-            perspiciatis molestiae tenetur cum blanditiis!
-          </Text>
-        </View>
-        <View style={styles.roomsSection}>
-          <Text>اطاقونه</Text>
-          <Swiper
-            style={styles.slider}
-            showsButtons={false}
-            autoplay={true}
-            loop={true}
-          >
-            <Text>Room 1</Text>
-            <Text>Room 2</Text>
-          </Swiper>
-        </View>
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button} onPress={onFavoritePress}>
-            <Text style={styles.buttonText}>Add to Favorites</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={onMessagePress}>
-            <Text style={styles.buttonText}>Message</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
