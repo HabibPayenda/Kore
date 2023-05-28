@@ -63,6 +63,18 @@ const HomeDetails = () => {
             perspiciatis molestiae tenetur cum blanditiis!
           </Text>
         </View>
+        <View style={styles.roomsSection}>
+          <Text>اطاقونه</Text>
+          <Swiper
+            style={styles.slider}
+            showsButtons={false}
+            autoplay={true}
+            loop={true}
+          >
+            <Text>Room 1</Text>
+            <Text>Room 2</Text>
+          </Swiper>
+        </View>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={onFavoritePress}>
             <Text style={styles.buttonText}>Add to Favorites</Text>

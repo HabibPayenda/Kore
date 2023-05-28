@@ -11,7 +11,7 @@ export const checkImageURL = (url) => {
 };
 
 const PropertiesApi = axios.create({
-  baseURL: "http://10.10.10.253:3000/api/v1",
+  baseURL: "http://10.10.10.252:3000/api/v1",
   headers: {
     Accept: "application/json",
     "X-Requested-With": "XMLHttpRequest",
