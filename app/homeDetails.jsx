@@ -5,17 +5,17 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
+  Image,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
 import { useSearchParams } from "expo-router";
 import { FONT, SIZES } from "../constants";
-// import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeDetails = () => {
   const {
-    images,
+    image,
     title,
     price,
     beds,
@@ -28,15 +28,16 @@ const HomeDetails = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={styles.container}>
+      <ScrollView>
         <Swiper
           style={styles.slider}
           showsButtons={false}
           autoplay={true}
           loop={true}
         >
-          <Text>hello</Text>
-          <Text>hello</Text>
+          <Image source={image || null} style={styles.image} />
+          <Image source={image || null} style={styles.image} />
+          <Image source={image || null} style={styles.image} />
         </Swiper>
         <View style={styles.detailsContainer}>
           <View style={styles.row}>
@@ -98,8 +99,11 @@ const styles = StyleSheet.create({
   slider: {
     height: 250,
   },
-  slide: {
-    // flex: 1,
+  image: {
+    flex: 1,
+    height: 300,
+    width: "100%",
+    resizeMode: "cover",
   },
   detailsContainer: {
     padding: SIZES.large,
