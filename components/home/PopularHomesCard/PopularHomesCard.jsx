@@ -4,12 +4,13 @@ import { Feather } from "@expo/vector-icons";
 import styles from "./PopularHomesCardStyles";
 
 const PopularHomeCard = ({ data }) => {
-  const { title, price, image, rooms, area, address, deal_type } = data;
+  const { title, price, image_url, rooms, area, address, deal_type, property } =
+    data;
 
   return (
     <View style={styles.container}>
       <Image
-        source={image}
+        source={{ uri: property?.image_url }}
         style={styles.image}
         resizeMode="stretch"
         resizeMethod="resize"

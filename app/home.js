@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
-import { Stack, useRouter } from "expo-router";
+import { Stack } from "expo-router";
 
 import { COLORS, icons, images, SIZES } from "../constants";
 import {
@@ -9,15 +9,13 @@ import {
   ScreenHeaderBtn,
   WelcomeMessage,
 } from "../components";
-import styles from "../styles/search";
 import Sidebar from "../components/home/Sidebar/Sidebar";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../data/homesSlice";
 import { getAllCars } from "../data/carsSlice/carsSlice";
+
 const Home = () => {
-  const router = useRouter();
   const [sidebarShown, setSidebarShown] = useState(false);
   const dispatch = useDispatch();
   const homes = useSelector((state) => state.homes.homes);
@@ -66,7 +64,7 @@ const Home = () => {
           }}
         >
           <WelcomeMessage name={"حبیب"} />
-          <PopularHomesList />
+          <PopularHomesList homes={homes} />
           <PopularCarsList cars={cars} />
         </View>
       </ScrollView>

@@ -373,7 +373,6 @@ export const homesSlice = createSlice({
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
-      console.log(action.payload);
       state.showHome = action.payload.home;
     });
 

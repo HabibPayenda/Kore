@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -12,20 +12,17 @@ import Swiper from "react-native-swiper";
 import { useSearchParams } from "expo-router";
 import { COLORS, FONT, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useDispatch, useSelector } from "react-redux";
+import { getHome } from "../data/homesSlice";
 
 const HomeDetails = () => {
-  const {
-    image,
-    title,
-    price,
-    beds,
-    baths,
-    sqft,
-    description,
-    onFavoritePress,
-    onMessagePress,
-  } = useSearchParams();
+  const { id } = useSearchParams();
+  const dispatch = useDispatch();
 
+  const home = useSelector((state) => state.homes.showHome);
+  useEffect(() => {
+    dispatch(getHome(id));
+  }, []);
   return (
     <SafeAreaView>
       <ScrollView>
@@ -35,35 +32,43 @@ const HomeDetails = () => {
           autoplay={true}
           loop={true}
         >
-          <Image source={image || null} style={styles.image} />
-          <Image source={image || null} style={styles.image} />
-          <Image source={image || null} style={styles.image} />
+          <Image
+            source={{ uri: home?.property?.image_url }}
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: home?.property?.image_url }}
+            style={styles.image}
+          />
+          <Image
+            source={{ uri: home?.property?.image_url }}
+            style={styles.image}
+          />
         </Swiper>
         <View style={styles.detailsContainer}>
           <View style={styles.row}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.price}>{price}</Text>
+            <Text style={styles.title}>{home?.property?.name}</Text>
+            <Text style={styles.price}>{home?.deal_info?.total_price}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.detail}>
               <Icon name="bed" size={20} color="#666" />
-              <Text style={styles.detailText}>{beds} Beds</Text>
+              <Text style={styles.detailText}>
+                {home?.home_rooms?.length} Beds
+              </Text>
             </View>
             <View style={styles.detail}>
               <Icon name="bath" size={20} color="#666" />
-              <Text style={styles.detailText}>{baths} Baths</Text>
+              <Text style={styles.detailText}>{0} Baths</Text>
             </View>
             <View style={styles.detail}>
               <Icon name="square-o" size={20} color="#666" />
-              <Text style={styles.detailText}>{sqft} Sqft</Text>
+              <Text style={styles.detailText}>{0} Sqft</Text>
             </View>
           </View>
           <View style={styles.descriptionContainer}>
             <Text style={styles.description}>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-              iusto repudiandae, hic doloribus eaque debitis aliquam accusamus
-              magnam ducimus voluptate assumenda quasi totam dicta esse
-              perspiciatis molestiae tenetur cum blanditiis!
+              {home?.property?.description}
             </Text>
           </View>
           <View style={styles.roomsSection}>
@@ -79,10 +84,10 @@ const HomeDetails = () => {
             </Swiper>
           </View>
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.button} onPress={onFavoritePress}>
+            <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>Add to Favorites</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={onMessagePress}>
+            <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>Message</Text>
             </TouchableOpacity>
           </View>
