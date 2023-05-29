@@ -10,7 +10,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
 import { useSearchParams } from "expo-router";
-import { FONT, SIZES } from "../constants";
+import { COLORS, FONT, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeDetails = () => {
@@ -67,7 +67,7 @@ const HomeDetails = () => {
             </Text>
           </View>
           <View style={styles.roomsSection}>
-            <Text>اطاقونه</Text>
+            <Text style={styles.roomsTitle}>اطاقونه</Text>
             <Swiper
               style={styles.slider}
               showsButtons={false}
@@ -151,6 +151,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 16,
+  },
+  roomsTitle: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.medium,
+    marginBottom: SIZES.medium,
+    color: COLORS.secondary,
   },
 });
 
