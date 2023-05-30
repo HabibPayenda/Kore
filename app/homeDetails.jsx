@@ -23,6 +23,8 @@ const HomeDetails = () => {
   useEffect(() => {
     dispatch(getHome(id));
   }, []);
+
+  console.log(home);
   return (
     <SafeAreaView>
       <ScrollView>
@@ -52,18 +54,34 @@ const HomeDetails = () => {
           </View>
           <View style={styles.row}>
             <View style={styles.detail}>
-              <Icon name="bed" size={20} color="#666" />
               <Text style={styles.detailText}>
-                {home?.home_rooms?.length} Beds
+                {home?.home_rooms?.length} اطاقونه
               </Text>
+              <Icon name="bed" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
-              <Icon name="bath" size={20} color="#666" />
               <Text style={styles.detailText}>{0} Baths</Text>
+              <Icon name="bath" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
-              <Icon name="square-o" size={20} color="#666" />
               <Text style={styles.detailText}>{0} Sqft</Text>
+              <Icon name="square-o" size={20} color="#666" />
+            </View>
+          </View>
+          <View style={styles.row}>
+            <View style={styles.detail}>
+              <Text style={styles.detailText}>
+                {home?.home_rooms?.length} اطاقونه
+              </Text>
+              <Icon name="bed" size={20} color="#666" />
+            </View>
+            <View style={styles.detail}>
+              <Text style={styles.detailText}>{0} حمامونه</Text>
+              <Icon name="bath" size={20} color="#666" />
+            </View>
+            <View style={styles.detail}>
+              <Text style={styles.detailText}>{0} Sqft</Text>
+              <Icon name="square-o" size={20} color="#666" />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
@@ -132,7 +150,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   detailText: {
-    marginLeft: 5,
+    marginRight: 5,
     color: "#666",
   },
   descriptionContainer: {
