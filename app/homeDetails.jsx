@@ -92,26 +92,27 @@ const HomeDetails = () => {
           </View>
           <View style={styles.roomsSection}>
             <Text style={styles.roomsTitle}>اطاقونه</Text>
-            <Swiper
-              style={styles.slider}
-              showsButtons={false}
-              autoplay={true}
-              loop={true}
-            >
-              {home?.home_rooms?.length > 0 &&
-                home?.home_rooms?.map((room) => (
+            {home?.home_rooms?.length > 0 ? (
+              <Swiper
+                style={styles.roomsSlider}
+                showsButtons={false}
+                autoplay={true}
+                loop={true}
+              >
+                {home?.home_rooms?.map((room) => (
                   <HomeRoomCard room={room} key={room?.id} />
                 ))}
-
-              <Text>No rooms</Text>
-            </Swiper>
+              </Swiper>
+            ) : (
+              <Text>دغه کور اطاقونه نه لري</Text>
+            )}
           </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Add to Favorites</Text>
+              <Text style={styles.buttonText}>خوښوول</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Message</Text>
+              <Text style={styles.buttonText}>اړیکه</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -185,6 +186,10 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
     marginBottom: SIZES.medium,
     color: COLORS.secondary,
+  },
+  roomsSlider: {
+    height: 350,
+    marginBottom: SIZES.large,
   },
 });
 

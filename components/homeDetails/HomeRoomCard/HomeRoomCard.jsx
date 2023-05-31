@@ -20,7 +20,7 @@ const HomeRoomCard = ({ room }) => {
         </View>
         <View style={styles.row}>
           <Text style={styles.icon}>{to_sun ? "☀️" : "⛅️"}</Text>
-          <Text style={styles.label}></Text>
+          <Text style={styles.label}>لمر</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.icon}>{cupboard ? "🚪" : "❌"}</Text>
