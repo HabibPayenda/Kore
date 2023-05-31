@@ -65,6 +65,7 @@ const Home = () => {
         >
           <WelcomeMessage name={"حبیب"} />
           <PopularHomesList homes={homes} />
+
           <PopularCarsList cars={cars} />
         </View>
       </ScrollView>

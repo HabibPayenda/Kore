@@ -1,44 +1,49 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import { Card, Icon } from "react-native-elements";
 
-const HomeRoomCard = ({
-  width,
-  length,
-  to_sun,
-  cupboard,
-  windows,
-  imageUrl,
-}) => {
+import homeImage from "../../../assets/images/home.jpg";
+
+const HomeRoomCard = ({ room }) => {
+  const { width, length, to_sun, cupboard, windows, imageUrl } = room;
   return (
-    <Card>
+    <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{ uri: imageUrl }} />
+        <Image
+          style={styles.image}
+          source={imageUrl ? { uri: imageUrl } : homeImage}
+        />
       </View>
-      <Card.Divider />
       <View style={styles.detailsContainer}>
         <View style={styles.row}>
-          <Icon name="resize-both" type="font-awesome" />
-          <Text>{`${width} x ${length}`}</Text>
+          <Text style={styles.icon}>{`${width} x ${length}`}</Text>
+          <Text style={styles.label}>Dimensions</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="sun" type="font-awesome" />
-          <Text>{to_sun ? "Has Sun" : "No Sun"}</Text>
+          <Text style={styles.icon}>{to_sun ? "☀️" : "⛅️"}</Text>
+          <Text style={styles.label}></Text>
         </View>
         <View style={styles.row}>
-          <Icon name="cabinet" type="font-awesome" />
-          <Text>{cupboard ? "Has Cupboard" : "No Cupboard"}</Text>
+          <Text style={styles.icon}>{cupboard ? "🚪" : "❌"}</Text>
+          <Text style={styles.label}>المارۍ</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="window-maximize" type="font-awesome" />
-          <Text>{`${windows} Windows`}</Text>
+          <Text style={styles.icon}>{`${windows} 🪟`}</Text>
+          <Text style={styles.label}>Windows</Text>
         </View>
       </View>
-    </Card>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    elevation: 5,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    overflow: "hidden",
+  },
   imageContainer: {
     alignItems: "center",
     marginVertical: 10,
@@ -49,11 +54,19 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     paddingHorizontal: 20,
+    paddingBottom: 10,
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 5,
+  },
+  icon: {
+    fontSize: 20,
+    marginRight: 10,
+  },
+  label: {
+    fontSize: 18,
   },
 });
 

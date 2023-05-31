@@ -14,6 +14,7 @@ import { COLORS, FONT, SIZES } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../data/homesSlice";
+import HomeRoomCard from "../components/homeDetails/HomeRoomCard/HomeRoomCard";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -97,8 +98,12 @@ const HomeDetails = () => {
               autoplay={true}
               loop={true}
             >
-              <Text>Room 1</Text>
-              <Text>Room 2</Text>
+              {home?.home_rooms?.length > 0 &&
+                home?.home_rooms?.map((room) => (
+                  <HomeRoomCard room={room} key={room?.id} />
+                ))}
+
+              <Text>No rooms</Text>
             </Swiper>
           </View>
           <View style={styles.buttonsContainer}>
