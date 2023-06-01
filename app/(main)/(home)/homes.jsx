@@ -5,7 +5,6 @@ import { PopularHomesList, SearchInput } from "../../../components";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../../data/homesSlice";
-import { getAllCars } from "../../../data/carsSlice/carsSlice";
 import { getUser } from "../../../data/userSlice/userSlice";
 import { SIZES } from "../../../constants";
 import ForYouHomesList from "../../../components/home/ForYouHomes";
@@ -34,11 +33,6 @@ const Homes = () => {
       }
     }, [dispatch, homes])
   );
-
-  // useEffect(() => {
-  //   dispatch(getAllHomes());
-  //   dispatch(getAllCars());
-  // }, []);
 
   const isLoading = () => {
     if (loading === "loading") {
