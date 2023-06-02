@@ -16,7 +16,7 @@ const HomeRoomCard = ({ room }) => {
       <View style={styles.detailsContainer}>
         <View style={styles.row}>
           <Text style={styles.icon}>{`${width} x ${length}`}</Text>
-          <Text style={styles.label}>Dimensions</Text>
+          <Text style={styles.label}>مساحت</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.icon}>{to_sun ? "☀️" : "⛅️"}</Text>
@@ -28,7 +28,7 @@ const HomeRoomCard = ({ room }) => {
         </View>
         <View style={styles.row}>
           <Text style={styles.icon}>{`${windows} 🪟`}</Text>
-          <Text style={styles.label}>Windows</Text>
+          <Text style={styles.label}>کړکۍ</Text>
         </View>
       </View>
     </View>
@@ -46,10 +46,9 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: "center",
-    marginVertical: 10,
   },
   image: {
-    width: 200,
+    width: 300,
     height: 150,
   },
   detailsContainer: {

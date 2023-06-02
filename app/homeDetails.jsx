@@ -27,7 +27,7 @@ const HomeDetails = () => {
 
   console.log(home);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Swiper
           style={styles.slider}
@@ -90,31 +90,31 @@ const HomeDetails = () => {
               {home?.property?.description}
             </Text>
           </View>
-          <View style={styles.roomsSection}>
-            <Text style={styles.roomsTitle}>اطاقونه</Text>
-            {home?.home_rooms?.length > 0 ? (
-              <Swiper
-                style={styles.roomsSlider}
-                showsButtons={false}
-                autoplay={true}
-                loop={true}
-              >
-                {home?.home_rooms?.map((room) => (
-                  <HomeRoomCard room={room} key={room?.id} />
-                ))}
-              </Swiper>
-            ) : (
-              <Text>دغه کور اطاقونه نه لري</Text>
-            )}
-          </View>
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>خوښوول</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>اړیکه</Text>
-            </TouchableOpacity>
-          </View>
+        </View>
+        <View style={styles.roomsSection}>
+          <Text style={styles.roomsTitle}>اطاقونه</Text>
+          {home?.home_rooms?.length > 0 ? (
+            <Swiper
+              style={styles.roomsSlider}
+              showsButtons={false}
+              autoplay={true}
+              loop={true}
+            >
+              {home?.home_rooms?.map((room) => (
+                <HomeRoomCard room={room} key={room?.id} />
+              ))}
+            </Swiper>
+          ) : (
+            <Text>دغه کور اطاقونه نه لري</Text>
+          )}
+        </View>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>خوښوول</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>اړیکه</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -124,6 +124,7 @@ const HomeDetails = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.lightWhite,
   },
   slider: {
     height: 250,
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
   },
   buttonsContainer: {
+    padding: SIZES.large,
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -181,15 +183,20 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 16,
   },
+  roomsSection: {
+    backgroundColor: COLORS.lightWhite,
+  },
   roomsTitle: {
     fontFamily: FONT.regular,
     fontSize: SIZES.medium,
     marginBottom: SIZES.medium,
     color: COLORS.secondary,
+    backgroundColor: COLORS.lightWhite,
+    elevation: 3,
+    paddingHorizontal: SIZES.large,
   },
   roomsSlider: {
     height: 350,
-    marginBottom: SIZES.large,
   },
 });
 
