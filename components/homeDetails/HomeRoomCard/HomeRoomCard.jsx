@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-
+import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import homeImage from "../../../assets/images/home.jpg";
 
 const HomeRoomCard = ({ room }) => {
@@ -15,20 +17,46 @@ const HomeRoomCard = ({ room }) => {
       </View>
       <View style={styles.detailsContainer}>
         <View style={styles.row}>
+          <MaterialCommunityIcons
+            name="rectangle-outline"
+            size={24}
+            color="black"
+          />
           <Text style={styles.icon}>{`${width} x ${length}`}</Text>
-          <Text style={styles.label}>مساحت</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.icon}>{to_sun ? "☀️" : "⛅️"}</Text>
-          <Text style={styles.label}>لمر</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.icon}>{cupboard ? "🚪" : "❌"}</Text>
-          <Text style={styles.label}>المارۍ</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.icon}>{`${windows} 🪟`}</Text>
-          <Text style={styles.label}>کړکۍ</Text>
+          <Feather name="sun" size={24} color="black" />
+          <Text style={styles.icon}>
+            {to_sun ? (
+              <Ionicons
+                name="checkmark-circle-outline"
+                size={24}
+                color="black"
+              />
+            ) : (
+              "x"
+            )}
+          </Text>
+          <MaterialCommunityIcons
+            name="cupboard-outline"
+            size={24}
+            color="black"
+          />
+          <Text style={styles.icon}>
+            {cupboard ? (
+              <Ionicons
+                name="checkmark-circle-outline"
+                size={24}
+                color="black"
+              />
+            ) : (
+              "x"
+            )}
+          </Text>
+          <MaterialCommunityIcons
+            name="window-open-variant"
+            size={24}
+            color="black"
+          />
+          <Text style={styles.icon}>{`${windows}`}</Text>
         </View>
       </View>
     </View>
@@ -39,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     borderRadius: 10,
-    elevation: 5,
+    elevation: 2,
     marginHorizontal: 10,
     marginVertical: 5,
     overflow: "hidden",
@@ -48,8 +76,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: 300,
-    height: 150,
+    width: "100%",
+    height: 200,
   },
   detailsContainer: {
     paddingHorizontal: 20,
