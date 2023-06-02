@@ -49,43 +49,26 @@ const HomeDetails = () => {
           />
         </Swiper>
         <View style={styles.detailsContainer}>
-          <View style={styles.row}>
-            <Text style={styles.title}>{home?.property?.name}</Text>
+          <View style={styles.detailsContainerHeader}>
             <Text style={styles.price}>{home?.deal_info?.total_price}</Text>
+            <Text style={styles.title}>{home?.property?.name}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.detail}>
-              <Text style={styles.detailText}>
-                {home?.home_rooms?.length} اطاقونه
-              </Text>
+              <Text style={styles.detailText}>{home?.home_rooms?.length} </Text>
               <Icon name="bed" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
-              <Text style={styles.detailText}>{0} Baths</Text>
+              <Text style={styles.detailText}>{0} </Text>
               <Icon name="bath" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
-              <Text style={styles.detailText}>{0} Sqft</Text>
-              <Icon name="square-o" size={20} color="#666" />
-            </View>
-          </View>
-          <View style={styles.row}>
-            <View style={styles.detail}>
-              <Text style={styles.detailText}>
-                {home?.home_rooms?.length} اطاقونه
-              </Text>
-              <Icon name="bed" size={20} color="#666" />
-            </View>
-            <View style={styles.detail}>
-              <Text style={styles.detailText}>{0} حمامونه</Text>
-              <Icon name="bath" size={20} color="#666" />
-            </View>
-            <View style={styles.detail}>
-              <Text style={styles.detailText}>{0} Sqft</Text>
+              <Text style={styles.detailText}>{0} </Text>
               <Icon name="square-o" size={20} color="#666" />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
+            <Text style={styles.descriptionContainerTitle}>معلومات:</Text>
             <Text style={styles.description}>
               {home?.property?.description}
             </Text>
@@ -124,7 +107,7 @@ const HomeDetails = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.lightWhite,
+    backgroundColor: "white",
   },
   slider: {
     height: 250,
@@ -136,17 +119,26 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   detailsContainer: {
-    padding: SIZES.large,
+    // padding: SIZES.large,
+    backgroundColor: "white",
+  },
+  detailsContainerHeader: {
+    padding: SIZES.small,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: COLORS.lightWhite,
+    elevation: 3,
   },
   row: {
+    padding: SIZES.small,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 10,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: SIZES.medium,
   },
   price: {
     fontSize: 20,
@@ -160,11 +152,15 @@ const styles = StyleSheet.create({
     marginRight: 5,
     color: "#666",
   },
-  descriptionContainer: {
-    marginBottom: 20,
+  descriptionContainer: {},
+  descriptionContainerTitle: {
+    fontFamily: FONT.regular,
+    backgroundColor: COLORS.lightWhite,
+    paddingHorizontal: SIZES.small,
   },
   description: {
-    fontFamily: FONT.regular,
+    fontSize: SIZES.small,
+    padding: SIZES.small,
   },
   buttonsContainer: {
     padding: SIZES.large,
@@ -173,7 +169,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: "#007AFF",
+    backgroundColor: COLORS.primary,
     borderRadius: 5,
     padding: 10,
     marginRight: 10,
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   roomsSection: {
-    backgroundColor: COLORS.lightWhite,
+    backgroundColor: "white",
   },
   roomsTitle: {
     fontFamily: FONT.regular,
