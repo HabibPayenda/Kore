@@ -28,7 +28,7 @@ const HomeDetails = () => {
   console.log(home);
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Swiper
           style={styles.slider}
           showsButtons={false}
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.large,
   },
   roomsSlider: {
-    height: 350,
+    height: 280,
   },
 });
 
