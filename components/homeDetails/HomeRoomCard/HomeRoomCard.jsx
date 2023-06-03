@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
   },
   label: {
-    fontSize: 18,
+    fontSize: SIZES.small,
+    fontFamily: FONT.regular,
   },
 });
 
