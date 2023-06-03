@@ -50,7 +50,18 @@ const HomeDetails = () => {
         </Swiper>
         <View style={styles.detailsContainer}>
           <View style={styles.detailsContainerHeader}>
-            <Text style={styles.price}>{home?.deal_info?.total_price}</Text>
+            <View style={styles.detailsContainerDealInfo}>
+              <Text style={styles.price}>
+                {home?.deal_info?.total_price} افغانۍ
+              </Text>
+              <Text style={styles.dealType}>
+                {home?.deal_info?.deal_type
+                  ? home?.deal_info?.deal_type == "sale"
+                    ? "خرڅلاو"
+                    : "کرایه"
+                  : ""}
+              </Text>
+            </View>
             <Text style={styles.title}>{home?.property?.name}</Text>
           </View>
           <View style={styles.row}>
@@ -157,6 +168,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
     backgroundColor: COLORS.lightWhite,
     paddingHorizontal: SIZES.small,
+    elevation: 2,
   },
   description: {
     fontSize: SIZES.small,
@@ -188,7 +200,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.medium,
     color: COLORS.secondary,
     backgroundColor: COLORS.lightWhite,
-    elevation: 3,
+    elevation: 2,
     paddingHorizontal: SIZES.large,
   },
   roomsSlider: {
