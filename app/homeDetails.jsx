@@ -168,6 +168,12 @@ const styles = StyleSheet.create({
   },
   detail: {
     alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  label: {
+    fontSize: SIZES.small,
+    fontFamily: FONT.regular,
   },
   detailText: {
     marginRight: 5,
