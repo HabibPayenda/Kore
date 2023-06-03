@@ -15,6 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../data/homesSlice";
 import HomeRoomCard from "../components/homeDetails/HomeRoomCard/HomeRoomCard";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -66,16 +67,20 @@ const HomeDetails = () => {
           </View>
           <View style={styles.row}>
             <View style={styles.detail}>
+              <Text style={styles.label}>اطاقونه</Text>
               <Text style={styles.detailText}>{home?.home_rooms?.length} </Text>
-              <Icon name="bed" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
+              <Text style={styles.label}>حمامونه</Text>
               <Text style={styles.detailText}>{0} </Text>
-              <Icon name="bath" size={20} color="#666" />
             </View>
             <View style={styles.detail}>
+              <Text style={styles.label}>آشپزخانې</Text>
               <Text style={styles.detailText}>{0} </Text>
-              <Icon name="square-o" size={20} color="#666" />
+            </View>
+            <View style={styles.detail}>
+              <Text style={styles.label}>مساحت</Text>
+              <Text style={styles.detailText}>{0} </Text>
             </View>
           </View>
           <View style={styles.descriptionContainer}>
@@ -150,13 +155,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
   },
   price: {
-    fontSize: 20,
+    fontSize: SIZES.medium,
     color: "#666",
+    fontFamily: FONT.regular,
+  },
+  dealType: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.small,
   },
   detail: {
-    flexDirection: "row",
     alignItems: "center",
   },
   detailText: {
