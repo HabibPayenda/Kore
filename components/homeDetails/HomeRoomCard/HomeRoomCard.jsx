@@ -8,7 +8,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 const HomeRoomCard = ({ room }) => {
-  const { width, length, to_sun, cupboard, windows, imageUrl } = room;
+  const { width, length, to_sun, cupboard, windows, imageUrl, color } = room;
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -20,15 +20,11 @@ const HomeRoomCard = ({ room }) => {
       <View style={styles.detailsContainer}>
         <View style={styles.row}>
           <View style={styles.item}>
-            <MaterialCommunityIcons
-              name="rectangle-outline"
-              size={24}
-              color="black"
-            />
+            <Text style={styles.label}>مساحت</Text>
             <Text style={styles.icon}>{`${width} x ${length}`}</Text>
           </View>
           <View style={styles.item}>
-            <Feather name="sun" size={24} color="black" />
+            <Text style={styles.label}>لمر</Text>
             <Text style={styles.icon}>
               {to_sun ? (
                 <Ionicons
@@ -46,11 +42,7 @@ const HomeRoomCard = ({ room }) => {
             </Text>
           </View>
           <View style={styles.item}>
-            <MaterialCommunityIcons
-              name="cupboard-outline"
-              size={24}
-              color="black"
-            />
+            <Text style={styles.label}>المارۍ</Text>
             <Text style={styles.icon}>
               {cupboard ? (
                 <Ionicons
@@ -68,12 +60,19 @@ const HomeRoomCard = ({ room }) => {
             </Text>
           </View>
           <View style={styles.item}>
-            <MaterialCommunityIcons
-              name="window-open-variant"
-              size={24}
-              color="black"
-            />
+            <Text style={styles.label}>کړکۍ</Text>
             <Text style={styles.icon}>{`${windows}`}</Text>
+          </View>
+          <View style={styles.item}>
+            <Text style={styles.label}>رنګ</Text>
+            <View
+              style={{
+                backgroundColor: color,
+                width: 15,
+                height: 15,
+                borderRadius: 4,
+              }}
+            ></View>
           </View>
         </View>
       </View>
