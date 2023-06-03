@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../data/homesSlice";
 import HomeRoomCard from "../components/homeDetails/HomeRoomCard/HomeRoomCard";
 import { MaterialIcons } from "@expo/vector-icons";
+import HomeRooms from "../components/homeDetails/HomeRooms/HomeRooms";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -90,23 +91,7 @@ const HomeDetails = () => {
             </Text>
           </View>
         </View>
-        <View style={styles.roomsSection}>
-          <Text style={styles.roomsTitle}>اطاقونه</Text>
-          {home?.home_rooms?.length > 0 ? (
-            <Swiper
-              style={styles.roomsSlider}
-              showsButtons={false}
-              autoplay={true}
-              loop={true}
-            >
-              {home?.home_rooms?.map((room) => (
-                <HomeRoomCard room={room} key={room?.id} />
-              ))}
-            </Swiper>
-          ) : (
-            <Text>دغه کور اطاقونه نه لري</Text>
-          )}
-        </View>
+        <HomeRooms home_rooms={home?.home_rooms} />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>خوښوول</Text>
@@ -206,21 +191,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 16,
-  },
-  roomsSection: {
-    backgroundColor: "white",
-  },
-  roomsTitle: {
-    fontFamily: FONT.regular,
-    fontSize: SIZES.medium,
-    marginBottom: SIZES.medium,
-    color: COLORS.secondary,
-    backgroundColor: COLORS.lightWhite,
-    elevation: 2,
-    paddingHorizontal: SIZES.large,
-  },
-  roomsSlider: {
-    height: 280,
   },
 });
 
