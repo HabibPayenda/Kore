@@ -20,6 +20,7 @@ import HomeRooms from "../components/homeDetails/HomeRooms/HomeRooms";
 import HomeBaths from "../components/homeDetails/HomeBaths/HomeBaths";
 import HomeKitchens from "../components/homeDetails/HomeKitchens/HomeKitchens";
 import HomeAmenities from "../components/homeDetails/HomeAmenities/HomeAmenities";
+import HomeRestrictions from "../components/homeDetails/HomeRestrictions/HomeRestrictions";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -98,6 +99,7 @@ const HomeDetails = () => {
         <HomeBaths home_baths={[]} />
         <HomeKitchens home_kitchens={[]} />
         <HomeAmenities />
+        <HomeRestrictions />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>خوښوول</Text>
