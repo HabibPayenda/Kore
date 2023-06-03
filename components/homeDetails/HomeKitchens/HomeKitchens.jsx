@@ -7,7 +7,7 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 export default function HomeKitchens({ home_kitchens }) {
   return (
     <View style={styles.roomsSection}>
-      <Text style={styles.roomsTitle}>آشپزخانې</Text>
+      <Text style={styles.roomsTitle}>پخلنځي</Text>
       {home_kitchens?.length > 0 ? (
         <Swiper
           style={styles.roomsSlider}
@@ -21,7 +21,7 @@ export default function HomeKitchens({ home_kitchens }) {
         </Swiper>
       ) : (
         <Text style={styles.notAvailable}>
-          د دغه کور د آشپزخانو په اړه معلومات نشته.
+          د دغه کور د پخلنځیو په اړه معلومات نشته.
         </Text>
       )}
     </View>
