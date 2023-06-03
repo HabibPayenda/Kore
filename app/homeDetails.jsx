@@ -27,6 +27,7 @@ const HomeDetails = () => {
   const dispatch = useDispatch();
 
   const home = useSelector((state) => state.homes.showHome);
+  console.log(home);
   useEffect(() => {
     dispatch(getHome(id));
   }, []);
@@ -98,7 +99,7 @@ const HomeDetails = () => {
         <HomeRooms home_rooms={home?.home_rooms} />
         <HomeBaths home_baths={[]} />
         <HomeKitchens home_kitchens={[]} />
-        <HomeAmenities />
+        <HomeAmenities amenities={home?.amenities} />
         <HomeRestrictions />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
