@@ -20,7 +20,9 @@ export default function HomeKitchens({ home_kitchens }) {
           ))}
         </Swiper>
       ) : (
-        <Text>دغه کور آشپزخانې نه لري</Text>
+        <Text style={styles.notAvailable}>
+          د دغه کور د آشپزخانو په اړه معلومات نشته.
+        </Text>
       )}
     </View>
   );
@@ -41,5 +43,9 @@ const styles = StyleSheet.create({
   },
   roomsSlider: {
     height: 280,
+  },
+  notAvailable: {
+    paddingHorizontal: SIZES.medium,
+    paddingVertical: SIZES.xSmall,
   },
 });

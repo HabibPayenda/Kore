@@ -20,7 +20,9 @@ export default function HomeRooms({ home_rooms }) {
           ))}
         </Swiper>
       ) : (
-        <Text>دغه کور اطاقونه نه لري</Text>
+        <Text style={styles.notAvailable}>
+          د دغه کور د اطاقونو په اړه معلومات نشته.
+        </Text>
       )}
     </View>
   );
@@ -41,5 +43,9 @@ const styles = StyleSheet.create({
   },
   roomsSlider: {
     height: 280,
+  },
+  notAvailable: {
+    paddingHorizontal: SIZES.medium,
+    paddingVertical: SIZES.xSmall,
   },
 });
