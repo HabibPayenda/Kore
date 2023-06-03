@@ -1,12 +1,11 @@
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
-import { COLORS, icons, images } from "../constants";
-import { ScreenHeaderBtn } from "../components";
+import { COLORS } from "../constants";
 import { Provider } from "react-redux";
 import store from "../data";
-// import * as SplashScreen from "expo-splash-screen";
+import * as SplashScreen from "expo-splash-screen";
 
-// SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 export const unstable_settings = {
   // Ensure any route can link back to `/`

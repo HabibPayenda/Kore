@@ -81,7 +81,7 @@ const HomeDetails = () => {
               <Text style={styles.detailText}>{0} </Text>
             </View>
             <View style={styles.detail}>
-              <Text style={styles.label}>آشپزخانې</Text>
+              <Text style={styles.label}>پخلنځي</Text>
               <Text style={styles.detailText}>{0} </Text>
             </View>
             <View style={styles.detail}>
