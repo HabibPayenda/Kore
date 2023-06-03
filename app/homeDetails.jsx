@@ -17,6 +17,7 @@ import { getHome } from "../data/homesSlice";
 import HomeRoomCard from "../components/homeDetails/HomeRoomCard/HomeRoomCard";
 import { MaterialIcons } from "@expo/vector-icons";
 import HomeRooms from "../components/homeDetails/HomeRooms/HomeRooms";
+import HomeBaths from "../components/homeDetails/HomeBaths/HomeBaths";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -92,6 +93,7 @@ const HomeDetails = () => {
           </View>
         </View>
         <HomeRooms home_rooms={home?.home_rooms} />
+        <HomeBaths home_baths={[]} />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>خوښوول</Text>
