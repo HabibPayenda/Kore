@@ -7,7 +7,7 @@ const HomeRestrictions = ({ restrictions }) => {
   const renderRestrictions = () => {
     return restrictions?.map((item) => {
       return (
-        <View style={styles.restrictionContainer}>
+        <View key={item.id} style={styles.restrictionContainer}>
           <Text style={styles.restrictionText} numberOfLines={3}>
             {item?.description}
           </Text>

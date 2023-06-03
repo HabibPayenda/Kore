@@ -7,7 +7,7 @@ const HomeAmenities = ({ amenities }) => {
   const renderAmenities = () => {
     return amenities?.map((item) => {
       return (
-        <View style={styles.amenityContainer}>
+        <View key={item.id} style={styles.amenityContainer}>
           <Text style={styles.amenityText} numberOfLines={3}>
             {item?.description}
           </Text>
