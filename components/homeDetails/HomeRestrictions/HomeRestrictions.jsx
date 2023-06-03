@@ -1,19 +1,40 @@
 import { Text, StyleSheet, View } from "react-native";
-import React, { Component } from "react";
+import React from "react";
+import { AntDesign } from "@expo/vector-icons";
 import { COLORS, FONT, SIZES } from "../../../constants";
 
-export default class HomeRestrictions extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>بندیزونه</Text>
+const HomeRestrictions = ({ restrictions }) => {
+  const renderRestrictions = () => {
+    return restrictions?.map((item) => {
+      return (
+        <View style={styles.restrictionContainer}>
+          <Text style={styles.restrictionText} numberOfLines={3}>
+            {item?.description}
+          </Text>
+          <AntDesign
+            name="closecircleo"
+            size={SIZES.medium - 2}
+            color={COLORS.primary}
+          />
+        </View>
+      );
+    });
+  };
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>بندیزونه</Text>
+      {restrictions?.length > 0 ? (
+        renderRestrictions()
+      ) : (
         <Text style={styles.notAvailable}>
           د دغه کور د بندیزونو په اړه معلومات نشته.
         </Text>
-      </View>
-    );
-  }
-}
+      )}
+    </View>
+  );
+};
+
+export default HomeRestrictions;
 
 const styles = StyleSheet.create({
   container: {
@@ -31,5 +52,17 @@ const styles = StyleSheet.create({
   notAvailable: {
     paddingHorizontal: SIZES.medium,
     paddingVertical: SIZES.xSmall,
+  },
+  restrictionContainer: {
+    paddingRight: SIZES.medium,
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
+    gap: 5,
+    paddingVertical: 4,
+  },
+
+  restrictionText: {
+    width: "90%",
   },
 });

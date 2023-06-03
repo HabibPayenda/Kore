@@ -100,7 +100,7 @@ const HomeDetails = () => {
         <HomeBaths home_baths={[]} />
         <HomeKitchens home_kitchens={[]} />
         <HomeAmenities amenities={home?.amenities} />
-        <HomeRestrictions />
+        <HomeRestrictions restrictions={home?.restrictions} />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>خوښوول</Text>
