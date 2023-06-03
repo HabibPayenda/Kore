@@ -107,6 +107,9 @@ const HomeDetails = () => {
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>اړیکه</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>نقشه</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
