@@ -6,7 +6,7 @@ export const signIn = createAsyncThunk("user/signIn", async (data) => {
   // Code
   try {
     const result = await PropertiesApi.post(
-      "/login",
+      "/users/login",
       { name: data.name, password: data.password },
       {
         onUploadProgress: (progress) => {
@@ -42,7 +42,7 @@ export const addUser = createAsyncThunk("user/addUser", async (data) => {
   // Code
   try {
     const result = await PropertiesApi.post(
-      "/Newregister",
+      "/users",
       { name: data.name, password: data.password, isAdmin: data.isAdmin },
       {
         onUploadProgress: (progress) => {
