@@ -1,9 +1,9 @@
-import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { COLORS } from "../constants";
-import { Provider } from "react-redux";
 import store from "../data";
 import * as SplashScreen from "expo-splash-screen";
+import { Provider } from "react-redux";
+import { Stack } from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,7 +23,7 @@ const Layout = () => {
 
   return (
     <Provider store={store}>
-      <Stack initialRouteName="home">
+      <Stack initialRouteName="login">
         <Stack.Screen name="home" />
         <Stack.Screen
           name="cars"
@@ -39,7 +39,6 @@ const Layout = () => {
           options={{
             headerStyle: { backgroundColor: COLORS.lightWhite },
             headerShadowVisible: false,
-            headerTitle: "",
             headerShown: false,
           }}
         />
