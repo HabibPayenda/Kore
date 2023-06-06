@@ -77,7 +77,7 @@ export const getUser = createAsyncThunk("user/getUser", async (id) => {
   }
 });
 
-export const addFavorite = createAsyncThunk(
+export const addFavoriteHome = createAsyncThunk(
   "user/addFavorite",
   async (data) => {
     // Code
@@ -91,7 +91,7 @@ export const addFavorite = createAsyncThunk(
 
       if (result.data.user) {
       }
-      return 1;
+      return result.data;
     } catch (error) {
       console.log(error);
       return error;
@@ -156,7 +156,14 @@ export const userSlice = createSlice({
     builder.addCase(removeFavoriteHome.fulfilled, (state, action) => {
       // Code
       const user = state.user;
-      user.homes = user.homes.filter((home) => home.id === action.payload);
+      user.homes = user.homes.filter((home) => home.id !== action.payload);
+      state.user = user;
+    });
+
+    builder.addCase(addFavoriteHome.fulfilled, (state, action) => {
+      // Code
+      const user = state.user;
+      user.homes = [...user.homes, action.payload.home];
       state.user = user;
     });
 

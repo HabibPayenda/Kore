@@ -22,7 +22,7 @@ import HomeKitchens from "../../components/homeDetails/HomeKitchens/HomeKitchens
 import HomeAmenities from "../../components/homeDetails/HomeAmenities/HomeAmenities";
 import HomeRestrictions from "../../components/homeDetails/HomeRestrictions/HomeRestrictions";
 import {
-  addFavorite,
+  addFavoriteHome,
   removeFavoriteHome,
 } from "../../data/userSlice/userSlice";
 
@@ -45,7 +45,7 @@ const HomeDetails = () => {
       dispatch(removeFavoriteHome(home?.id));
     } else {
       const data = { user_id: user?.id, home_id: home?.id };
-      dispatch(addFavorite(data));
+      dispatch(addFavoriteHome(data));
     }
   };
 
