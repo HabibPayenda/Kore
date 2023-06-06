@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../data/homesSlice";
 import { getAllCars } from "../../data/carsSlice/carsSlice";
+import { getUser } from "../../data/userSlice/userSlice";
 
 const Home = () => {
   const [sidebarShown, setSidebarShown] = useState(false);
@@ -22,9 +23,12 @@ const Home = () => {
   const cars = useSelector((state) => state.cars.cars);
   const token = useSelector((state) => state.user.token);
   const router = useRouter();
+  const user = useSelector((state) => state.user.user);
   useEffect(() => {
     if (!token) {
       router.replace("(auth)/login");
+    } else {
+      dispatch(getUser(user?.id));
     }
   }, [token]);
 

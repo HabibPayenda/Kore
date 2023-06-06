@@ -21,7 +21,10 @@ import HomeBaths from "../../components/homeDetails/HomeBaths/HomeBaths";
 import HomeKitchens from "../../components/homeDetails/HomeKitchens/HomeKitchens";
 import HomeAmenities from "../../components/homeDetails/HomeAmenities/HomeAmenities";
 import HomeRestrictions from "../../components/homeDetails/HomeRestrictions/HomeRestrictions";
-import { addFavorite } from "../../data/userSlice/userSlice";
+import {
+  addFavorite,
+  removeFavoriteHome,
+} from "../../data/userSlice/userSlice";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -36,9 +39,14 @@ const HomeDetails = () => {
   const user = useSelector((state) => state.user.user);
   console.log(user);
 
+  const liked = user?.homes?.some((item) => item.id === home.id);
   const handleFavorite = () => {
-    const data = { user_id: user?.id, property_id: home?.property_id };
-    dispatch(addFavorite(data));
+    if (liked) {
+      dispatch(removeFavoriteHome(home?.id));
+    } else {
+      const data = { user_id: user?.id, home_id: home?.id };
+      dispatch(addFavorite(data));
+    }
   };
 
   return (
@@ -111,7 +119,9 @@ const HomeDetails = () => {
         <HomeRestrictions restrictions={home?.restrictions} />
         <View style={styles.buttonsContainer}>
           <TouchableOpacity onPress={handleFavorite} style={styles.button}>
-            <Text style={styles.buttonText}>خوښوول</Text>
+            <Text style={styles.buttonText}>
+              {liked ? "خوښ شوی" : "خوښوول"}
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>اړیکه</Text>

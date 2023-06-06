@@ -61,12 +61,28 @@ export const addUser = createAsyncThunk("user/addUser", async (data) => {
   }
 });
 
+export const getUser = createAsyncThunk("user/getUser", async (id) => {
+  // Code
+  try {
+    const result = await PropertiesApi.get(`/users/${id}`, {
+      onUploadProgress: (progress) => {
+        if (progress.loaded / progress.total === 1) {
+        }
+      },
+    });
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
 export const addFavorite = createAsyncThunk(
   "user/addFavorite",
   async (data) => {
     // Code
     try {
-      const result = await PropertiesApi.post("/user_favorites", data, {
+      const result = await PropertiesApi.post("/user_favorite_homes", data, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -76,6 +92,25 @@ export const addFavorite = createAsyncThunk(
       if (result.data.user) {
       }
       return 1;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+export const removeFavoriteHome = createAsyncThunk(
+  "user/removeFavoriteHome",
+  async (id) => {
+    // Code
+    try {
+      const result = await PropertiesApi.delete(`/user_favorite_homes/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+
+      return id;
     } catch (error) {
       console.log(error);
       return error;
@@ -111,6 +146,18 @@ export const userSlice = createSlice({
       // Code
       state.token = action.payload;
       state.user = {};
+    });
+
+    builder.addCase(getUser.fulfilled, (state, action) => {
+      // Code
+      state.user = action.payload.user;
+    });
+
+    builder.addCase(removeFavoriteHome.fulfilled, (state, action) => {
+      // Code
+      const user = state.user;
+      user.homes = user.homes.filter((home) => home.id === action.payload);
+      state.user = user;
     });
 
     builder.addCase(addUser.fulfilled, (state, action) => {

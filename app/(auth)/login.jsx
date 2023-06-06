@@ -12,7 +12,7 @@ import { Stack, useNavigation, useRouter } from "expo-router";
 import { TextInput } from "react-native-gesture-handler";
 import { COLORS, FONT, SIZES } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../../data/userSlice/userSlice";
+import { localSignIn, signIn } from "../../data/userSlice/userSlice";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -24,8 +24,10 @@ const Login = () => {
   console.log("token in login :  ", token);
 
   useEffect(() => {
+    dispatch(localSignIn());
+  }, []);
+  useEffect(() => {
     if (token) {
-      console.log("in if in login");
       router.push("(main)/home");
     }
   }, [token]);
