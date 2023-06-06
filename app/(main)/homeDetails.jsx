@@ -6,10 +6,11 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  Pressable,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
-import { useSearchParams } from "expo-router";
+import { useNavigation, useSearchParams } from "expo-router";
 import { COLORS, FONT, SIZES } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +30,7 @@ import {
 const HomeDetails = () => {
   const { id } = useSearchParams();
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const home = useSelector((state) => state.homes.showHome);
   console.log(home);
@@ -118,17 +120,20 @@ const HomeDetails = () => {
         <HomeAmenities amenities={home?.amenities} />
         <HomeRestrictions restrictions={home?.restrictions} />
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity onPress={handleFavorite} style={styles.button}>
+          <Pressable onPress={handleFavorite} style={styles.button}>
             <Text style={styles.buttonText}>
               {liked ? "خوښ شوی" : "خوښوول"}
             </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          </Pressable>
+          <Pressable
+            onPress={() => navigation.navigate("chat")}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>اړیکه</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          </Pressable>
+          <Pressable style={styles.button}>
             <Text style={styles.buttonText}>نقشه</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </ScrollView>
     </SafeAreaView>
