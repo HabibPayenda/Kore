@@ -14,7 +14,7 @@ const PopularHomesList = ({ homes }) => {
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate("homeDetails", item)}
+        onPress={() => navigation.navigate("(main)/homeDetails", item)}
       >
         <PopularHomesCard data={item} />
       </TouchableOpacity>

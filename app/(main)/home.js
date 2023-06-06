@@ -1,25 +1,32 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 
-import { COLORS, icons, images, SIZES } from "../constants";
+import { COLORS, icons, images, SIZES } from "../../constants";
 import {
   PopularCarsList,
   PopularHomesList,
   ScreenHeaderBtn,
   WelcomeMessage,
-} from "../components";
-import Sidebar from "../components/home/Sidebar/Sidebar";
+} from "../../components";
+import Sidebar from "../../components/home/Sidebar/Sidebar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllHomes } from "../data/homesSlice";
-import { getAllCars } from "../data/carsSlice/carsSlice";
+import { getAllHomes } from "../../data/homesSlice";
+import { getAllCars } from "../../data/carsSlice/carsSlice";
 
 const Home = () => {
   const [sidebarShown, setSidebarShown] = useState(false);
   const dispatch = useDispatch();
   const homes = useSelector((state) => state.homes.homes);
   const cars = useSelector((state) => state.cars.cars);
+  const token = useSelector((state) => state.user.token);
+  const router = useRouter();
+  useEffect(() => {
+    if (!token) {
+      router.replace("(auth)/login");
+    }
+  }, [token]);
 
   useEffect(() => {
     dispatch(getAllHomes());

@@ -15,6 +15,9 @@ import Animated from "react-native-reanimated";
 import userImage from "../../../assets/images/user.jpg";
 import { COLORS, FONT, SIZES } from "../../../constants";
 import { useNavigation } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDispatch } from "react-redux";
+import { signOut } from "../../../data/userSlice/userSlice";
 
 const data = [
   { title: "لومړۍ صفحه", icon: "home", link: "Home" },
@@ -28,6 +31,7 @@ const SidebarItemsList = ({ user }) => {
   const navigation = useNavigation();
   const [collapsed, setCollapsed] = React.useState(false);
   const toggleCollapse = () => setCollapsed(!collapsed);
+  const dispatch = useDispatch();
 
   const renderMenuItem = (title, icon, link) => (
     <TouchableOpacity
@@ -77,7 +81,10 @@ const SidebarItemsList = ({ user }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => console.log("Logout")}
+        onPress={async () => {
+          await AsyncStorage.removeItem("token");
+          dispatch(signOut());
+        }}
       >
         <Text style={styles.menuItemText}>وتل</Text>
         <AntDesign name="logout" size={20} color={COLORS.secondary} />

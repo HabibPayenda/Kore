@@ -4,17 +4,40 @@ import {
   View,
   ScrollView,
   Dimensions,
-  Button,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Stack, useNavigation } from "expo-router";
+import { Stack, useNavigation, useRouter } from "expo-router";
 import { TextInput } from "react-native-gesture-handler";
-import { StatusBar } from "expo-status-bar";
 import { COLORS, FONT, SIZES } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { signIn } from "../../data/userSlice/userSlice";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const token = useSelector((state) => state.user.token);
+  console.log("token in login :  ", token);
+
+  useEffect(() => {
+    if (token) {
+      console.log("in if in login");
+      router.push("(main)/home");
+    }
+  }, [token]);
+
+  const handleLogin = () => {
+    if (username === "" || password === "") {
+      console.log("empty");
+    } else {
+      dispatch(signIn({ name: username, password: password }));
+    }
+  };
+
   const navigation = useNavigation();
   useEffect(() => {
     navigation.addListener("beforeRemove", (e) => {
@@ -33,9 +56,19 @@ const Login = () => {
         <View style={styles.container}>
           <Text style={styles.title}>Kore</Text>
           <View style={styles.inputsContainer}>
-            <TextInput style={styles.input} placeholder="Username" />
-            <TextInput style={styles.input} placeholder="Password" />
-            <TouchableOpacity style={styles.btn}>
+            <TextInput
+              value={username}
+              onChangeText={(value) => setUsername(value)}
+              style={styles.input}
+              placeholder="Username"
+            />
+            <TextInput
+              value={password}
+              onChangeText={(value) => setPassword(value)}
+              style={styles.input}
+              placeholder="Password"
+            />
+            <TouchableOpacity onPress={handleLogin} style={styles.btn}>
               <Text style={styles.btnText}>Login</Text>
             </TouchableOpacity>
           </View>

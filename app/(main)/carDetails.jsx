@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import styles from "../styles/carDetailsStyles";
-import { COLORS, SIZES } from "../constants";
+import styles from "../../styles/carDetailsStyles";
+import { COLORS, SIZES } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation, useSearchParams } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
-import { getCar } from "../data/carsSlice/carsSlice";
-import CarDetailsSkeleton from "../components/skeletons/carDetailsSkeleton";
+import { getCar } from "../../data/carsSlice/carsSlice";
+import CarDetailsSkeleton from "../../components/skeletons/carDetailsSkeleton";
 import Swiper from "react-native-swiper";
 
 const CarDetails = () => {
