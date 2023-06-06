@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   backgroundContainer: {
-    height: Dimensions.get("window").height - 20,
+    height: Dimensions.get("window").height - StatusBar.length,
     width: Dimensions.get("window").width,
     backgroundColor: COLORS.lightWhite,
     position: "absolute",
