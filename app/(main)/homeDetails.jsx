@@ -21,6 +21,7 @@ import HomeBaths from "../../components/homeDetails/HomeBaths/HomeBaths";
 import HomeKitchens from "../../components/homeDetails/HomeKitchens/HomeKitchens";
 import HomeAmenities from "../../components/homeDetails/HomeAmenities/HomeAmenities";
 import HomeRestrictions from "../../components/homeDetails/HomeRestrictions/HomeRestrictions";
+import { addFavorite } from "../../data/userSlice/userSlice";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -32,7 +33,14 @@ const HomeDetails = () => {
     dispatch(getHome(id));
   }, []);
 
-  console.log(home);
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
+
+  const handleFavorite = () => {
+    const data = { user_id: user?.id, property_id: home?.property_id };
+    dispatch(addFavorite(data));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -102,7 +110,7 @@ const HomeDetails = () => {
         <HomeAmenities amenities={home?.amenities} />
         <HomeRestrictions restrictions={home?.restrictions} />
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleFavorite} style={styles.button}>
             <Text style={styles.buttonText}>خوښوول</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>

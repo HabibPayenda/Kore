@@ -61,6 +61,28 @@ export const addUser = createAsyncThunk("user/addUser", async (data) => {
   }
 });
 
+export const addFavorite = createAsyncThunk(
+  "user/addFavorite",
+  async (data) => {
+    // Code
+    try {
+      const result = await PropertiesApi.post("/user_favorites", data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+
+      if (result.data.user) {
+      }
+      return 1;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   user: {},
   token: null,
