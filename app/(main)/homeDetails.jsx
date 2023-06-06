@@ -3,20 +3,16 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   Image,
   Pressable,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import Swiper from "react-native-swiper";
 import { useNavigation, useSearchParams } from "expo-router";
 import { COLORS, FONT, SIZES } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../../data/homesSlice";
-import HomeRoomCard from "../../components/homeDetails/HomeRoomCard/HomeRoomCard";
-import { MaterialIcons } from "@expo/vector-icons";
 import HomeRooms from "../../components/homeDetails/HomeRooms/HomeRooms";
 import HomeBaths from "../../components/homeDetails/HomeBaths/HomeBaths";
 import HomeKitchens from "../../components/homeDetails/HomeKitchens/HomeKitchens";
