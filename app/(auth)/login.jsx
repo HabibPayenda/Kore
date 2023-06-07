@@ -62,6 +62,7 @@ const Login = () => {
         <View style={styles.container}>
           <Text style={styles.title}>کور</Text>
           <View style={styles.inputsContainer}>
+            <Text style={styles.subTitle}>خپل حساب ته ننوزئ</Text>
             <TextInput
               value={username}
               onChangeText={(value) => setUsername(value)}
@@ -120,11 +121,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    paddingHorizontal: 28,
+  },
+  subTitle: {
+    alignSelf: "flex-end",
+    fontFamily: FONT.regular,
   },
   input: {
     color: COLORS.primary,
     backgroundColor: "#fdfdfd",
-    width: "80%",
+    width: "100%",
     padding: 5,
     elevation: 1,
   },
@@ -159,9 +165,8 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: COLORS.primary,
     paddingVertical: 5,
-    paddingHorizontal: SIZES.xSmall,
     borderRadius: 3,
-    width: "80%",
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
