@@ -6,7 +6,7 @@ import { useNavigation } from "expo-router";
 const FavoritesHeader = () => {
   const navigation = useNavigation();
   return (
-    <View>
+    <View style={{ backgroundColor: "white" }}>
       <Text style={styles.title}>ستاسو انتخابونه </Text>
       <View style={styles.navbar}>
         <Pressable onPress={() => navigation.navigate("favoriteHomes")}>

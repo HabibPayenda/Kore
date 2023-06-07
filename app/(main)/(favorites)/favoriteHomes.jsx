@@ -34,7 +34,7 @@ const favoriteHomes = () => {
           header: () => <FavoritesHeader />,
         }}
       />
-      <ScrollView>
+      <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
         <View style={styles.container}>
           <Text style={styles.subTitle}>کورونه</Text>
           {user?.homes?.length > 0 ? (
@@ -58,7 +58,9 @@ export default favoriteHomes;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "white",
   },
 });

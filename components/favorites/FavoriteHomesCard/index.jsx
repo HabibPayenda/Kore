@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
+import { COLORS } from "../../../constants";
 
 const FavoriteHomesCard = ({ home }) => {
   const { title, price, image_url, rooms, area, address, deal_type, property } =
@@ -53,4 +54,18 @@ const FavoriteHomesCard = ({ home }) => {
 
 export default FavoriteHomesCard;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    flex: 1,
+    height: 180,
+    width: Dimensions.get("window").width - 40,
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: COLORS.lightWhite,
+  },
+  image: {
+    height: 100,
+    width: 100,
+  },
+});
