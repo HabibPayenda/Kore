@@ -10,8 +10,8 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 import { Stack, useNavigation } from "expo-router";
-import { PopularHomesCard } from "../../../components";
 import FavoritesHeader from "../../../components/favorites/Header";
+import FavoriteHomesCard from "../../../components/favorites/FavoriteHomesCard";
 
 const favoriteHomes = () => {
   const user = useSelector((state) => state.user.user);
@@ -21,13 +21,13 @@ const favoriteHomes = () => {
   const renderHomes = ({ item }) => {
     return (
       <Pressable onPress={() => navigation.navigate("homeDetails", item)}>
-        <PopularHomesCard data={item} />
+        <FavoriteHomesCard home={item} />
       </Pressable>
     );
   };
 
   return (
-    <SafeAreaView>
+    <>
       <Stack.Screen
         options={{
           headerShown: true,
@@ -50,7 +50,7 @@ const favoriteHomes = () => {
           )}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
