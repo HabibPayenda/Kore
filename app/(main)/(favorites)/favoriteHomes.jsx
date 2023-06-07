@@ -8,12 +8,12 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS, FONT, SIZES } from "../../constants";
 import { useSelector } from "react-redux";
-import { PopularHomesCard } from "../../components";
-import { useNavigation } from "expo-router";
+import { Stack, useNavigation } from "expo-router";
+import { PopularHomesCard } from "../../../components";
+import FavoritesHeader from "../../../components/favorites/Header";
 
-const favorites = () => {
+const favoriteHomes = () => {
   const user = useSelector((state) => state.user.user);
 
   const navigation = useNavigation();
@@ -28,11 +28,14 @@ const favorites = () => {
 
   return (
     <SafeAreaView>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          header: () => <FavoritesHeader />,
+        }}
+      />
       <ScrollView>
-        <Text style={styles.title}>
-          ستاسو تر ټولو ښه د موټرو، کورونو او ځمکو انتخابونه
-        </Text>
-        <View>
+        <View style={styles.container}>
           <Text style={styles.subTitle}>کورونه</Text>
           {user?.homes?.length > 0 ? (
             <FlatList
@@ -51,13 +54,11 @@ const favorites = () => {
   );
 };
 
-export default favorites;
+export default favoriteHomes;
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: SIZES.large,
-    fontFamily: FONT.regular,
-    padding: SIZES.medium,
-    color: COLORS.primary,
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

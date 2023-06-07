@@ -24,7 +24,7 @@ const data = [
   { title: "پروفایل", icon: "user", link: "userProfile" },
   { title: "تنظیمات", icon: "setting", link: "settings" },
   { title: "خبرتیاوې", icon: "notification", link: "notifications" },
-  { title: "خوښ شوي", icon: "heart", link: "favorites" },
+  { title: "خوښ شوي", icon: "heart", link: "(favorites)" },
   { title: "پیغامونه", icon: "message1", link: "Messages" },
 ];
 

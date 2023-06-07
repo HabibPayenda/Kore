@@ -32,7 +32,7 @@ const Layout = () => {
         }}
       />
       <Stack.Screen
-        name="favorites"
+        name="(favorites)"
         options={{
           headerShown: false,
         }}

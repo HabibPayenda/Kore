@@ -29,7 +29,7 @@ const Home = () => {
       router.replace("(auth)/login");
     } else {
       dispatch(getUser(user?.id));
-      // router.replace("favorites");
+      router.replace("(favorites)/favoriteHomes");
     }
   }, [token]);
 
@@ -46,24 +46,16 @@ const Home = () => {
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerShown: !sidebarShown,
-          headerLeft: () =>
-            sidebarShown ? null : (
-              <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-            ),
-          headerRight: () =>
-            sidebarShown ? (
-              <ScreenHeaderBtn
-                iconUrl={icons.chevronRight}
-                handlePress={() => setSidebarShown(false)}
-                dimension="60%"
-              />
-            ) : (
-              <ScreenHeaderBtn
-                iconUrl={icons.menu}
-                handlePress={() => setSidebarShown(true)}
-                dimension="60%"
-              />
-            ),
+          headerLeft: () => (
+            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+          ),
+          headerRight: () => (
+            <ScreenHeaderBtn
+              iconUrl={icons.menu}
+              handlePress={() => setSidebarShown(true)}
+              dimension="60%"
+            />
+          ),
           headerTitle: "",
         }}
       />
