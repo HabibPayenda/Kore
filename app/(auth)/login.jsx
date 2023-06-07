@@ -78,18 +78,20 @@ const Login = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.socialMediaLogin}>
-            <Text>د دغه حسابونو په مرسته ننوزئ</Text>
+            <Text style={styles.socialMediaTitle}>
+              یا د لاندې حسابونو په مرسته ننوزئ
+            </Text>
             <View style={styles.socialMediaIcons}>
-              <Pressable>
+              <Pressable style={styles.socialIconContainer}>
                 <Image style={styles.socialMediaIcon} source={googleLogo} />
               </Pressable>
-              <Pressable>
+              <Pressable style={styles.socialIconContainer}>
                 <Image style={styles.socialMediaIcon} source={facebookLogo} />
               </Pressable>
             </View>
           </View>
           <Pressable onPress={() => navigation.navigate("(auth)/signUp")}>
-            <Text style={styles.regester}>نوی حساب جوړ کړئ</Text>
+            <Text style={styles.regester}>او یا هم نوی حساب جوړ کړئ</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -127,7 +129,12 @@ const styles = StyleSheet.create({
   socialMediaLogin: {
     alignItems: "center",
     justifyContent: "center",
-    gap: 10,
+    gap: 16,
+  },
+  socialMediaTitle: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.small,
+    color: COLORS.primary,
   },
   socialMediaIcons: {
     flexDirection: "row",
@@ -135,9 +142,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  socialIconContainer: {
+    backgroundColor: "#fefefe",
+    paddingVertical: 7,
+    width: 70,
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 2,
+  },
   socialMediaIcon: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
   },
   btn: {
     backgroundColor: COLORS.primary,
@@ -153,5 +168,6 @@ const styles = StyleSheet.create({
   regester: {
     color: COLORS.primary,
     fontFamily: FONT.regular,
+    fontSize: SIZES.small,
   },
 });
