@@ -15,8 +15,9 @@ const FavoriteHomesCard = ({ home }) => {
         resizeMode="stretch"
         resizeMethod="resize"
       />
-      <View style={styles.footer}>
-        <View style={styles.infoContainer}>
+      <View style={styles.infoContainer}>
+        <Text>{home?.property?.name}</Text>
+        <View style={styles.detailsContainer}>
           <View style={styles.infoItem}>
             <Feather name="home" size={16} color="#333" style={styles.icon} />
             <Text style={styles.infoText}>{rooms}</Text>
@@ -67,5 +68,12 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
+    flex: 1,
+  },
+  infoContainer: {
+    flex: 1,
+  },
+  detailsContainer: {
+    flexDirection: "row",
   },
 });

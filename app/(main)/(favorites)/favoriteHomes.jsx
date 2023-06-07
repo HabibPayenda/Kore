@@ -34,9 +34,10 @@ const favoriteHomes = () => {
           header: () => <FavoritesHeader />,
         }}
       />
-      <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+      <ScrollView
+        style={{ flex: 1, backgroundColor: "white", paddingVertical: 12 }}
+      >
         <View style={styles.container}>
-          <Text style={styles.subTitle}>کورونه</Text>
           {user?.homes?.length > 0 ? (
             <FlatList
               horizontal
@@ -62,5 +63,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
+    paddingVertical: 12,
   },
 });
