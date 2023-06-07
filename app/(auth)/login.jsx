@@ -123,9 +123,10 @@ const styles = StyleSheet.create({
   },
   input: {
     color: COLORS.primary,
-    backgroundColor: COLORS.lightWhite,
+    backgroundColor: "#fdfdfd",
     width: "80%",
     padding: 5,
+    elevation: 1,
   },
   socialMediaLogin: {
     alignItems: "center",
@@ -157,14 +158,18 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: COLORS.primary,
-    paddingVertical: 0,
+    paddingVertical: 5,
     paddingHorizontal: SIZES.xSmall,
     borderRadius: 3,
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   btnText: {
     color: COLORS.lightWhite,
     textTransform: "uppercase",
     fontFamily: FONT.regular,
+    fontSize: SIZES.small,
   },
   regester: {
     color: COLORS.primary,
