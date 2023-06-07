@@ -11,7 +11,9 @@ const SignUp = () => {
           headerShown: false,
         }}
       />
-      <Text>SignUp</Text>
+      <View>
+        <Text>Sign UP</Text>
+      </View>
     </SafeAreaView>
   );
 };

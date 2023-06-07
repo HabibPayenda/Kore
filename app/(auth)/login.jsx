@@ -6,6 +6,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Pressable,
+  Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,7 +15,8 @@ import { TextInput } from "react-native-gesture-handler";
 import { COLORS, FONT, SIZES } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { localSignIn, signIn } from "../../data/userSlice/userSlice";
-
+import googleLogo from "../../assets/images/google.png";
+import facebookLogo from "../../assets/images/facebook.png";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -57,26 +59,37 @@ const Login = () => {
           }}
         />
         <View style={styles.container}>
-          <Text style={styles.title}>Kore</Text>
+          <Text style={styles.title}>کور</Text>
           <View style={styles.inputsContainer}>
             <TextInput
               value={username}
               onChangeText={(value) => setUsername(value)}
               style={styles.input}
-              placeholder="Username"
+              placeholder="د کاروونکي نوم"
             />
             <TextInput
               value={password}
               onChangeText={(value) => setPassword(value)}
               style={styles.input}
-              placeholder="Password"
+              placeholder="پټه کلیمه"
             />
             <TouchableOpacity onPress={handleLogin} style={styles.btn}>
-              <Text style={styles.btnText}>Login</Text>
+              <Text style={styles.btnText}>ننوتل</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.socialMediaLogin}>
+            <Text>د دغه حسابونو په مرسته ننوزئ</Text>
+            <View style={styles.socialMediaIcons}>
+              <Pressable>
+                <Image style={styles.socialMediaIcon} source={googleLogo} />
+              </Pressable>
+              <Pressable>
+                <Image style={styles.socialMediaIcon} source={facebookLogo} />
+              </Pressable>
+            </View>
+          </View>
           <Pressable onPress={() => navigation.navigate("(auth)/signUp")}>
-            <Text style={styles.regester}>Create a new account</Text>
+            <Text style={styles.regester}>نوی حساب جوړ کړئ</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -110,6 +123,21 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightWhite,
     width: "80%",
     padding: 5,
+  },
+  socialMediaLogin: {
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+  },
+  socialMediaIcons: {
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  socialMediaIcon: {
+    height: 30,
+    width: 30,
   },
   btn: {
     backgroundColor: COLORS.primary,
