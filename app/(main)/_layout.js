@@ -31,6 +31,12 @@ const Layout = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="favorites"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 };
