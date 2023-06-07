@@ -56,6 +56,7 @@ const Login = () => {
         <Stack.Screen
           options={{
             headerShown: false,
+            animation: "slide_from_left",
           }}
         />
         <View style={styles.container}>
@@ -169,5 +170,6 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontFamily: FONT.regular,
     fontSize: SIZES.small,
+    marginTop: 30,
   },
 });

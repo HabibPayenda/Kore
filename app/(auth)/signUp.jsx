@@ -9,6 +9,7 @@ const SignUp = () => {
       <Stack.Screen
         options={{
           headerShown: false,
+          animation: "slide_from_left",
         }}
       />
       <View>
