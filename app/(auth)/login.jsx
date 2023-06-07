@@ -5,6 +5,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -74,7 +75,9 @@ const Login = () => {
               <Text style={styles.btnText}>Login</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.regester}>Regester a new account</Text>
+          <Pressable onPress={() => navigation.navigate("(auth)/signUp")}>
+            <Text style={styles.regester}>Create a new account</Text>
+          </Pressable>
         </View>
       </ScrollView>
     </SafeAreaView>
