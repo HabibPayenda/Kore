@@ -1,14 +1,55 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import React from "react";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { COLORS, FONT } from "../../../constants";
 
 const SearchResultFilters = () => {
   return (
-    <View>
-      <Text>SearchResultFilters</Text>
+    <View style={styles.container}>
+      <Pressable style={styles.filterItem}>
+        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
+        <Text style={styles.filterItemText}>قیمت</Text>
+      </Pressable>
+      <Pressable style={styles.filterItem}>
+        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
+        <Text style={styles.filterItemText}>ملکیت</Text>
+      </Pressable>
+      <Pressable style={styles.filterItem}>
+        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
+        <Text style={styles.filterItemText}>موقعیت</Text>
+      </Pressable>
     </View>
   );
 };
 
 export default SearchResultFilters;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    height: 40,
+    flexGrow: 0,
+    backgroundColor: "white",
+    borderColor: "#eee",
+    borderBottomWidth: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    paddingHorizontal: 12,
+    gap: 12,
+    flexDirection: "row",
+  },
+  contentContainer: {},
+  filterItem: {
+    borderColor: "#ddd",
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+    borderRadius: 6,
+  },
+  filterItemText: {
+    fontFamily: FONT.regular,
+    fontSize: 12,
+    color: COLORS.primary,
+  },
+});

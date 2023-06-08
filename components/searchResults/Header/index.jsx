@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     paddingHorizontal: 12,
     gap: 12,
-    paddingTop: 12,
+    paddingVertical: 12,
   },
   input: {
     flex: 1,
