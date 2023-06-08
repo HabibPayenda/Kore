@@ -24,7 +24,6 @@ const Login = () => {
   const router = useRouter();
 
   const token = useSelector((state) => state.user.token);
-  console.log("token in login :  ", token);
 
   useEffect(() => {
     dispatch(localSignIn());
@@ -126,6 +125,7 @@ const styles = StyleSheet.create({
   subTitle: {
     alignSelf: "flex-end",
     fontFamily: FONT.regular,
+    color: COLORS.primary,
   },
   input: {
     color: COLORS.primary,
