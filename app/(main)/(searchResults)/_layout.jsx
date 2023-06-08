@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-const FavoritesLayout = () => {
+const SearchResultsLayout = () => {
   return (
     <Stack
       initialRouteName="searchResults"
@@ -11,4 +11,4 @@ const FavoritesLayout = () => {
   );
 };
 
-export default FavoritesLayout;
+export default SearchResultsLayout;
