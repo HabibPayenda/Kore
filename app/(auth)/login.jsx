@@ -63,12 +63,15 @@ const Login = () => {
           <View style={styles.inputsContainer}>
             <Text style={styles.subTitle}>خپل حساب ته ننوزئ</Text>
             <TextInput
+              textAlign="right"
               value={username}
               onChangeText={(value) => setUsername(value)}
               style={styles.input}
               placeholder="د کاروونکي نوم"
             />
             <TextInput
+              textAlign="right"
+              secureTextEntry
               value={password}
               onChangeText={(value) => setPassword(value)}
               style={styles.input}

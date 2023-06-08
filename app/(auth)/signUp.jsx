@@ -73,6 +73,7 @@ const SignUp = () => {
               onChangeText={(value) => setPassword(value)}
               style={styles.input}
               placeholder="پټه کلیمه"
+              secureTextEntry
             />
             <TextInput
               textAlign="right"
@@ -80,6 +81,7 @@ const SignUp = () => {
               onChangeText={(value) => setConfirmPassword(value)}
               style={styles.input}
               placeholder=" د پټې کلیمې تائید"
+              secureTextEntry
             />
             <TouchableOpacity onPress={handleSignUp} style={styles.btn}>
               <Text style={styles.btnText}>جوړول</Text>
