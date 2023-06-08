@@ -91,7 +91,7 @@ const Login = () => {
               </Pressable>
             </View>
           </View>
-          <Pressable onPress={() => navigation.navigate("(auth)/signUp")}>
+          <Pressable onPress={() => navigation.navigate("signUp")}>
             <Text style={styles.regester}>او یا هم نوی حساب جوړ کړئ</Text>
           </Pressable>
         </View>
