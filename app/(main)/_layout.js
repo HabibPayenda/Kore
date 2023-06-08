@@ -42,6 +42,7 @@ const Layout = () => {
         name="searchResults"
         options={{
           header: () => <SearchResultsHeader />,
+          animation: "slide_from_right",
         }}
       />
     </Stack>
