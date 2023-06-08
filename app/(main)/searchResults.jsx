@@ -1,14 +1,16 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import SearchResultFilters from "../../components/searchResults/Filter";
 
 const SearchResults = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <>
+      <SearchResultFilters />
       <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
         <Text>SearchResults</Text>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
