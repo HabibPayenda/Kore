@@ -1,3 +1,4 @@
+import SearchResultsHeader from "../../components/searchResults/Header";
 import { COLORS } from "../../constants";
 import { Stack } from "expo-router";
 
@@ -35,6 +36,12 @@ const Layout = () => {
         name="(favorites)"
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="searchResults"
+        options={{
+          header: () => <SearchResultsHeader />,
         }}
       />
     </Stack>
