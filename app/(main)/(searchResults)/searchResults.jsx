@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SearchResultFilters from "../../components/searchResults/Filter";
+import SearchResultFilters from "../../../../components/searchResults/Filter";
 
 const SearchResults = () => {
   return (
