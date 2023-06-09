@@ -12,7 +12,10 @@ const SearchResultFilters = () => {
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
         <Text style={styles.filterItemText}>قیمت</Text>
       </Pressable>
-      <Pressable style={styles.filterItem}>
+      <Pressable
+        onPress={() => router.push("propertyFilter")}
+        style={styles.filterItem}
+      >
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
         <Text style={styles.filterItemText}>ملکیت</Text>
       </Pressable>
