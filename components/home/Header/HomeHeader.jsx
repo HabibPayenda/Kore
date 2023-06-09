@@ -5,6 +5,7 @@ import ScreenHeaderBtn from "../../common/header/ScreenHeaderBtn";
 import { icons, images } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
+import HomeFilter from "../Filter/HomeFilter";
 
 const HomeHeader = ({ setSidebarShown }) => {
   return (
@@ -19,6 +20,7 @@ const HomeHeader = ({ setSidebarShown }) => {
           />
         </View>
         <WelcomeMessage />
+        <HomeFilter />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -32,6 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     borderBottomLeftRadius: 120,
     borderBottomRightRadius: 120,
+    position: "relative",
   },
   containerTop: {
     flexDirection: "row",
