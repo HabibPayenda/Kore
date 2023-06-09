@@ -8,7 +8,10 @@ const SearchResultFilters = () => {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <Pressable style={styles.filterItem}>
+      <Pressable
+        onPress={() => router.push("priceFilter")}
+        style={styles.filterItem}
+      >
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
         <Text style={styles.filterItemText}>قیمت</Text>
       </Pressable>
