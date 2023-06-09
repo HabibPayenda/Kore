@@ -4,11 +4,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.gray2,
+    backgroundColor: "#f1f1f1",
     borderRadius: SIZES.xSmall,
-    paddingVertical: SIZES.xSmall,
+    paddingVertical: 3,
     paddingHorizontal: SIZES.small,
     marginTop: SIZES.small,
+    elevation: 2,
   },
   icon: {
     marginLeft: SIZES.medium,
