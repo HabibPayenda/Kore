@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../data/homesSlice";
 import { getAllCars } from "../../data/carsSlice/carsSlice";
 import { getUser } from "../../data/userSlice/userSlice";
+import { LinearGradient } from "expo-linear-gradient";
+import HomeHeader from "../../components/home/Header/HomeHeader";
 
 const Home = () => {
   const [sidebarShown, setSidebarShown] = useState(false);
@@ -46,16 +48,8 @@ const Home = () => {
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerShown: !sidebarShown,
-          headerLeft: () => (
-            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-          ),
-          headerRight: () => (
-            <ScreenHeaderBtn
-              iconUrl={icons.menu}
-              handlePress={() => setSidebarShown(true)}
-              dimension="60%"
-            />
-          ),
+          header: () => <HomeHeader setSidebarShown={setSidebarShown} />,
+
           headerTitle: "",
         }}
       />
