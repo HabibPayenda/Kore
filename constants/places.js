@@ -1,11 +1,7 @@
 export const KabulPlaces = {
-  Adalat: "عدالت",
   "Ahmad Shah Baba Mina": "احمد شاه بابا مینه",
   "Arzan Qimat": "ارزان قیمت",
-  "Arzan Qimat-e-Se": "ارزان قیمت سه",
-  Bagrami: "بگرامی",
   "Bagh-e Bala": "باغ بالا",
-  Baghlan: "بغلان",
   Banayi: "بنایی",
   "Chahar Qala": "چهار قلعه",
   Chardehi: "چاردهی",

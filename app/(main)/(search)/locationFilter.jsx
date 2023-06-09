@@ -1,5 +1,12 @@
-import { Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
-import React from "react";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TextInput,
+} from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
 import { COLORS, FONT } from "../../../constants";
@@ -7,14 +14,26 @@ import { KabulPlaces } from "../../../constants/places";
 
 const locationFilter = () => {
   const navigation = useNavigation();
+
+  const [searchTerm, setSearchTerm] = useState("");
   const renderItems = () => {
     let items = [];
     for (let key in KabulPlaces) {
-      items.push(
-        <Pressable style={styles.filterItem}>
-          <Text>{KabulPlaces[key]}</Text>
-        </Pressable>
-      );
+      if (searchTerm !== "") {
+        if (KabulPlaces[key].includes(searchTerm)) {
+          items.push(
+            <Pressable style={styles.filterItem}>
+              <Text style={styles.filterItemText}>{KabulPlaces[key]}</Text>
+            </Pressable>
+          );
+        }
+      } else {
+        items.push(
+          <Pressable style={styles.filterItem}>
+            <Text style={styles.filterItemText}>{KabulPlaces[key]}</Text>
+          </Pressable>
+        );
+      }
     }
     return items;
   };
@@ -27,6 +46,12 @@ const locationFilter = () => {
       ></Pressable>
       <View style={styles.contentContainer}>
         <Text style={styles.title}>موقعیت</Text>
+        <TextInput
+          value={searchTerm}
+          onChangeText={(value) => setSearchTerm(value)}
+          style={styles.input}
+          placeholder="د ځای پلټنه"
+        />
         <View style={styles.filterItemsContainer}>
           <ScrollView
             contentContainerStyle={styles.scrollViewContentContainer}
@@ -63,12 +88,23 @@ const styles = StyleSheet.create({
   },
   filterItemsContainer: {
     width: "80%",
-    borderColor: "#bbb",
+    borderColor: "#eee",
     borderWidth: 1,
     borderRadius: 8,
     flex: 1,
     overflow: "hidden",
     marginVertical: 12,
+  },
+  input: {
+    backgroundColor: "#f5f5f5",
+    height: 30,
+    elevation: 1,
+    padding: 0,
+    paddingHorizontal: 12,
+    textAlign: "right",
+    width: "80%",
+    marginTop: 12,
+    borderRadius: 5,
   },
   scrollView: {
     flex: 1,
@@ -81,10 +117,13 @@ const styles = StyleSheet.create({
   },
   filterItem: {
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 5,
     width: "100%",
-    backgroundColor: "#f1f1f1",
-    borderColor: "#ddd",
+    backgroundColor: "#fafafa",
+    borderColor: "#eee",
     borderWidth: 1,
+  },
+  filterItemText: {
+    color: COLORS.gray,
   },
 });
