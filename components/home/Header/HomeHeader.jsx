@@ -14,9 +14,9 @@ const HomeHeader = ({ setSidebarShown }) => {
         <View style={styles.containerTop}>
           <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
           <ScreenHeaderBtn
-            iconUrl={icons.menu}
+            iconUrl={images.menu}
             handlePress={() => setSidebarShown(true)}
-            dimension="60%"
+            dimension="80%"
           />
         </View>
         <WelcomeMessage />
