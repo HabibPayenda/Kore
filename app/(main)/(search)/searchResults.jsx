@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
-import SearchResultFilters from "../../../../components/searchResults/Filter";
+import SearchResultFilters from "../../../components/searchResults/Filter";
 
 const SearchResults = () => {
   return (

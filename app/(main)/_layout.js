@@ -39,10 +39,9 @@ const Layout = () => {
         }}
       />
       <Stack.Screen
-        name="searchResults"
+        name="(search)"
         options={{
-          header: () => <SearchResultsHeader />,
-          animation: "slide_from_right",
+          headerShown: false,
         }}
       />
     </Stack>

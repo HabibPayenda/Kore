@@ -2,8 +2,10 @@ import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { COLORS, FONT } from "../../../constants";
+import { useRouter } from "expo-router";
 
 const SearchResultFilters = () => {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <Pressable style={styles.filterItem}>
@@ -14,7 +16,10 @@ const SearchResultFilters = () => {
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
         <Text style={styles.filterItemText}>ملکیت</Text>
       </Pressable>
-      <Pressable style={styles.filterItem}>
+      <Pressable
+        onPress={() => router.push("locationFilter")}
+        style={styles.filterItem}
+      >
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
         <Text style={styles.filterItemText}>موقعیت</Text>
       </Pressable>

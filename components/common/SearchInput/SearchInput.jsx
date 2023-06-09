@@ -7,7 +7,7 @@ import { useNavigation } from "expo-router";
 const SearchInput = ({ value, placeholder, onChange, onClick }) => {
   const navigation = useNavigation();
   const handleSearch = () => {
-    navigation.navigate("searchResults");
+    navigation.navigate("(search)");
   };
   return (
     <View style={styles.container}>
