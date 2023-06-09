@@ -62,7 +62,6 @@ const Home = () => {
           }}
         >
           <PopularHomesList homes={homes} />
-
           <PopularCarsList cars={cars} />
         </View>
       </ScrollView>

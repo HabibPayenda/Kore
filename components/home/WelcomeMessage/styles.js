@@ -3,8 +3,9 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    alignItems: "flex-end",
+    paddingTop: 16,
+    paddingBottom: 24,
+    alignItems: "center",
     borderRadius: 12,
   },
   title: {

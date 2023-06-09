@@ -27,12 +27,18 @@ const HomeHeader = ({ setSidebarShown }) => {
 export default HomeHeader;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    borderBottomLeftRadius: 120,
+    borderBottomRightRadius: 120,
+  },
   containerTop: {
     flexDirection: "row",
     paddingVertical: 5,
     paddingHorizontal: 12,
     alignItems: "center",
     justifyContent: "space-between",
+    width: "100%",
   },
 });
