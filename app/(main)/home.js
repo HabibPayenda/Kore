@@ -61,7 +61,6 @@ const Home = () => {
             padding: SIZES.medium,
           }}
         >
-          <WelcomeMessage name={"حبیب"} />
           <PopularHomesList homes={homes} />
 
           <PopularCarsList cars={cars} />

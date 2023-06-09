@@ -3,7 +3,6 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.lightWhite,
     padding: 16,
     alignItems: "flex-end",
     borderRadius: 12,
