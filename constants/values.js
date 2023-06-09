@@ -32,3 +32,10 @@ export const YEARS = [
   { label: "2022", value: "2022" },
   { label: "2023", value: "2023" },
 ];
+
+export const PropertyTypes = {
+  home: "کور",
+  car: "موټر",
+  land: "ځمکه",
+  warehouse: "ګودام",
+};
