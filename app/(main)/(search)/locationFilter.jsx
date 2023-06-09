@@ -22,14 +22,14 @@ const locationFilter = () => {
       if (searchTerm !== "") {
         if (KabulPlaces[key].includes(searchTerm)) {
           items.push(
-            <Pressable style={styles.filterItem}>
+            <Pressable key={key} style={styles.filterItem}>
               <Text style={styles.filterItemText}>{KabulPlaces[key]}</Text>
             </Pressable>
           );
         }
       } else {
         items.push(
-          <Pressable style={styles.filterItem}>
+          <Pressable key={key} style={styles.filterItem}>
             <Text style={styles.filterItemText}>{KabulPlaces[key]}</Text>
           </Pressable>
         );
