@@ -21,7 +21,7 @@ const SearchResultFilters = () => {
         style={styles.filterItem}
       >
         <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
-        <Text style={styles.filterItemText}>موقعیت</Text>
+        <Text style={styles.filterItemText}>ځای</Text>
       </Pressable>
     </View>
   );

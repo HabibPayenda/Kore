@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
-import { COLORS, FONT } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 import { KabulPlaces } from "../../../constants/places";
 
 const locationFilter = () => {
@@ -45,7 +45,7 @@ const locationFilter = () => {
         style={styles.container}
       ></Pressable>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>موقعیت</Text>
+        <Text style={styles.title}>د خوښې ځای مو انتخاب کړئ</Text>
         <TextInput
           value={searchTerm}
           onChangeText={(value) => setSearchTerm(value)}
@@ -80,11 +80,14 @@ const styles = StyleSheet.create({
     padding: 12,
     alignItems: "center",
     justifyContent: "center",
+    borderColor: "#ddd",
+    borderTopWidth: 1,
   },
   title: {
     fontFamily: FONT.regular,
     color: COLORS.primary,
     alignSelf: "flex-end",
+    fontSize: SIZES.small,
   },
   filterItemsContainer: {
     width: "80%",
