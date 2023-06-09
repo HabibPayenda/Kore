@@ -38,7 +38,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 6,
+    elevation: 3,
+    borderColor: "#fafafa",
+    borderWidth: 1,
   },
   item1: {
     backgroundColor: "#00a7fa",
