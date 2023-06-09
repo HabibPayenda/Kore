@@ -29,7 +29,7 @@ const Home = () => {
       router.replace("(auth)/login");
     } else {
       dispatch(getUser(user?.id));
-      // router.replace("(favorites)/favoriteHomes");
+      router.replace("(search)/locationFilter");
     }
   }, [token]);
 
