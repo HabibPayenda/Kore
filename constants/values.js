@@ -39,3 +39,28 @@ export const PropertyTypes = {
   land: "ځمکه",
   warehouse: "ګودام",
 };
+
+export const Prices = {
+  propertyPrices: [
+    {
+      from: 0,
+      to: 1000,
+    },
+    {
+      from: 1000,
+      to: 10000,
+    },
+    {
+      from: 10000,
+      to: 100000,
+    },
+    {
+      from: 100000,
+      to: 1000000,
+    },
+    {
+      from: 1000000,
+      to: 10000000,
+    },
+  ],
+};
