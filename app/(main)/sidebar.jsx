@@ -1,22 +1,12 @@
 import React from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  SafeAreaView,
-} from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import { Dimensions, StyleSheet, View } from "react-native";
+
 import { COLORS } from "../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import SidebarItemsList from "../../components/home/SidebarItemsList/SidebarItemsList";
-import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -28,9 +18,12 @@ const Sidebar = () => {
             <View style={[{ height: "100%", width: "100%" }]}></View>
           </TouchableWithoutFeedback>
         </View>
-        <View style={[styles.sidebar]}>
+        <LinearGradient
+          colors={["#8489c2", "#7453a0"]}
+          style={[styles.sidebar]}
+        >
           <SidebarItemsList />
-        </View>
+        </LinearGradient>
       </View>
     </SafeAreaView>
   );
@@ -41,9 +34,8 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   backgroundContainer: {
-    height: Dimensions.get("window").height - StatusBar.length,
+    height: Dimensions.get("window").height,
     width: Dimensions.get("window").width,
-    backgroundColor: COLORS.lightWhite,
     position: "absolute",
     opacity: 0.8,
   },
@@ -52,9 +44,9 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     width: Dimensions.get("window").width - 100,
-    height: Dimensions.get("window").height - 20,
-    backgroundColor: "gray",
-    marginTop: 40,
+    height: Dimensions.get("window").height,
+    borderColor: "#fafafa",
+    borderLeftWidth: 1,
   },
   button: {
     backgroundColor: "white",

@@ -110,7 +110,6 @@ const SidebarItemsList = ({ user }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.lightWhite,
     width: "100%",
     height: "100%",
   },
