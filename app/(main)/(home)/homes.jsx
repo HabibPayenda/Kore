@@ -53,7 +53,6 @@ const Homes = () => {
           }}
         >
           <PopularHomesList homes={homes} />
-          <PopularCarsList cars={cars} />
         </View>
       </ScrollView>
     </SafeAreaView>

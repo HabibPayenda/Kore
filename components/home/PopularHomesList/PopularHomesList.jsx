@@ -9,12 +9,10 @@ import {
 import styles from "./PopularHomesListStyles";
 import PopularHomesCard from "../PopularHomesCard/PopularHomesCard";
 import { useNavigation } from "expo-router";
+import { SIZES } from "../../../constants";
+import { LinearGradient } from "expo-linear-gradient";
 
 const PopularHomesList = ({ homes }) => {
-  const handleViewAll = () => {
-    console.log("View All");
-  };
-
   const navigation = useNavigation();
 
   const renderItem = ({ item }) => {
@@ -28,10 +26,7 @@ const PopularHomesList = ({ homes }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleViewAll}>
-          <Text style={styles.link}>ټول</Text>
-        </TouchableOpacity>
-        <Text style={styles.title}>مشهور کورونه</Text>
+        <Text style={styles.title}>ډېر لیدل شوي کورنه</Text>
       </View>
       <FlatList
         data={homes}
@@ -39,7 +34,10 @@ const PopularHomesList = ({ homes }) => {
         renderItem={renderItem}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ gap: 10 }}
+        contentContainerStyle={{
+          gap: 10,
+          paddingVertical: SIZES.small,
+        }}
         snapToInterval={200 + 10}
       />
     </View>
