@@ -7,20 +7,20 @@ import {
   View,
   ScrollView,
 } from "react-native";
+
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import Animated from "react-native-reanimated";
 
 import userImage from "../../../assets/images/user.jpg";
 import { COLORS, FONT, SIZES } from "../../../constants";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../../data/userSlice/userSlice";
+import { Pressable } from "react-native";
 
 const data = [
-  { title: "لومړۍ صفحه", icon: "home", link: "Home" },
   { title: "پروفایل", icon: "user", link: "userProfile" },
   { title: "تنظیمات", icon: "setting", link: "settings" },
   { title: "خبرتیاوې", icon: "notification", link: "notifications" },
@@ -28,11 +28,12 @@ const data = [
   { title: "پیغامونه", icon: "message1", link: "Messages" },
 ];
 
-const SidebarItemsList = ({ user }) => {
+const SidebarItemsList = () => {
   const navigation = useNavigation();
   const [collapsed, setCollapsed] = React.useState(false);
   const toggleCollapse = () => setCollapsed(!collapsed);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const renderMenuItem = (title, icon, link) => (
     <TouchableOpacity
@@ -51,15 +52,13 @@ const SidebarItemsList = ({ user }) => {
 
     return (
       <View>
-        <TouchableOpacity style={styles.menuItem} onPress={toggleCollapse}>
-          <Text style={styles.menuItemText}>لینکونه</Text>
-          <AntDesign name="menu-fold" size={20} color={COLORS.secondary} />
-        </TouchableOpacity>
-        <Animated.View
-          style={[styles.links, { height: collapsed ? 0 : links.length * 50 }]}
-        >
+        <TouchableOpacity
+          style={styles.menuItem}
+          onPress={toggleCollapse}
+        ></TouchableOpacity>
+        <View style={[styles.links, { height: links.length * 50 }]}>
           {links}
-        </Animated.View>
+        </View>
       </View>
     );
   };
@@ -102,6 +101,9 @@ const SidebarItemsList = ({ user }) => {
           <Text style={styles.userLocation}>{"Kabul, Afghanistan"}</Text>
         </View>
         <View style={styles.cornerCircle}></View>
+        <Pressable style={styles.backIcon} onPress={() => router.back()}>
+          <Ionicons name="arrow-back" size={24} color="#7453a0" />
+        </Pressable>
       </View>
       <View style={styles.menu}>
         {renderLinksSection()}
@@ -121,7 +123,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: SIZES.large,
-    borderTopWidth: 1,
     backgroundColor: "#fafafa",
     position: "relative",
     borderBottomLeftRadius: 25,
@@ -146,6 +147,13 @@ const styles = StyleSheet.create({
     bottom: -20,
     left: 30,
     zIndex: -10,
+  },
+  backIcon: {
+    transform: [{ rotate: "180deg" }],
+    alignSelf: "flex-start",
+    position: "absolute",
+    right: 12,
+    top: 12,
   },
   userLocation: {
     color: COLORS.secondary,
@@ -173,7 +181,6 @@ const styles = StyleSheet.create({
   links: {
     overflow: "hidden",
     marginBottom: 30,
-    marginRight: SIZES.xLarge,
   },
 });
 

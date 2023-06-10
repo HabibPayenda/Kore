@@ -47,8 +47,6 @@ const styles = StyleSheet.create({
     right: 0,
     width: Dimensions.get("window").width - 100,
     height: Dimensions.get("window").height,
-    borderTopLeftRadius: 25,
-    borderBottomLeftRadius: 25,
     overflow: "hidden",
   },
   button: {
