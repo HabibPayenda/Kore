@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     overflow: "hidden",
     marginVertical: 12,
+    backgroundColor: "#fafafa",
   },
   input: {
     backgroundColor: "#f5f5f5",
