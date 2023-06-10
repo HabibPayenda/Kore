@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.xSmall,
     paddingVertical: 3,
     paddingHorizontal: SIZES.small,
-    marginTop: SIZES.small,
     elevation: 2,
     width: "80%",
   },

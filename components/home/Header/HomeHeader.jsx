@@ -31,11 +31,11 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "space-around",
+    gap: 0,
     borderBottomLeftRadius: 120,
     borderBottomRightRadius: 120,
     position: "relative",
-    marginBottom: 28,
+    marginBottom: 32,
     backgroundColor: "white",
   },
   containerTop: {
