@@ -3,31 +3,38 @@ import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { COLORS, FONT } from "../../../constants";
 import { useRouter } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
 
 const SearchResultFilters = () => {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() => router.push("priceFilter")}
-        style={styles.filterItem}
-      >
-        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
-        <Text style={styles.filterItemText}>قیمت</Text>
+      <Pressable onPress={() => router.push("priceFilter")}>
+        <LinearGradient
+          style={styles.filterItem}
+          colors={["#fd8579", "#ff4d85"]}
+        >
+          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
+          <Text style={styles.filterItemText}>قیمت</Text>
+        </LinearGradient>
       </Pressable>
-      <Pressable
-        onPress={() => router.push("propertyFilter")}
-        style={styles.filterItem}
-      >
-        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
-        <Text style={styles.filterItemText}>ملکیت</Text>
+      <Pressable onPress={() => router.push("propertyFilter")}>
+        <LinearGradient
+          style={styles.filterItem}
+          colors={["#fd8579", "#ff4d85"]}
+        >
+          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
+          <Text style={styles.filterItemText}>ملکیت</Text>
+        </LinearGradient>
       </Pressable>
-      <Pressable
-        onPress={() => router.push("locationFilter")}
-        style={styles.filterItem}
-      >
-        <FontAwesome5 name="chevron-down" size={12} color={COLORS.primary} />
-        <Text style={styles.filterItemText}>ځای</Text>
+      <Pressable onPress={() => router.push("locationFilter")}>
+        <LinearGradient
+          style={styles.filterItem}
+          colors={["#fd8579", "#ff4d85"]}
+        >
+          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
+          <Text style={styles.filterItemText}>ځای</Text>
+        </LinearGradient>
       </Pressable>
     </View>
   );
@@ -49,18 +56,25 @@ const styles = StyleSheet.create({
   },
   contentContainer: {},
   filterItem: {
-    borderColor: "#ddd",
-    borderWidth: 1,
     paddingHorizontal: 8,
     flexDirection: "row",
     gap: 5,
     alignItems: "center",
     borderRadius: 6,
-    backgroundColor: "#fff",
+    elevation: 6,
+  },
+  filterItem1: {
+    backgroundColor: "#00a7fa",
+  },
+  filterItem2: {
+    backgroundColor: "#ff9633",
+  },
+  filterItem3: {
+    backgroundColor: "#6722ff",
   },
   filterItemText: {
     fontFamily: FONT.regular,
     fontSize: 12,
-    color: COLORS.primary,
+    color: "#fafafa",
   },
 });
