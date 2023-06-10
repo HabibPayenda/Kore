@@ -17,7 +17,11 @@ const HomeFilter = () => {
           pathname === "/warehouses" && styles.itemActive,
         ]}
       >
-        <MaterialCommunityIcons name="warehouse" size={24} color="#fafafa" />
+        <MaterialCommunityIcons
+          name="warehouse"
+          size={pathname === "/warehouses" ? 28 : 24}
+          color="#fafafa"
+        />
       </Link>
       <Link
         href="lands"
@@ -27,7 +31,11 @@ const HomeFilter = () => {
           pathname === "/lands" && styles.itemActive,
         ]}
       >
-        <MaterialIcons name="landscape" size={28} color="#fafafa" />
+        <MaterialIcons
+          name="landscape"
+          size={pathname === "/lands" ? 32 : 28}
+          color="#fafafa"
+        />
       </Link>
       <Link
         href="cars"
@@ -37,7 +45,11 @@ const HomeFilter = () => {
           pathname === "/cars" && styles.itemActive,
         ]}
       >
-        <AntDesign name="car" size={24} color="#fafafa" />
+        <AntDesign
+          name="car"
+          size={pathname === "/cars" ? 28 : 24}
+          color="#fafafa"
+        />
       </Link>
       <Link
         href="homes"
@@ -47,7 +59,11 @@ const HomeFilter = () => {
           pathname === "/homes" && styles.itemActive,
         ]}
       >
-        <AntDesign name="home" size={24} color="#fafafa" />
+        <AntDesign
+          name="home"
+          size={pathname === "/homes" ? 28 : 24}
+          color="#fafafa"
+        />
       </Link>
     </View>
   );
