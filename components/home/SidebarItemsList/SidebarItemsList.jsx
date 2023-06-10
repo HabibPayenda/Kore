@@ -101,9 +101,12 @@ const SidebarItemsList = ({ user }) => {
           <Text style={styles.userName}>{"Habib Payenda"}</Text>
           <Text style={styles.userLocation}>{"Kabul, Afghanistan"}</Text>
         </View>
+        <View style={styles.cornerCircle}></View>
       </View>
-      {renderLinksSection()}
-      {renderMenuSection()}
+      <View style={styles.menu}>
+        {renderLinksSection()}
+        {renderMenuSection()}
+      </View>
     </View>
   );
 };
@@ -118,9 +121,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: SIZES.large,
-    borderColor: "#ddd",
-    borderBottomWidth: 1,
     borderTopWidth: 1,
+    backgroundColor: "#fafafa",
+    position: "relative",
+    borderBottomLeftRadius: 25,
   },
   userImage: {
     width: 50,
@@ -133,9 +137,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: FONT.regular,
   },
+  cornerCircle: {
+    height: 60,
+    width: 60,
+    backgroundColor: "#fafafa",
+    borderRadius: 30,
+    position: "absolute",
+    bottom: -20,
+    left: 30,
+    zIndex: -10,
+  },
   userLocation: {
     color: COLORS.secondary,
     fontSize: 14,
+  },
+  menu: {
+    width: "80%",
+    backgroundColor: "#fafafa",
+    alignSelf: "flex-end",
+    flex: 1,
   },
   menuItem: {
     flexDirection: "row",

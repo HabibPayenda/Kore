@@ -18,12 +18,14 @@ const Sidebar = () => {
             <View style={[{ height: "100%", width: "100%" }]}></View>
           </TouchableWithoutFeedback>
         </View>
-        <LinearGradient
+        {/* <LinearGradient
           colors={["#8489c2", "#7453a0"]}
           style={[styles.sidebar]}
-        >
+        > */}
+        <View style={styles.sidebar}>
           <SidebarItemsList />
-        </LinearGradient>
+        </View>
+        {/* </LinearGradient> */}
       </View>
     </SafeAreaView>
   );
@@ -45,8 +47,9 @@ const styles = StyleSheet.create({
     right: 0,
     width: Dimensions.get("window").width - 100,
     height: Dimensions.get("window").height,
-    borderColor: "#fafafa",
-    borderLeftWidth: 1,
+    borderTopLeftRadius: 25,
+    borderBottomLeftRadius: 25,
+    overflow: "hidden",
   },
   button: {
     backgroundColor: "white",
