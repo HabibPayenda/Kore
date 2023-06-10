@@ -9,12 +9,26 @@ const HomeFilter = () => {
   const pathname = usePathname();
   return (
     <View style={styles.container}>
-      <Pressable style={[styles.item, styles.item4]}>
+      <Link
+        href="warehouses"
+        style={[
+          styles.item,
+          styles.item4,
+          pathname === "/warehouses" && styles.itemActive,
+        ]}
+      >
         <MaterialCommunityIcons name="warehouse" size={24} color="#fafafa" />
-      </Pressable>
-      <Pressable style={[styles.item, styles.item3]}>
+      </Link>
+      <Link
+        href="lands"
+        style={[
+          styles.item,
+          styles.item3,
+          pathname === "/lands" && styles.itemActive,
+        ]}
+      >
         <MaterialIcons name="landscape" size={28} color="#fafafa" />
-      </Pressable>
+      </Link>
       <Link
         href="cars"
         style={[
