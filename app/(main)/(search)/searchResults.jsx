@@ -5,7 +5,9 @@ import SearchResultFilters from "../../../components/searchResults/Filter";
 const SearchResults = () => {
   return (
     <>
-      <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
+      <ScrollView
+        style={{ backgroundColor: "#fafafa", paddingTop: 16, flex: 1 }}
+      >
         <Text>SearchResults</Text>
       </ScrollView>
     </>

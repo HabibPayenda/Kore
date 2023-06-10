@@ -39,14 +39,13 @@ const styles = StyleSheet.create({
   container: {
     height: 40,
     flexGrow: 0,
-    backgroundColor: "white",
-    borderColor: "#eee",
-    borderBottomWidth: 1,
     alignItems: "center",
     justifyContent: "flex-end",
     paddingHorizontal: 12,
     gap: 12,
     flexDirection: "row",
+    position: "absolute",
+    bottom: -20,
   },
   contentContainer: {},
   filterItem: {
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
     gap: 5,
     alignItems: "center",
     borderRadius: 6,
+    backgroundColor: "#fff",
   },
   filterItemText: {
     fontFamily: FONT.regular,

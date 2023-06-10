@@ -10,7 +10,7 @@ import SearchResultFilters from "../Filter";
 const SearchResultsHeader = () => {
   const router = useRouter();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <LinearGradient
         colors={["#8489c2", "#7453a0"]}
         style={styles.contentContainer}
@@ -18,7 +18,7 @@ const SearchResultsHeader = () => {
         <View style={styles.containerTop}>
           <TextInput style={styles.input} placeholder="د څه په لټه کې یاست؟" />
           <Pressable style={styles.backIcon} onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={24} color={COLORS.primary} />
+            <Ionicons name="arrow-back" size={24} color="#fafafa" />
           </Pressable>
         </View>
         <SearchResultFilters />
@@ -31,12 +31,7 @@ export default SearchResultsHeader;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    paddingHorizontal: 12,
-    gap: 12,
-    paddingVertical: 12,
+    backgroundColor: "#fafafa",
   },
   contentContainer: {
     alignItems: "center",
@@ -44,7 +39,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 120,
     borderBottomRightRadius: 120,
     position: "relative",
-    marginBottom: 32,
+    paddingBottom: 52,
     backgroundColor: "white",
   },
   containerTop: {
