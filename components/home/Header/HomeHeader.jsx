@@ -6,8 +6,10 @@ import { icons, images } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
 import HomeFilter from "../Filter/HomeFilter";
+import { useNavigation } from "expo-router";
 
 const HomeHeader = ({ setSidebarShown }) => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ backgroundColor: "#fafafa" }}>
       <LinearGradient colors={["#8489c2", "#7453a0"]} style={styles.container}>
@@ -15,7 +17,7 @@ const HomeHeader = ({ setSidebarShown }) => {
           <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
           <ScreenHeaderBtn
             iconUrl={images.menu}
-            handlePress={() => setSidebarShown(true)}
+            handlePress={() => navigation.navigate("sidebar")}
             dimension="80%"
           />
         </View>

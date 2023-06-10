@@ -40,6 +40,14 @@ const Layout = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="sidebar"
+          options={{
+            headerShown: false,
+            presentation: "transparentModal",
+            animation: "slide_from_right",
+          }}
+        />
       </Stack>
     </>
   );

@@ -12,35 +12,25 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { COLORS } from "../../../constants";
+import { COLORS } from "../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import SidebarItemsList from "../SidebarItemsList/SidebarItemsList";
+import SidebarItemsList from "../../components/home/SidebarItemsList/SidebarItemsList";
 import { StatusBar } from "expo-status-bar";
+import { useRouter } from "expo-router";
 
-const Sidebar = ({ show, setShow }) => {
-  const translateX = useSharedValue(Dimensions.get("window").width + 10);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      {
-        translateX: withTiming(show ? 0 : translateX.value, {
-          duration: 300,
-        }),
-      },
-    ],
-  }));
-
+const Sidebar = () => {
+  const router = useRouter();
   return (
     <SafeAreaView style={{ zIndex: 101 }}>
       <View style={[styles.container]}>
-        <Animated.View style={[styles.backgroundContainer, animatedStyle]}>
-          <TouchableWithoutFeedback onPress={() => setShow(false)}>
+        <View style={[styles.backgroundContainer]}>
+          <TouchableWithoutFeedback onPress={() => router.back()}>
             <View style={[{ height: "100%", width: "100%" }]}></View>
           </TouchableWithoutFeedback>
-        </Animated.View>
-        <Animated.View style={[styles.sidebar, animatedStyle]}>
+        </View>
+        <View style={[styles.sidebar]}>
           <SidebarItemsList />
-        </Animated.View>
+        </View>
       </View>
     </SafeAreaView>
   );
