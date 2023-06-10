@@ -30,7 +30,7 @@ const Login = () => {
   }, []);
   useEffect(() => {
     if (token) {
-      router.push("(main)/home");
+      router.push("(main)/(home)/homes");
     }
   }, [token]);
 

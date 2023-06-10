@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
-import { Stack, useRouter } from "expo-router";
+import { Slot, Stack, useRouter } from "expo-router";
 
-import { COLORS, icons, images, SIZES } from "../../constants";
 import {
   PopularCarsList,
   PopularHomesList,
   ScreenHeaderBtn,
   WelcomeMessage,
-} from "../../components";
-import Sidebar from "../../components/home/Sidebar/Sidebar";
+} from "../../../components";
+import Sidebar from "../../../components/home/Sidebar/Sidebar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllHomes } from "../../data/homesSlice";
-import { getAllCars } from "../../data/carsSlice/carsSlice";
-import { getUser } from "../../data/userSlice/userSlice";
+import { getAllHomes } from "../../../data/homesSlice";
+import { getAllCars } from "../../../data/carsSlice/carsSlice";
+import { getUser } from "../../../data/userSlice/userSlice";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeHeader from "../../components/home/Header/HomeHeader";
+import HomeHeader from "../../../components/home/Header/HomeHeader";
+import { COLORS, SIZES } from "../../../constants";
 
 const Home = () => {
   const [sidebarShown, setSidebarShown] = useState(false);
@@ -43,17 +43,6 @@ const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Sidebar show={sidebarShown} setShow={setSidebarShown} />
-      <Stack.Screen
-        options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerShadowVisible: false,
-          headerShown: !sidebarShown,
-          header: () => <HomeHeader setSidebarShown={setSidebarShown} />,
-
-          headerTitle: "",
-        }}
-      />
-
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
@@ -61,8 +50,8 @@ const Home = () => {
             padding: SIZES.medium,
           }}
         >
-          <PopularHomesList homes={homes} />
-          <PopularCarsList cars={cars} />
+          {/* <PopularHomesList homes={homes} />
+          <PopularCarsList cars={cars} /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

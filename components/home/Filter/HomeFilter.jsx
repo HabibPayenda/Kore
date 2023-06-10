@@ -3,8 +3,10 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { usePathname, Link } from "expo-router";
 
 const HomeFilter = () => {
+  const pathname = usePathname();
   return (
     <View style={styles.container}>
       <Pressable style={[styles.item, styles.item4]}>
@@ -13,12 +15,26 @@ const HomeFilter = () => {
       <Pressable style={[styles.item, styles.item3]}>
         <MaterialIcons name="landscape" size={28} color="#fafafa" />
       </Pressable>
-      <Pressable style={[styles.item, styles.item2]}>
+      <Link
+        href="cars"
+        style={[
+          styles.item,
+          styles.item2,
+          pathname === "/cars" && styles.itemActive,
+        ]}
+      >
         <AntDesign name="car" size={24} color="#fafafa" />
-      </Pressable>
-      <Pressable style={[styles.item, styles.item1]}>
+      </Link>
+      <Link
+        href="homes"
+        style={[
+          styles.item,
+          styles.item1,
+          pathname === "/homes" && styles.itemActive,
+        ]}
+      >
         <AntDesign name="home" size={24} color="#fafafa" />
-      </Pressable>
+      </Link>
     </View>
   );
 };
@@ -41,6 +57,17 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderColor: "#fafafa",
     borderWidth: 1,
+    textAlign: "center",
+    padding: 0,
+    margin: 0,
+    lineHeight: 36,
+  },
+  itemActive: {
+    height: 45,
+    width: 45,
+    borderRadius: 30,
+    lineHeight: 40,
+    elevation: 10,
   },
   item1: {
     backgroundColor: "#00a7fa",
