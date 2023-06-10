@@ -30,7 +30,7 @@ const Homes = () => {
       router.replace("(auth)/login");
     } else {
       dispatch(getUser(user?.id));
-      // router.replace("(search)/priceFilter");
+      // router.replace("(search)/locationFilter");
     }
   }, [token]);
 
