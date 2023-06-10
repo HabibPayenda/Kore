@@ -26,7 +26,7 @@ const PopularHomesList = ({ homes }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>ډېر لیدل شوي کورنه</Text>
+        <Text style={styles.title}>ډېر لیدل شوي کورونه</Text>
       </View>
       <FlatList
         data={homes}
