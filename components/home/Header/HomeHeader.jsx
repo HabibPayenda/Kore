@@ -9,7 +9,7 @@ import HomeFilter from "../Filter/HomeFilter";
 
 const HomeHeader = ({ setSidebarShown }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: "f1f1f1" }}>
       <LinearGradient colors={["#8489c2", "#7453a0"]} style={styles.container}>
         <View style={styles.containerTop}>
           <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 120,
     position: "relative",
     marginBottom: 28,
+    backgroundColor: "white",
   },
   containerTop: {
     flexDirection: "row",
