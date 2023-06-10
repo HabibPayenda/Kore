@@ -14,6 +14,7 @@ import { getAllHomes } from "../../../data/homesSlice";
 import { getAllCars } from "../../../data/carsSlice/carsSlice";
 import { getUser } from "../../../data/userSlice/userSlice";
 import { COLORS, SIZES } from "../../../constants";
+import ForYouHomesList from "../../../components/home/ForYouHomes";
 
 const Homes = () => {
   const [sidebarShown, setSidebarShown] = useState(false);
@@ -53,6 +54,7 @@ const Homes = () => {
           }}
         >
           <PopularHomesList homes={homes} />
+          <ForYouHomesList homes={homes} />
         </View>
       </ScrollView>
     </SafeAreaView>
