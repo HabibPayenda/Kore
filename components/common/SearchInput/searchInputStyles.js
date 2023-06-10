@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.small,
     marginTop: SIZES.small,
     elevation: 2,
+    width: "80%",
   },
   icon: {
     marginLeft: SIZES.medium,

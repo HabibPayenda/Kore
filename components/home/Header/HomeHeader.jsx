@@ -9,7 +9,7 @@ import HomeFilter from "../Filter/HomeFilter";
 
 const HomeHeader = ({ setSidebarShown }) => {
   return (
-    <SafeAreaView style={{ backgroundColor: "f1f1f1" }}>
+    <SafeAreaView style={{ backgroundColor: "#fafafa" }}>
       <LinearGradient colors={["#8489c2", "#7453a0"]} style={styles.container}>
         <View style={styles.containerTop}>
           <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
