@@ -16,6 +16,27 @@ export const getAllHomes = createAsyncThunk("homes/getAllHomes", async () => {
     return error;
   }
 });
+
+export const searchHomes = createAsyncThunk(
+  "homes/searchHomes",
+  async (search_term) => {
+    // Code
+    console.log("search term is: ", search_term);
+    try {
+      const result = await PropertiesApi.get("/homes/search", {
+        params: { q: search_term },
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 export const getHome = createAsyncThunk("homes/getHome", async (id) => {
   // Code
   try {
@@ -355,6 +376,7 @@ export const addHomeRestriction = createAsyncThunk(
 
 const initialState = {
   homes: [],
+  searchResults: [],
   showHome: {},
   homeProperty: {},
   token: null,
@@ -370,6 +392,11 @@ export const homesSlice = createSlice({
     builder.addCase(getAllHomes.fulfilled, (state, action) => {
       // Code
       state.homes = action.payload.homes;
+    });
+    builder.addCase(searchHomes.fulfilled, (state, action) => {
+      // Code
+      console.log(action.payload);
+      state.searchResults = action.payload.homes;
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
