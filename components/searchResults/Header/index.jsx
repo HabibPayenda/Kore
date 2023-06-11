@@ -6,8 +6,16 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import SearchResultFilters from "../Filter";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { setSearchTerm } from "../../../data/appSlice/appSlice";
 
 const SearchResultsHeader = () => {
+  const searchTerm = useSelector((state) => state.app.searchTerm);
+  const [value, setValue] = useState(searchTerm);
+  const handleSearch = () => {
+    dispatch(setSearchTerm(value));
+  };
   const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
@@ -20,6 +28,9 @@ const SearchResultsHeader = () => {
             <Text style={styles.title}>د خوښې کور مو پیدا کړئ</Text>
             <TextInput
               style={styles.input}
+              value={value}
+              onSubmitEditing={() => handleSearch()}
+              onChangeText={(value) => setValue(value)}
               placeholder="د څه په لټه کې یاست؟"
             />
           </View>
