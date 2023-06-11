@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { FONT, SIZES } from "../../../constants";
+import { SIZES } from "../../../constants";
+import { useNavigation } from "expo-router";
 
 const HomeCard = ({ home }) => {
   const { home_rooms, area, address, deal_type, deal_info, property } = home;
-
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPress={() => navigation.navigate("homeDetails", home)}
+      style={styles.container}
+    >
       <Image
         source={{ uri: property?.image_url }}
         style={styles.image}
@@ -66,7 +70,7 @@ const HomeCard = ({ home }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -78,8 +82,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
     flexDirection: "row",
     gap: 4,
-    paddingHorizontal: 12,
-    elevation: 1,
+    elevation: 2,
+    borderRadius: 5,
   },
   image: {
     height: 110,
@@ -109,6 +113,7 @@ const styles = StyleSheet.create({
   },
   homeDetails: {
     flex: 2,
+    paddingHorizontal: 2,
   },
   descriptionText: {
     fontSize: 12,

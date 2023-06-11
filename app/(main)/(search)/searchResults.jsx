@@ -39,5 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
     flex: 1,
   },
-  contentContainer: {},
+  contentContainer: {
+    gap: 12,
+    paddingHorizontal: 12,
+  },
 });
