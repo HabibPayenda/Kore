@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import { FONT, SIZES } from "../../../constants";
 
 const HomeCard = ({ home }) => {
   const { home_rooms, area, address, deal_type, deal_info, property } = home;
@@ -14,20 +16,33 @@ const HomeCard = ({ home }) => {
         resizeMethod="resize"
       />
       <View style={styles.detailsContainer}>
-        <View style={styles.infoContainer}>
+        <LinearGradient
+          colors={["#fd8579", "#ff4d85"]}
+          style={styles.infoContainer}
+        >
           <View style={styles.infoItem}>
-            <Feather name="home" size={16} color="#333" style={styles.icon} />
+            <Feather
+              name="home"
+              size={12}
+              color="#fafafa"
+              style={styles.icon}
+            />
             <Text style={styles.infoText}>{home_rooms?.length}</Text>
           </View>
           <View style={styles.infoItem}>
-            <Feather name="square" size={16} color="#333" style={styles.icon} />
+            <Feather
+              name="square"
+              size={12}
+              color="#fafafa"
+              style={styles.icon}
+            />
             <Text style={styles.infoText}>{area} sq ft</Text>
           </View>
           <View style={styles.infoItem}>
             <Feather
               name="map-pin"
-              size={16}
-              color="#333"
+              size={12}
+              color="#fafafa"
               style={styles.icon}
             />
             <Text style={styles.infoText}>{address?.city}</Text>
@@ -35,8 +50,8 @@ const HomeCard = ({ home }) => {
           <View style={styles.infoItem}>
             <Feather
               name="dollar-sign"
-              size={16}
-              color="#333"
+              size={12}
+              color="#fafafa"
               style={styles.icon}
             />
             <Text style={styles.infoText}>{deal_info?.deal_type}</Text>
@@ -44,6 +59,11 @@ const HomeCard = ({ home }) => {
           <View style={styles.dealType}>
             <Text style={styles.dealTypeText}>{deal_type}</Text>
           </View>
+        </LinearGradient>
+        <View style={styles.homeDetails}>
+          <Text numberOfLines={3} style={styles.descriptionText}>
+            {property?.description}
+          </Text>
         </View>
       </View>
     </View>
@@ -57,22 +77,41 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fafafa",
     flexDirection: "row",
-    gap: 12,
+    gap: 4,
     paddingHorizontal: 12,
+    elevation: 1,
   },
   image: {
     height: 110,
     width: 60,
     flex: 1,
+    borderRadius: 5,
   },
   detailsContainer: {
     gap: 5,
     flex: 1,
   },
   infoContainer: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    height: 40,
+    borderRadius: 5,
+  },
+  infoItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  infoText: {
+    fontSize: SIZES.small,
+    color: "#fafafa",
+  },
+  homeDetails: {
+    flex: 2,
+  },
+  descriptionText: {
+    fontSize: 12,
+    textAlign: "right",
   },
 });

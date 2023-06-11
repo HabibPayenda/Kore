@@ -395,7 +395,6 @@ export const homesSlice = createSlice({
     });
     builder.addCase(searchHomes.fulfilled, (state, action) => {
       // Code
-      console.log(action.payload);
       state.searchResults = action.payload.homes;
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
