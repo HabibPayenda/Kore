@@ -3,14 +3,11 @@ import { View, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./searchInputStyles";
 import { useNavigation } from "expo-router";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setSearchTerm,
-  setSearchTermCaller,
-} from "../../../data/appSlice/appSlice";
+import { useDispatch } from "react-redux";
+import { setSearchTerm } from "../../../data/appSlice/appSlice";
 import { useState } from "react";
 
-const SearchInput = ({ placeholder, onChange, onClick }) => {
+const SearchInput = ({ placeholder }) => {
   const [value, setValue] = useState();
 
   const navigation = useNavigation();
