@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: SIZES.large,
-    fontSize: SIZES.medium,
+    fontSize: 14,
     color: "#333",
   },
 });

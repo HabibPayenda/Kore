@@ -39,7 +39,7 @@ const Homes = () => {
       style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
     >
       <View style={{ paddingBottom: 6 }}>
-        <SearchInput />
+        <SearchInput placeholder="د خوښې کور مو وپلټئ" />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
