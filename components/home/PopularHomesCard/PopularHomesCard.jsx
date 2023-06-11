@@ -4,8 +4,17 @@ import { Feather } from "@expo/vector-icons";
 import styles from "./PopularHomesCardStyles";
 
 const PopularHomeCard = ({ data }) => {
-  const { title, price, image_url, rooms, area, address, deal_type, property } =
-    data;
+  const {
+    title,
+    price,
+    image_url,
+    rooms,
+    area,
+    address,
+    deal_type,
+    deal_info,
+    property,
+  } = data;
 
   return (
     <View style={styles.container}>
@@ -32,7 +41,7 @@ const PopularHomeCard = ({ data }) => {
               color="#333"
               style={styles.icon}
             />
-            <Text style={styles.infoText}>{address}</Text>
+            <Text style={styles.infoText}>{address?.city}</Text>
           </View>
           <View style={styles.infoItem}>
             <Feather
@@ -41,7 +50,7 @@ const PopularHomeCard = ({ data }) => {
               color="#333"
               style={styles.icon}
             />
-            <Text style={styles.infoText}>{price}</Text>
+            <Text style={styles.infoText}>{deal_info?.total_price}</Text>
           </View>
           <View style={styles.dealType}>
             <Text style={styles.dealTypeText}>{deal_type}</Text>
