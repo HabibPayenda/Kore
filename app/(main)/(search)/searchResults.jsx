@@ -1,10 +1,11 @@
-import { StyleSheet, Text, ScrollView } from "react-native";
+import { StyleSheet, Text, ScrollView, View } from "react-native";
 import React from "react";
 import SearchResultFilters from "../../../components/searchResults/Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { searchHomes } from "../../../data/homesSlice";
 import PopularHomeCard from "../../../components/home/PopularHomesCard/PopularHomesCard";
+import HomeCard from "../../../components/searchResults/HomeCard";
 
 const SearchResults = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
@@ -17,17 +18,26 @@ const SearchResults = () => {
   const renderSearchResults = () => {
     let result = [];
     searchResults?.map((home) => {
-      result.push(<PopularHomeCard key={home?.id} data={home} />);
+      result.push(<HomeCard key={home?.id} home={home} />);
     });
     return result;
   };
   return (
-    <ScrollView style={{ backgroundColor: "#fafafa", paddingTop: 16, flex: 1 }}>
-      {renderSearchResults()}
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView style={{ backgroundColor: "#fafafa", flex: 1 }}>
+        <View style={styles.contentContainer}>{renderSearchResults()}</View>
+      </ScrollView>
+    </View>
   );
 };
 
 export default SearchResults;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 22,
+    backgroundColor: "#fafafa",
+    flex: 1,
+  },
+  contentContainer: {},
+});
