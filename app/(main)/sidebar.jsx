@@ -1,31 +1,24 @@
 import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 
-import { COLORS } from "../../constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import SidebarItemsList from "../../components/home/SidebarItemsList/SidebarItemsList";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
 
 const Sidebar = () => {
   const router = useRouter();
   return (
-    <SafeAreaView style={{ zIndex: 101 }}>
+    <SafeAreaView style={{ zIndex: 101, flex: 1 }}>
       <View style={[styles.container]}>
         <View style={[styles.backgroundContainer]}>
           <TouchableWithoutFeedback onPress={() => router.back()}>
             <View style={[{ height: "100%", width: "100%" }]}></View>
           </TouchableWithoutFeedback>
         </View>
-        {/* <LinearGradient
-          colors={["#8489c2", "#7453a0"]}
-          style={[styles.sidebar]}
-        > */}
         <View style={styles.sidebar}>
           <SidebarItemsList />
         </View>
-        {/* </LinearGradient> */}
       </View>
     </SafeAreaView>
   );
@@ -34,6 +27,7 @@ const Sidebar = () => {
 const styles = StyleSheet.create({
   container: {
     zIndex: 100,
+    flex: 1,
   },
   backgroundContainer: {
     height: Dimensions.get("window").height,
@@ -42,12 +36,10 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   sidebar: {
-    position: "absolute",
-    top: 0,
-    right: 0,
+    alignSelf: "flex-end",
+    flex: 1,
     width: Dimensions.get("window").width - 100,
     height: Dimensions.get("window").height,
-    overflow: "hidden",
   },
   button: {
     backgroundColor: "white",

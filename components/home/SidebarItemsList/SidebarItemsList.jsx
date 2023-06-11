@@ -19,6 +19,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../../data/userSlice/userSlice";
 import { Pressable } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const data = [
   { title: "پروفایل", icon: "user", link: "userProfile" },
@@ -41,7 +42,7 @@ const SidebarItemsList = () => {
       onPress={() => navigation.navigate(link)}
     >
       <Text style={styles.menuItemText}>{title}</Text>
-      <AntDesign name={icon} size={20} color={COLORS.secondary} />
+      <AntDesign name={icon} size={20} color="#7453a0" />
     </TouchableOpacity>
   );
 
@@ -52,13 +53,7 @@ const SidebarItemsList = () => {
 
     return (
       <View>
-        <TouchableOpacity
-          style={styles.menuItem}
-          onPress={toggleCollapse}
-        ></TouchableOpacity>
-        <View style={[styles.links, { height: links.length * 50 }]}>
-          {links}
-        </View>
+        <View style={[styles.links]}>{links}</View>
       </View>
     );
   };
@@ -70,14 +65,14 @@ const SidebarItemsList = () => {
         onPress={() => navigation.navigate("suggestion")}
       >
         <Text style={styles.menuItemText}>پیشنهادونه</Text>
-        <Ionicons name="md-bulb" size={20} color={COLORS.secondary} />
+        <Ionicons name="md-bulb" size={20} color="#7453a0" />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuItem}
         onPress={() => console.log("Update")}
       >
         <Text style={styles.menuItemText}>اپډیټ</Text>
-        <FontAwesome name="upload" size={20} color={COLORS.secondary} />
+        <FontAwesome name="upload" size={20} color="#7453a0" />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuItem}
@@ -87,28 +82,37 @@ const SidebarItemsList = () => {
         }}
       >
         <Text style={styles.menuItemText}>وتل</Text>
-        <AntDesign name="logout" size={20} color={COLORS.secondary} />
+        <AntDesign name="logout" size={20} color="#7453a0" />
       </TouchableOpacity>
     </View>
   );
 
   return (
     <View style={styles.container}>
-      <View style={styles.userProfile}>
+      <LinearGradient
+        colors={["#fd8579", "#ff4d85"]}
+        style={styles.userProfile}
+      >
         <Image source={userImage} style={styles.userImage} />
         <View>
           <Text style={styles.userName}>{"Habib Payenda"}</Text>
           <Text style={styles.userLocation}>{"Kabul, Afghanistan"}</Text>
         </View>
-        <View style={styles.cornerCircle}></View>
         <Pressable style={styles.backIcon} onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={24} color="#7453a0" />
+          <Ionicons name="arrow-back" size={24} color="#fafafa" />
         </Pressable>
-      </View>
-      <View style={styles.menu}>
+      </LinearGradient>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.menu}>
         {renderLinksSection()}
         {renderMenuSection()}
-      </View>
+        <LinearGradient
+          // colors={["#8489c2", "#7453a0"]}
+          colors={["#fd8579", "#ff4d85"]}
+          style={styles.menuBottom}
+        >
+          <Text style={styles.logoText}>کور</Text>
+        </LinearGradient>
+      </ScrollView>
     </View>
   );
 };
@@ -117,13 +121,13 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
+    flex: 1,
   },
   userProfile: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: SIZES.large,
-    backgroundColor: "#fafafa",
     position: "relative",
     borderBottomLeftRadius: 25,
   },
@@ -134,19 +138,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   userName: {
-    color: COLORS.secondary,
+    color: "#fafafa",
     fontSize: 16,
     fontFamily: FONT.regular,
-  },
-  cornerCircle: {
-    height: 60,
-    width: 60,
-    backgroundColor: "#fafafa",
-    borderRadius: 30,
-    position: "absolute",
-    bottom: -20,
-    left: 30,
-    zIndex: -10,
   },
   backIcon: {
     transform: [{ rotate: "180deg" }],
@@ -156,7 +150,7 @@ const styles = StyleSheet.create({
     top: 12,
   },
   userLocation: {
-    color: COLORS.secondary,
+    color: "#fafafa",
     fontSize: 14,
   },
   menu: {
@@ -169,11 +163,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    paddingTop: 10,
+    paddingVertical: 5,
     paddingRight: SIZES.xLarge,
+    borderColor: "#ddd",
+    borderBottomWidth: 1,
+    borderTopWidth: 0.5,
   },
   menuItemText: {
-    color: COLORS.secondary,
+    color: "#7453a0",
     fontSize: SIZES.small,
     marginRight: 10,
     fontFamily: FONT.regular,
@@ -181,6 +178,18 @@ const styles = StyleSheet.create({
   links: {
     overflow: "hidden",
     marginBottom: 30,
+  },
+  menuBottom: {
+    flex: 1,
+    height: 100,
+    marginTop: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  logoText: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.xLarge,
+    color: "#fafafa",
   },
 });
 
