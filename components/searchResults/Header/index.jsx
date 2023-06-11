@@ -7,12 +7,13 @@ import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import SearchResultFilters from "../Filter";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../../data/appSlice/appSlice";
 
 const SearchResultsHeader = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
   const [value, setValue] = useState(searchTerm);
+  const dispatch = useDispatch();
   const handleSearch = () => {
     dispatch(setSearchTerm(value));
   };
