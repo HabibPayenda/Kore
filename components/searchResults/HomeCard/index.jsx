@@ -22,7 +22,7 @@ const HomeCard = ({ home }) => {
       />
       <View style={styles.detailsContainer}>
         <LinearGradient
-          colors={["#fd8579", "#ff4d85"]}
+          colors={["#00a7fa", "#3f7fb7", "#7453a0"]}
           style={styles.infoContainer}
         >
           <View style={styles.infoItem}>
