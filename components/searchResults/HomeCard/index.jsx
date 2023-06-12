@@ -6,7 +6,7 @@ import { SIZES } from "../../../constants";
 import { useNavigation } from "expo-router";
 
 const HomeCard = ({ home }) => {
-  const { home_rooms, area, address, deal_type, deal_info, property } = home;
+  const { home_rooms, area, address, deal_info, property } = home;
   const navigation = useNavigation();
   return (
     <Pressable
@@ -59,9 +59,6 @@ const HomeCard = ({ home }) => {
               style={styles.icon}
             />
             <Text style={styles.infoText}>{deal_info?.deal_type}</Text>
-          </View>
-          <View style={styles.dealType}>
-            <Text style={styles.dealTypeText}>{deal_type}</Text>
           </View>
         </LinearGradient>
         <View style={styles.homeDetails}>

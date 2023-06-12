@@ -10,6 +10,7 @@ const SearchResults = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
   const dealType = useSelector((state) => state.app.dealType);
   const searchResults = useSelector((state) => state.homes.searchResults);
+  const numberOfRooms = useSelector((state) => state.app.numberOfRooms);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,8 +18,8 @@ const SearchResults = () => {
   }, [searchTerm]);
 
   useEffect(() => {
-    dispatch(searchHomes({ searchTerm, dealType }));
-  }, [searchTerm, dealType]);
+    dispatch(searchHomes({ searchTerm, dealType, numberOfRooms }));
+  }, [searchTerm, dealType, numberOfRooms]);
 
   const renderSearchResults = () => {
     let result = [];

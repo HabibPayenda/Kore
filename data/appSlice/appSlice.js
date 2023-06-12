@@ -23,5 +23,6 @@ export const AppSlice = createSlice({
   },
 });
 
-export const { setSearchTerm, setDealType } = AppSlice.actions;
+export const { setSearchTerm, setDealType, setNumberOfRooms } =
+  AppSlice.actions;
 export default AppSlice.reducer;

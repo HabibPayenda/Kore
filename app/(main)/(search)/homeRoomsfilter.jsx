@@ -4,15 +4,24 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
 import { COLORS, FONT, SIZES, HomeRooms } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
+import { useDispatch } from "react-redux";
+import { setNumberOfRooms } from "../../../data/appSlice/appSlice";
 
 const HomeRoomsFitler = () => {
   const navigation = useNavigation();
-
+  const dispatch = useDispatch();
+  const handlePress = (numberOfRooms) => {
+    dispatch(setNumberOfRooms(numberOfRooms));
+  };
   const renderItems = () => {
     let items = [];
     for (let value of HomeRooms) {
       items.push(
-        <Pressable key={value.toString()} style={styles.filterItem}>
+        <Pressable
+          onPress={() => handlePress(value)}
+          key={value.toString()}
+          style={styles.filterItem}
+        >
           <Text style={styles.filterItemText}>{`${value} اطاقه`}</Text>
         </Pressable>
       );
