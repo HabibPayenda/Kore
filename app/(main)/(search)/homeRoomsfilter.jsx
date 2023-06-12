@@ -1,16 +1,8 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TextInput,
-} from "react-native";
-import React, { useState } from "react";
+import { Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
 import { COLORS, FONT, SIZES, HomeRooms } from "../../../constants";
-import { KabulPlaces } from "../../../constants/places";
 import { LinearGradient } from "expo-linear-gradient";
 
 const HomeRoomsFitler = () => {

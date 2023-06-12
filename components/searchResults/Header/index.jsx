@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: "center",
     gap: 0,
-    borderBottomLeftRadius: 120,
-    borderBottomRightRadius: 120,
+    borderBottomLeftRadius: 60,
+    borderBottomRightRadius: 60,
     position: "relative",
     paddingBottom: 52,
     backgroundColor: "white",
