@@ -25,7 +25,7 @@ const Homes = () => {
       router.replace("(auth)/login");
     } else {
       dispatch(getUser(user?.id));
-      // router.replace("(search)/locationFilter");
+      router.replace("(search)/dealTypeFilter");
     }
   }, [token]);
 

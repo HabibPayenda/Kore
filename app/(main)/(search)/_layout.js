@@ -40,6 +40,14 @@ const Layout = () => {
           presentation: "transparentModal",
         }}
       />
+      <Stack.Screen
+        name="dealTypeFilter"
+        options={{
+          headerShown: false,
+          animation: "slide_from_bottom",
+          presentation: "transparentModal",
+        }}
+      />
     </Stack>
   );
 };
