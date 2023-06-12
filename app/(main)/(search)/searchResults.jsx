@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { searchHomes } from "../../../data/homesSlice";
 import HomeCard from "../../../components/searchResults/HomeCard";
+import { setDealType } from "../../../data/appSlice/appSlice";
 
 const SearchResults = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
   const dealType = useSelector((state) => state.app.dealType);
   const searchResults = useSelector((state) => state.homes.searchResults);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setDealType(""));
+  }, [searchTerm]);
 
   useEffect(() => {
     dispatch(searchHomes({ searchTerm, dealType }));

@@ -4,8 +4,24 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { COLORS, FONT } from "../../../constants";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import { useSelector } from "react-redux";
 
 const SearchResultFilters = () => {
+  const dealType = useSelector((state) => state.app.dealType);
+  let dealTypeText = "";
+  switch (dealType) {
+    case "rent":
+      dealTypeText = "کرایه";
+      break;
+    case "graw":
+      dealTypeText = "ګرو";
+      break;
+    case "sale":
+      dealTypeText = "فروش";
+      break;
+    default:
+      dealTypeText = "معامله";
+  }
   const router = useRouter();
   return (
     <View style={styles.container}>
@@ -33,7 +49,7 @@ const SearchResultFilters = () => {
           colors={["#fd8579", "#ff4d85"]}
         >
           <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
-          <Text style={styles.filterItemText}>معامله</Text>
+          <Text style={styles.filterItemText}>{dealTypeText}</Text>
         </LinearGradient>
       </Pressable>
       <Pressable onPress={() => router.push("locationFilter")}>
