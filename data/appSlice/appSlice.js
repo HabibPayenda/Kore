@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   searchTerm: "",
   dealType: "",
+  numberOfRooms: null,
 };
 
 export const AppSlice = createSlice({
@@ -14,6 +15,10 @@ export const AppSlice = createSlice({
     },
     setDealType: (state, action) => {
       state.dealType = action.payload;
+    },
+
+    setNumberOfRooms: (state, action) => {
+      state.numberOfRooms = action.payload;
     },
   },
 });
