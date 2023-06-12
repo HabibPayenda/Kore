@@ -6,7 +6,7 @@ import { SIZES } from "../../../constants";
 import { useNavigation } from "expo-router";
 
 const HomeCard = ({ home }) => {
-  const { home_rooms, area, address, deal_info, property } = home;
+  const { home_rooms_count, image_url, city, deal_type, area, property } = home;
   const navigation = useNavigation();
   return (
     <Pressable
@@ -14,7 +14,7 @@ const HomeCard = ({ home }) => {
       style={styles.container}
     >
       <Image
-        source={{ uri: property?.image_url }}
+        source={{ uri: image_url }}
         style={styles.image}
         resizeMode="stretch"
         resizeMethod="resize"
@@ -31,7 +31,7 @@ const HomeCard = ({ home }) => {
               color="#fafafa"
               style={styles.icon}
             />
-            <Text style={styles.infoText}>{home_rooms?.length}</Text>
+            <Text style={styles.infoText}>{home_rooms_count}</Text>
           </View>
           <View style={styles.infoItem}>
             <Feather
@@ -49,7 +49,7 @@ const HomeCard = ({ home }) => {
               color="#fafafa"
               style={styles.icon}
             />
-            <Text style={styles.infoText}>{address?.city}</Text>
+            <Text style={styles.infoText}>{city}</Text>
           </View>
           <View style={styles.infoItem}>
             <Feather
@@ -58,7 +58,7 @@ const HomeCard = ({ home }) => {
               color="#fafafa"
               style={styles.icon}
             />
-            <Text style={styles.infoText}>{deal_info?.deal_type}</Text>
+            <Text style={styles.infoText}>{deal_type}</Text>
           </View>
         </LinearGradient>
         <View style={styles.homeDetails}>

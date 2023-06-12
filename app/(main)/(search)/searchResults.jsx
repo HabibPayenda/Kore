@@ -22,6 +22,7 @@ const SearchResults = () => {
     dispatch(searchHomes({ searchTerm, dealType, numberOfRooms }));
   }, [searchTerm, dealType, numberOfRooms]);
 
+  console.log(searchResults);
   const renderSearchResults = () => {
     let result = [];
     searchResults?.map((home) => {

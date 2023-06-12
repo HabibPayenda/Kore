@@ -29,15 +29,13 @@ const HomeDetails = () => {
   const navigation = useNavigation();
 
   const home = useSelector((state) => state.homes.showHome);
-  console.log(home);
   useEffect(() => {
     dispatch(getHome(id));
-  }, []);
+  }, [id]);
 
   const user = useSelector((state) => state.user.user);
-  console.log(user);
 
-  const liked = user?.homes?.some((item) => item.id === home.id);
+  const liked = user?.homes?.some((item) => item?.id === home?.id);
   const handleFavorite = () => {
     if (liked) {
       dispatch(removeFavoriteHome(home?.id));
