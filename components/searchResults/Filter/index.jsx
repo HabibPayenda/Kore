@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 
 const SearchResultFilters = () => {
   const dealType = useSelector((state) => state.app.dealType);
+  const numberOfRooms = useSelector((state) => state.app.numberOfRooms);
+
   let dealTypeText = "";
   switch (dealType) {
     case "rent":
@@ -21,6 +23,13 @@ const SearchResultFilters = () => {
       break;
     default:
       dealTypeText = "معامله";
+  }
+
+  let numberOfRoomsText = "";
+  if (numberOfRooms === null) {
+    numberOfRoomsText = "اطاقونه";
+  } else {
+    numberOfRoomsText = `${numberOfRooms} اطاقه`;
   }
   const router = useRouter();
   return (
@@ -40,7 +49,7 @@ const SearchResultFilters = () => {
           colors={["#fd8579", "#ff4d85"]}
         >
           <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
-          <Text style={styles.filterItemText}>اطاقونه</Text>
+          <Text style={styles.filterItemText}>{numberOfRoomsText}</Text>
         </LinearGradient>
       </Pressable>
       <Pressable onPress={() => router.push("dealTypeFilter")}>
