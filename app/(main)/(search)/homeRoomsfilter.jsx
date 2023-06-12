@@ -10,11 +10,27 @@ import { setNumberOfRooms } from "../../../data/appSlice/appSlice";
 const HomeRoomsFitler = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  const handlePressAll = () => {
+    dispatch(setNumberOfRooms(null));
+    navigation.goBack();
+  };
+
   const handlePress = (numberOfRooms) => {
     dispatch(setNumberOfRooms(numberOfRooms));
+    navigation.goBack();
   };
   const renderItems = () => {
     let items = [];
+    items.push(
+      <Pressable
+        onPress={() => handlePressAll()}
+        key={"allrooms"}
+        style={styles.filterItem}
+      >
+        <Text style={styles.filterItemText}>{"ټول"}</Text>
+      </Pressable>
+    );
     for (let value of HomeRooms) {
       items.push(
         <Pressable
