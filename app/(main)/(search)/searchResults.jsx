@@ -9,11 +9,12 @@ import HomeCard from "../../../components/searchResults/HomeCard";
 
 const SearchResults = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
+  const dealType = useSelector((state) => state.app.dealType);
   const searchResults = useSelector((state) => state.homes.searchResults);
   console.log(searchResults);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(searchHomes(searchTerm));
+    dispatch(searchHomes({ searchTerm, dealType }));
   }, [searchTerm]);
   const renderSearchResults = () => {
     let result = [];

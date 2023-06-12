@@ -19,12 +19,12 @@ export const getAllHomes = createAsyncThunk("homes/getAllHomes", async () => {
 
 export const searchHomes = createAsyncThunk(
   "homes/searchHomes",
-  async (search_term) => {
+  async ({ searchTerm, dealType }) => {
     // Code
-    console.log("search term is: ", search_term);
+    console.log("search term is: ", searchTerm);
     try {
       const result = await PropertiesApi.get("/homes/search", {
-        params: { q: search_term },
+        params: { q: searchTerm, d: dealType },
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
