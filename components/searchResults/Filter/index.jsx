@@ -18,6 +18,15 @@ const SearchResultFilters = () => {
           <Text style={styles.filterItemText}>قیمت</Text>
         </LinearGradient>
       </Pressable>
+      <Pressable onPress={() => router.push("homeRoomsFilter")}>
+        <LinearGradient
+          style={styles.filterItem}
+          colors={["#fd8579", "#ff4d85"]}
+        >
+          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
+          <Text style={styles.filterItemText}>اطاقونه</Text>
+        </LinearGradient>
+      </Pressable>
       <Pressable onPress={() => router.push("dealTypeFilter")}>
         <LinearGradient
           style={styles.filterItem}
