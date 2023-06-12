@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
     width: Dimensions.get("window").width,
     position: "absolute",
-    opacity: 0.8,
+    opacity: 0.5,
+    backgroundColor: "#fafafa",
   },
   sidebar: {
     alignSelf: "flex-end",

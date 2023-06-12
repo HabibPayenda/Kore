@@ -90,7 +90,8 @@ const SidebarItemsList = () => {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={["#fd8579", "#ff4d85"]}
+        // colors={["#00a7fa", "#3f7fb7"]}
+        colors={["#8489c2", "#7453a0"]}
         style={styles.userProfile}
       >
         <Image source={userImage} style={styles.userImage} />
@@ -106,8 +107,8 @@ const SidebarItemsList = () => {
         {renderLinksSection()}
         {renderMenuSection()}
         <LinearGradient
-          // colors={["#8489c2", "#7453a0"]}
-          colors={["#fd8579", "#ff4d85"]}
+          colors={[COLORS.colorTertiary0, COLORS.colorComplement0]}
+          // colors={["#00a7fa", "#3f7fb7", "#7453a0"]}
           style={styles.menuBottom}
         >
           <Text style={styles.logoText}>کور</Text>
