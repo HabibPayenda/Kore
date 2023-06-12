@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
 import { useRouter } from "expo-router";
 
@@ -10,12 +9,11 @@ import { getAllCars } from "../../../data/carsSlice/carsSlice";
 import { getUser } from "../../../data/userSlice/userSlice";
 import { SIZES } from "../../../constants";
 import ForYouHomesList from "../../../components/home/ForYouHomes";
+import { setDealType } from "../../../data/appSlice/appSlice";
 
 const Homes = () => {
-  const [sidebarShown, setSidebarShown] = useState(false);
   const dispatch = useDispatch();
   const homes = useSelector((state) => state.homes.homes);
-  const cars = useSelector((state) => state.cars.cars);
   const token = useSelector((state) => state.user.token);
   const router = useRouter();
   const user = useSelector((state) => state.user.user);
@@ -32,6 +30,7 @@ const Homes = () => {
   useEffect(() => {
     dispatch(getAllHomes());
     dispatch(getAllCars());
+    dispatch(setDealType(""));
   }, []);
 
   return (

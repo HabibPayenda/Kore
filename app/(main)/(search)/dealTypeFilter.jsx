@@ -1,22 +1,18 @@
 import { Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
 import { COLORS, FONT, SIZES } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setDealType } from "../../../data/appSlice/appSlice";
-import { searchHomes } from "../../../data/homesSlice";
 
 const DealTypeFilter = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const searchTerm = useSelector((state) => state.app.searchTerm);
-  const dealType = useSelector((state) => state.app.dealType);
 
   const handleRent = () => {
     dispatch(setDealType("rent"));
-    dispatch(searchHomes({ searchTerm, dealType }));
     navigation.goBack();
   };
 
