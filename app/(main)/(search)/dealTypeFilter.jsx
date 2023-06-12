@@ -4,9 +4,26 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
 import { COLORS, FONT, SIZES } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
+import { useDispatch } from "react-redux";
+import { setDealType } from "../../../data/appSlice/appSlice";
 
 const DealTypeFilter = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const handleRent = () => {
+    dispatch(setDealType("rent"));
+    navigation.goBack();
+  };
+
+  const handleGraw = () => {
+    dispatch(setDealType("graw"));
+    navigation.goBack();
+  };
+  const handleSale = () => {
+    dispatch(setDealType("sale"));
+    navigation.goBack();
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -30,13 +47,13 @@ const DealTypeFilter = () => {
             style={styles.scrollView}
             showsVerticalScrollIndicator={false}
           >
-            <Pressable style={styles.filterItem}>
+            <Pressable onPress={handleRent} style={styles.filterItem}>
               <Text style={styles.filterItemText}>کرایه</Text>
             </Pressable>
-            <Pressable style={styles.filterItem}>
+            <Pressable onPress={handleGraw} style={styles.filterItem}>
               <Text style={styles.filterItemText}>ګرو</Text>
             </Pressable>
-            <Pressable style={styles.filterItem}>
+            <Pressable onPress={handleSale} style={styles.filterItem}>
               <Text style={styles.filterItemText}>فروش</Text>
             </Pressable>
           </ScrollView>
