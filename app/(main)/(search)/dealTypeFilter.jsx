@@ -11,6 +11,11 @@ const DealTypeFilter = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  const handleAll = () => {
+    dispatch(setDealType(""));
+    navigation.goBack();
+  };
+
   const handleRent = () => {
     dispatch(setDealType("rent"));
     navigation.goBack();
@@ -47,6 +52,9 @@ const DealTypeFilter = () => {
             style={styles.scrollView}
             showsVerticalScrollIndicator={false}
           >
+            <Pressable onPress={handleAll} style={styles.filterItem}>
+              <Text style={styles.filterItemText}>ټول</Text>
+            </Pressable>
             <Pressable onPress={handleRent} style={styles.filterItem}>
               <Text style={styles.filterItemText}>کرایه</Text>
             </Pressable>
