@@ -9,7 +9,6 @@ import { getAllCars } from "../../../data/carsSlice/carsSlice";
 import { getUser } from "../../../data/userSlice/userSlice";
 import { SIZES } from "../../../constants";
 import ForYouHomesList from "../../../components/home/ForYouHomes";
-import { setDealType } from "../../../data/appSlice/appSlice";
 
 const Homes = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,6 @@ const Homes = () => {
   const token = useSelector((state) => state.user.token);
   const router = useRouter();
   const user = useSelector((state) => state.user.user);
-
   useEffect(() => {
     if (!token) {
       router.replace("(auth)/login");
@@ -30,7 +28,6 @@ const Homes = () => {
   useEffect(() => {
     dispatch(getAllHomes());
     dispatch(getAllCars());
-    dispatch(setDealType(""));
   }, []);
 
   return (
