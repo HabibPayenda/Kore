@@ -1,12 +1,13 @@
 import axios from "axios";
 export const checkImageURL = (url) => {
-  if (!url) return false;
+  if (!url || url.trim() === "") return false;
   else {
     const pattern = new RegExp(
       "^https?:\\/\\/.+\\.(png|jpg|jpeg|bmp|gif|webp)$",
       "i"
     );
-    return pattern.test(url);
+    if (!pattern.test(url)) return false;
+    return true;
   }
 };
 

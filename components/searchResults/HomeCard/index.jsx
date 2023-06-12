@@ -4,6 +4,8 @@ import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { SIZES } from "../../../constants";
 import { useNavigation } from "expo-router";
+import imagePlaceholder from "../../../assets/images/imagePlaceholder.png";
+import { checkImageURL } from "../../../utils";
 
 const HomeCard = ({ home }) => {
   const { home_rooms_count, image_url, city, deal_type, area, description } =
@@ -15,7 +17,9 @@ const HomeCard = ({ home }) => {
       style={styles.container}
     >
       <Image
-        source={{ uri: image_url }}
+        source={
+          checkImageURL(image_url) ? { uri: image_url } : imagePlaceholder
+        }
         style={styles.image}
         resizeMode="stretch"
         resizeMethod="resize"
