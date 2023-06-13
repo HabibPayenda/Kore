@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../../constants";
 import { KabulPlaces } from "../../../constants/places";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -46,7 +46,8 @@ const locationFilter = () => {
         style={styles.container}
       ></Pressable>
       <LinearGradient
-        colors={["#7453a0", "#8489c2"]}
+        // colors={["#7453a0", "#8489c2"]}
+        colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.contentContainer}
       >
         <LinearGradient

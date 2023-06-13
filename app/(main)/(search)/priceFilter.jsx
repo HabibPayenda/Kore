@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
-import { COLORS, FONT, SIZES, Prices } from "../../../constants";
+import { COLORS, FONT, SIZES, Prices, colors } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 
 const priceFilter = () => {
@@ -38,7 +38,8 @@ const priceFilter = () => {
         style={styles.container}
       ></Pressable>
       <LinearGradient
-        colors={["#7453a0", "#8489c2"]}
+        // colors={["#7453a0", "#8489c2"]}
+        colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.contentContainer}
       >
         <LinearGradient

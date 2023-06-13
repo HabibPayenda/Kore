@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { SIZES } from "../../../constants";
+import { SIZES, colors } from "../../../constants";
 import { useNavigation } from "expo-router";
 import imagePlaceholder from "../../../assets/images/imagePlaceholder.png";
 import { checkImageURL } from "../../../utils";
@@ -26,7 +26,8 @@ const HomeCard = ({ home }) => {
       />
       <View style={styles.detailsContainer}>
         <LinearGradient
-          colors={["#00a7fa", "#3f7fb7", "#7453a0"]}
+          // colors={["#00a7fa", "#3f7fb7", "#7453a0"]}
+          colors={[colors.primary.main, colors.primary.dark1]}
           style={styles.infoContainer}
         >
           <View style={styles.infoItem}>

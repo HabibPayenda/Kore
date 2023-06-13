@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "expo-router";
-import { COLORS, FONT, SIZES, HomeRooms } from "../../../constants";
+import { COLORS, FONT, SIZES, HomeRooms, colors } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { useDispatch } from "react-redux";
 import { setNumberOfRooms } from "../../../data/appSlice/appSlice";
@@ -52,7 +52,8 @@ const HomeRoomsFitler = () => {
         style={styles.container}
       ></Pressable>
       <LinearGradient
-        colors={["#7453a0", "#8489c2"]}
+        // colors={["#7453a0", "#8489c2"]}
+        colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.contentContainer}
       >
         <LinearGradient

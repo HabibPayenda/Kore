@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View, TextInput } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS, FONT } from "../../../constants";
+import { COLORS, FONT, colors } from "../../../constants";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -21,7 +21,8 @@ const SearchResultsHeader = () => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
-        colors={["#8489c2", "#7453a0"]}
+        // colors={["#8489c2", "#7453a0"]}
+        colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.contentContainer}
       >
         <View style={styles.containerTop}>
