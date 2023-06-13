@@ -1,27 +1,23 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./PopularHomesCardStyles";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "../../../constants";
+import { checkImageURL } from "../../../utils";
+import imagePlaceholder from "../../../assets/images/imagePlaceholder.png";
 
 const PopularHomeCard = ({ data }) => {
-  const {
-    title,
-    price,
-    image_url,
-    rooms,
-    area,
-    address,
-    deal_type,
-    deal_info,
-    property,
-  } = data;
+  const { rooms, area, address, deal_type, deal_info, property } = data;
 
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: property?.image_url }}
+        source={
+          checkImageURL(property?.image_url)
+            ? { uri: property?.image_url }
+            : imagePlaceholder
+        }
         style={styles.image}
         resizeMode="stretch"
         resizeMethod="resize"
