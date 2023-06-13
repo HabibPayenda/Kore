@@ -1,8 +1,8 @@
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
-import { useRouter } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 
 import { PopularHomesList, SearchInput } from "../../../components";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../../data/homesSlice";
 import { getAllCars } from "../../../data/carsSlice/carsSlice";
@@ -16,6 +16,8 @@ const Homes = () => {
   const token = useSelector((state) => state.user.token);
   const router = useRouter();
   const user = useSelector((state) => state.user.user);
+  const loading = useSelector((state) => state.homes.loading);
+
   useEffect(() => {
     if (!token) {
       router.replace("(auth)/login");
@@ -25,10 +27,31 @@ const Homes = () => {
     }
   }, [token]);
 
-  useEffect(() => {
-    dispatch(getAllHomes());
-    dispatch(getAllCars());
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      if (homes?.length < 1) {
+        dispatch(getAllHomes());
+      }
+    }, [dispatch, homes])
+  );
+
+  // useEffect(() => {
+  //   dispatch(getAllHomes());
+  //   dispatch(getAllCars());
+  // }, []);
+
+  const isLoading = () => {
+    if (loading === "loading") {
+      return <Text>Loading</Text>;
+    } else {
+      return (
+        <>
+          <PopularHomesList homes={homes} />
+          <ForYouHomesList homes={homes} />
+        </>
+      );
+    }
+  };
 
   return (
     <SafeAreaView
@@ -44,8 +67,7 @@ const Homes = () => {
             paddingHorizontal: SIZES.medium,
           }}
         >
-          <PopularHomesList homes={homes} />
-          <ForYouHomesList homes={homes} />
+          {isLoading()}
         </View>
       </ScrollView>
     </SafeAreaView>

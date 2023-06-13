@@ -390,8 +390,13 @@ export const homesSlice = createSlice({
   name: "homes",
   initialState,
   extraReducers: (builder) => {
+    builder.addCase(getAllHomes.pending, (state, action) => {
+      // Code
+      state.loading = "loading";
+    });
     builder.addCase(getAllHomes.fulfilled, (state, action) => {
       // Code
+      state.loading = "ideal";
       state.homes = action.payload.homes;
     });
     builder.addCase(searchHomes.fulfilled, (state, action) => {
