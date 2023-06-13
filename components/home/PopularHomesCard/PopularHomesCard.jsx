@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./PopularHomesCardStyles";
+import { LinearGradient } from "expo-linear-gradient";
+import { colors } from "../../../constants";
 
 const PopularHomeCard = ({ data }) => {
   const {
@@ -24,7 +26,10 @@ const PopularHomeCard = ({ data }) => {
         resizeMode="stretch"
         resizeMethod="resize"
       />
-      <View style={styles.footer}>
+      <LinearGradient
+        colors={[colors.primary.main, colors.primary.dark1]}
+        style={styles.footer}
+      >
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <Feather name="home" size={16} color="#333" style={styles.icon} />
@@ -56,7 +61,7 @@ const PopularHomeCard = ({ data }) => {
             <Text style={styles.dealTypeText}>{deal_type}</Text>
           </View>
         </View>
-      </View>
+      </LinearGradient>
     </View>
   );
 };
