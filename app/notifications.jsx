@@ -1,8 +1,8 @@
 import React from "react";
 import { ScrollView, SafeAreaView, StyleSheet, FlatList } from "react-native";
 import { useNavigation } from "expo-router";
-import { COLORS } from "../../constants";
-import NotificationCard from "../../components/notifications/NotificationCard/NotificationCard";
+import { COLORS } from "../constants";
+import NotificationCard from "../components/notifications/NotificationCard/NotificationCard";
 
 const notifications = [
   {

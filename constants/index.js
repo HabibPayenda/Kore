@@ -1,19 +1,7 @@
 import images from "./images";
 import icons from "./icons";
-import { YEARS, PropertyTypes, Prices, HomeRooms } from "./values";
+import { YEARS } from "./values";
 
-import { COLORS, FONT, SIZES, SHADOWS, colors } from "./theme";
+import { COLORS, FONT, SIZES, SHADOWS } from "./theme";
 
-export {
-  images,
-  icons,
-  COLORS,
-  FONT,
-  SIZES,
-  SHADOWS,
-  YEARS,
-  PropertyTypes,
-  Prices,
-  HomeRooms,
-  colors,
-};
+export { images, icons, COLORS, FONT, SIZES, SHADOWS, YEARS };
