@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
-import PriceFilter from "../../components/carFilter/PriceFilter/PriceFilter";
-import FuelFilter from "../../components/carFilter/FuelFilter/FuelFilter";
-import YearFilter from "../../components/carFilter/YearFilter/YearFilter";
+import { CarCard } from "../components";
+import PriceFilter from "../components/carFilter/PriceFilter/PriceFilter";
+import FuelFilter from "../components/carFilter/FuelFilter/FuelFilter";
+import YearFilter from "../components/carFilter/YearFilter/YearFilter";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS, FONT } from "../../constants";
+import { COLORS, FONT } from "../constants";
 
 const CarFilter = ({ cars }) => {
   const [filteredCars, setFilteredCars] = useState(cars);

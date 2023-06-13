@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
-import { COLORS, colors } from "../../../constants";
+import { COLORS } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
+    marginBottom: 16,
     width: 200,
     overflow: "hidden",
     backgroundColor: COLORS.lightWhite,
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   footer: {
-    backgroundColor: colors.secondary1.light2,
+    backgroundColor: COLORS.secondary,
     padding: 16,
   },
   infoContainer: {

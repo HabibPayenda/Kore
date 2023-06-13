@@ -16,28 +16,6 @@ export const getAllHomes = createAsyncThunk("homes/getAllHomes", async () => {
     return error;
   }
 });
-
-export const searchHomes = createAsyncThunk(
-  "homes/searchHomes",
-  async ({ searchTerm, dealType, numberOfRooms }) => {
-    console.log(numberOfRooms);
-    // Code
-    console.log("search term is: ", searchTerm);
-    try {
-      const result = await PropertiesApi.get("/homes/search", {
-        params: { q: searchTerm, d: dealType, r: numberOfRooms },
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
-        },
-      });
-      return result.data;
-    } catch (error) {
-      console.log(error);
-      return error;
-    }
-  }
-);
 export const getHome = createAsyncThunk("homes/getHome", async (id) => {
   // Code
   try {
@@ -377,7 +355,6 @@ export const addHomeRestriction = createAsyncThunk(
 
 const initialState = {
   homes: [],
-  searchResults: [],
   showHome: {},
   homeProperty: {},
   token: null,
@@ -390,21 +367,13 @@ export const homesSlice = createSlice({
   name: "homes",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(getAllHomes.pending, (state, action) => {
-      // Code
-      state.loading = "loading";
-    });
     builder.addCase(getAllHomes.fulfilled, (state, action) => {
       // Code
-      state.loading = "ideal";
       state.homes = action.payload.homes;
-    });
-    builder.addCase(searchHomes.fulfilled, (state, action) => {
-      // Code
-      state.searchResults = action.payload.homes;
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
+      console.log(action.payload);
       state.showHome = action.payload.home;
     });
 

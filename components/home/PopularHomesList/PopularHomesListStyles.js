@@ -3,24 +3,26 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 3,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
-    padding: 0,
+    marginTop: 16,
   },
   header: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 16,
-    paddingVertical: 3,
+    marginBottom: 8,
   },
   title: {
-    fontSize: 14,
+    fontSize: SIZES.medium,
     fontFamily: FONT.regular,
-    color: COLORS.primary,
-    paddingHorizontal: 3,
-    borderRadius: 10,
+  },
+  link: {
+    color: COLORS.lightWhite,
+    fontSize: SIZES.small,
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: SIZES.medium,
+    borderRadius: 3,
+    fontFamily: FONT.regular,
   },
 });
 
