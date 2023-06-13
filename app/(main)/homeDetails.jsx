@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Swiper from "react-native-swiper";
 import { useNavigation, useSearchParams } from "expo-router";
-import { COLORS, FONT, SIZES } from "../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../../data/homesSlice";
@@ -22,6 +22,7 @@ import {
   addFavoriteHome,
   removeFavoriteHome,
 } from "../../data/userSlice/userSlice";
+import { LinearGradient } from "expo-linear-gradient";
 
 const HomeDetails = () => {
   const { id } = useSearchParams();
@@ -68,7 +69,10 @@ const HomeDetails = () => {
           />
         </Swiper>
         <View style={styles.detailsContainer}>
-          <View style={styles.detailsContainerHeader}>
+          <LinearGradient
+            colors={[colors.primary.main, colors.primary.dark1]}
+            style={styles.detailsContainerHeader}
+          >
             <View style={styles.detailsContainerDealInfo}>
               <Text style={styles.price}>
                 {home?.deal_info?.total_price} افغانۍ
@@ -82,7 +86,7 @@ const HomeDetails = () => {
               </Text>
             </View>
             <Text style={styles.title}>{home?.property?.name}</Text>
-          </View>
+          </LinearGradient>
           <View style={styles.row}>
             <View style={styles.detail}>
               <Text style={styles.label}>اطاقونه</Text>
@@ -102,7 +106,11 @@ const HomeDetails = () => {
             </View>
           </View>
           <View style={styles.descriptionContainer}>
-            <Text style={styles.descriptionContainerTitle}>معلومات:</Text>
+            <LinearGradient
+              colors={[colors.primary.main, colors.primary.dark1]}
+            >
+              <Text style={styles.descriptionContainerTitle}>معلومات:</Text>
+            </LinearGradient>
             <Text style={styles.description}>
               {home?.property?.description}
             </Text>
@@ -159,6 +167,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: COLORS.lightWhite,
     elevation: 3,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
   },
   row: {
     padding: SIZES.small,
@@ -170,15 +180,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: SIZES.medium,
     fontFamily: FONT.regular,
+    color: "#fafafa",
   },
   price: {
     fontSize: SIZES.medium,
-    color: "#666",
+    color: "#fafafa",
     fontFamily: FONT.regular,
   },
   dealType: {
     fontFamily: FONT.regular,
     fontSize: SIZES.small,
+    color: "#fafafa",
   },
   detail: {
     alignItems: "center",
@@ -196,9 +208,9 @@ const styles = StyleSheet.create({
   descriptionContainer: {},
   descriptionContainerTitle: {
     fontFamily: FONT.regular,
-    backgroundColor: COLORS.lightWhite,
     paddingHorizontal: SIZES.small,
     elevation: 2,
+    color: "#fafafa",
   },
   description: {
     fontSize: SIZES.small,

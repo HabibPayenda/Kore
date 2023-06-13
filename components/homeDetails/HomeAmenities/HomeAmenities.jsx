@@ -1,7 +1,8 @@
 import { Text, StyleSheet, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../../constants";
+import { LinearGradient } from "expo-linear-gradient";
 
 const HomeAmenities = ({ amenities }) => {
   const renderAmenities = () => {
@@ -22,7 +23,9 @@ const HomeAmenities = ({ amenities }) => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>آسانتیاوې</Text>
+      <LinearGradient colors={[colors.primary.main, colors.primary.dark1]}>
+        <Text style={styles.title}>آسانتیاوې</Text>
+      </LinearGradient>
       {amenities?.length > 0 ? (
         renderAmenities()
       ) : (
@@ -43,9 +46,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FONT.regular,
     fontSize: SIZES.medium,
-    marginBottom: SIZES.medium,
-    color: COLORS.secondary,
-    backgroundColor: COLORS.lightWhite,
+    color: "#fafafa",
     elevation: 2,
     paddingHorizontal: SIZES.large,
   },

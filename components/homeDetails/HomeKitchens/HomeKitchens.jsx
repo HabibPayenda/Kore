@@ -2,12 +2,15 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Swiper from "react-native-swiper";
 import HomeRoomCard from "../HomeRoomCard/HomeRoomCard";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../../constants";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function HomeKitchens({ home_kitchens }) {
   return (
     <View style={styles.roomsSection}>
-      <Text style={styles.roomsTitle}>پخلنځي</Text>
+      <LinearGradient colors={[colors.primary.main, colors.primary.dark1]}>
+        <Text style={styles.roomsTitle}>پخلنځي</Text>
+      </LinearGradient>
       {home_kitchens?.length > 0 ? (
         <Swiper
           style={styles.roomsSlider}
@@ -35,9 +38,7 @@ const styles = StyleSheet.create({
   roomsTitle: {
     fontFamily: FONT.regular,
     fontSize: SIZES.medium,
-    marginBottom: SIZES.medium,
-    color: COLORS.secondary,
-    backgroundColor: COLORS.lightWhite,
+    color: "#fafafa",
     elevation: 2,
     paddingHorizontal: SIZES.large,
   },

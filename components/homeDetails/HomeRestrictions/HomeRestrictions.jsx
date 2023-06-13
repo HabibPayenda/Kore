@@ -1,7 +1,8 @@
 import { Text, StyleSheet, View } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../../constants";
+import { LinearGradient } from "expo-linear-gradient";
 
 const HomeRestrictions = ({ restrictions }) => {
   const renderRestrictions = () => {
@@ -22,7 +23,9 @@ const HomeRestrictions = ({ restrictions }) => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>بندیزونه</Text>
+      <LinearGradient colors={[colors.primary.main, colors.primary.dark1]}>
+        <Text style={styles.title}>بندیزونه</Text>
+      </LinearGradient>
       {restrictions?.length > 0 ? (
         renderRestrictions()
       ) : (
@@ -43,9 +46,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FONT.regular,
     fontSize: SIZES.medium,
-    marginBottom: SIZES.medium,
-    color: COLORS.secondary,
-    backgroundColor: COLORS.lightWhite,
+    color: "#fafafa",
     elevation: 2,
     paddingHorizontal: SIZES.large,
   },
