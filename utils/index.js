@@ -1,17 +1,18 @@
 import axios from "axios";
 export const checkImageURL = (url) => {
-  if (!url) return false;
+  if (!url || url.trim() === "") return false;
   else {
     const pattern = new RegExp(
       "^https?:\\/\\/.+\\.(png|jpg|jpeg|bmp|gif|webp)$",
       "i"
     );
-    return pattern.test(url);
+    if (!pattern.test(url)) return false;
+    return true;
   }
 };
 
 const PropertiesApi = axios.create({
-  baseURL: "http://10.10.10.252:3000/api/v1",
+  baseURL: "http://10.10.10.236:3000/api/v1",
   headers: {
     Accept: "application/json",
     "X-Requested-With": "XMLHttpRequest",

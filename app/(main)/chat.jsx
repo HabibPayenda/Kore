@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { GiftedChat, Send } from "react-native-gifted-chat";
-import { COLORS, FONT } from "../constants";
+import { COLORS, FONT } from "../../constants";
 import * as ImagePicker from "expo-image-picker";
 
 const ChatScreen = (props) => {

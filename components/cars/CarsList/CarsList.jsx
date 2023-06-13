@@ -10,7 +10,7 @@ const CarsList = ({ DATA, title }) => {
   const renderItem = ({ item }) => {
     return (
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("carDetails")}
+        onPress={() => navigation.navigate("(main)/carDetails")}
       >
         <View style={styles.item}>
           <CarCard data={item} />

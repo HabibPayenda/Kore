@@ -55,7 +55,7 @@ const CarOfferList = () => {
   const renderItem = ({ item }) => {
     return (
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("carDetails")}
+        onPress={() => navigation.navigate("(main)/carDetails")}
       >
         <View style={styles.item}>
           <CarOfferCard data={item} />

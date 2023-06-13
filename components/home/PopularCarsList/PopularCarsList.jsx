@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
 import styles from "./PopularCarsListStyles";
 import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
@@ -15,13 +21,13 @@ const PopularCarsList = ({ cars }) => {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableWithoutFeedback
+      <Pressable
         onPress={() => navigation.navigate("carDetails", { id: item.id })}
       >
         <View style={styles.item}>
           <PopularCarsCard data={item} />
         </View>
-      </TouchableWithoutFeedback>
+      </Pressable>
     );
   };
 
