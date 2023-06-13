@@ -103,7 +103,11 @@ const SidebarItemsList = () => {
           <Ionicons name="arrow-back" size={24} color="#fafafa" />
         </Pressable>
       </LinearGradient>
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.menu}>
+      <ScrollView
+        contentContainerStyle={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+        style={styles.menu}
+      >
         {renderLinksSection()}
         {renderMenuSection()}
         <LinearGradient
@@ -186,6 +190,9 @@ const styles = StyleSheet.create({
     marginTop: 50,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "flex-end",
+    width: "100%",
+    alignContent: "flex-end",
   },
   logoText: {
     fontFamily: FONT.regular,
