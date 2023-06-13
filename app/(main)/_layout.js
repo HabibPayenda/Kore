@@ -26,6 +26,7 @@ const Layout = () => {
           name="homeDetails"
           options={{
             headerShown: false,
+            animation: "slide_from_left",
           }}
         />
         <Stack.Screen
