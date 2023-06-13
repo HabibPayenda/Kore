@@ -6,9 +6,11 @@ import { useNavigation } from "expo-router";
 import { useDispatch } from "react-redux";
 import { setSearchTerm } from "../../../data/appSlice/appSlice";
 import { useState } from "react";
+import { useTypewriter } from "../../../utils";
 
 const SearchInput = ({ placeholder }) => {
   const [value, setValue] = useState();
+  const currentText = useTypewriter([placeholder, placeholder]);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const SearchInput = ({ placeholder }) => {
       <TextInput
         style={styles.input}
         value={value}
-        placeholder={placeholder}
+        placeholder={currentText}
         onChangeText={(value) => setValue(value)}
         textAlign="right"
         onSubmitEditing={() => handleSearch()}
