@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ScreenHeaderBtn from "../../common/header/ScreenHeaderBtn";
-import { icons, images } from "../../../constants";
+import { COLORS, colors, icons, images } from "../../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
 import HomeFilter from "../Filter/HomeFilter";
@@ -12,7 +12,10 @@ const HomeHeader = ({ setSidebarShown }) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{ backgroundColor: "#fafafa" }}>
-      <LinearGradient colors={["#8489c2", "#7453a0"]} style={styles.container}>
+      <LinearGradient
+        colors={[colors.primary.main, colors.primary.dark1]}
+        style={styles.container}
+      >
         <View style={styles.containerTop}>
           <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
           <ScreenHeaderBtn

@@ -34,6 +34,30 @@ const COLORS = {
   colorComplement4: "#6C6200",
 };
 
+export const colors = {
+  primary: {
+    main: "#6B3FA0",
+    light1: "#AF8FD5",
+    light2: "#875FB7",
+    dark1: "#572693",
+    dark2: "#401573",
+  },
+  secondary1: {
+    main: "#C6E34D",
+    light1: "#E9FAA1",
+    light2: "#DDF675",
+    dark1: "#B0D028",
+    dark2: "#88A412",
+  },
+  secondary2: {
+    main: "#ECC750",
+    light1: "#FFE9A4",
+    light2: "#FFDF79",
+    dark1: "#D8AE29",
+    dark2: "#AA8613",
+  },
+};
+
 const FONT = {
   regular: "BahijBaream",
 };

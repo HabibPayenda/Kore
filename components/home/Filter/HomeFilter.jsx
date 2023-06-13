@@ -4,67 +4,77 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { usePathname, Link } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
+import { COLORS, colors } from "../../../constants";
 
 const HomeFilter = () => {
   const pathname = usePathname();
   return (
     <View style={styles.container}>
-      <Link
-        href="warehouses"
-        style={[
-          styles.item,
-          styles.item4,
-          pathname === "/warehouses" && styles.itemActive,
-        ]}
+      <LinearGradient
+        style={[styles.item, pathname === "/warehouses" && styles.itemActive]}
+        colors={
+          pathname === "/warehouses"
+            ? [colors.secondary1.main, colors.secondary1.dark1]
+            : [colors.secondary2.main, colors.secondary2.dark1]
+        }
       >
-        <MaterialCommunityIcons
-          name="warehouse"
-          size={pathname === "/warehouses" ? 28 : 24}
-          color="#fafafa"
-        />
-      </Link>
-      <Link
-        href="lands"
-        style={[
-          styles.item,
-          styles.item3,
-          pathname === "/lands" && styles.itemActive,
-        ]}
+        <Link href="warehouses">
+          <MaterialCommunityIcons
+            name="warehouse"
+            size={pathname === "/warehouses" ? 28 : 24}
+            color="#fafafa"
+          />
+        </Link>
+      </LinearGradient>
+      <LinearGradient
+        colors={
+          pathname === "/lands"
+            ? [colors.secondary1.main, colors.secondary1.dark1]
+            : [colors.secondary2.main, colors.secondary2.dark1]
+        }
+        style={[styles.item, pathname === "/lands" && styles.itemActive]}
       >
-        <MaterialIcons
-          name="landscape"
-          size={pathname === "/lands" ? 32 : 28}
-          color="#fafafa"
-        />
-      </Link>
-      <Link
-        href="cars"
-        style={[
-          styles.item,
-          styles.item2,
-          pathname === "/cars" && styles.itemActive,
-        ]}
+        <Link href="lands">
+          <MaterialIcons
+            name="landscape"
+            size={pathname === "/lands" ? 32 : 28}
+            color="#fafafa"
+          />
+        </Link>
+      </LinearGradient>
+      <LinearGradient
+        colors={
+          pathname === "/cars"
+            ? [colors.secondary1.main, colors.secondary1.dark1]
+            : [colors.secondary2.main, colors.secondary2.dark1]
+        }
+        style={[styles.item, pathname === "/cars" && styles.itemActive]}
       >
-        <AntDesign
-          name="car"
-          size={pathname === "/cars" ? 28 : 24}
-          color="#fafafa"
-        />
-      </Link>
-      <Link
-        href="homes"
-        style={[
-          styles.item,
-          styles.item1,
-          pathname === "/homes" && styles.itemActive,
-        ]}
+        <Link href="cars">
+          <AntDesign
+            name="car"
+            size={pathname === "/cars" ? 28 : 24}
+            color="#fafafa"
+          />
+        </Link>
+      </LinearGradient>
+      <LinearGradient
+        style={[styles.item, pathname === "/homes" && styles.itemActive]}
+        colors={
+          pathname === "/homes"
+            ? [colors.secondary1.main, colors.secondary1.dark1]
+            : [colors.secondary2.main, colors.secondary2.dark1]
+        }
       >
-        <AntDesign
-          name="home"
-          size={pathname === "/homes" ? 28 : 24}
-          color="#fafafa"
-        />
-      </Link>
+        <Link href="homes">
+          <AntDesign
+            name="home"
+            size={pathname === "/homes" ? 28 : 24}
+            color="#fafafa"
+          />
+        </Link>
+      </LinearGradient>
     </View>
   );
 };
@@ -77,6 +87,8 @@ const styles = StyleSheet.create({
     bottom: -20,
     flexDirection: "row",
     gap: 12,
+    height: 40,
+    alignItems: "flex-end",
   },
   item: {
     height: 40,

@@ -2,7 +2,7 @@ import images from "./images";
 import icons from "./icons";
 import { YEARS, PropertyTypes, Prices, HomeRooms } from "./values";
 
-import { COLORS, FONT, SIZES, SHADOWS } from "./theme";
+import { COLORS, FONT, SIZES, SHADOWS, colors } from "./theme";
 
 export {
   images,
@@ -15,4 +15,5 @@ export {
   PropertyTypes,
   Prices,
   HomeRooms,
+  colors,
 };
