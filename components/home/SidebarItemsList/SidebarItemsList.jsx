@@ -13,7 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 
 import userImage from "../../../assets/images/user.jpg";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES, colors } from "../../../constants";
 import { useNavigation, useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
@@ -91,7 +91,7 @@ const SidebarItemsList = () => {
     <View style={styles.container}>
       <LinearGradient
         // colors={["#00a7fa", "#3f7fb7"]}
-        colors={["#8489c2", "#7453a0"]}
+        colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.userProfile}
       >
         <Image source={userImage} style={styles.userImage} />
@@ -107,7 +107,7 @@ const SidebarItemsList = () => {
         {renderLinksSection()}
         {renderMenuSection()}
         <LinearGradient
-          colors={[COLORS.colorTertiary0, COLORS.colorComplement0]}
+          colors={[colors.secondary2.main, colors.secondary2.dark1]}
           // colors={["#00a7fa", "#3f7fb7", "#7453a0"]}
           style={styles.menuBottom}
         >
