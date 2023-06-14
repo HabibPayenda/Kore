@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import SearchResultsHeader from "../../../components/searchResults/Header";
+import SearchResultsCarsHeader from "../../../components/searchResults/Header/CarsHeader";
 
 const Layout = () => {
   return (
@@ -59,7 +60,8 @@ const Layout = () => {
       <Stack.Screen
         name="searchResultsCars"
         options={{
-          headerShown: false,
+          // headerShown: false,
+          header: () => <SearchResultsCarsHeader />,
           animation: "slide_from_left",
         }}
       />
