@@ -10,13 +10,7 @@ import { useTypewriter } from "../../../utils";
 
 const SearchInput = ({ placeholder }) => {
   const [value, setValue] = useState("");
-  const currentText = useTypewriter([
-    placeholder,
-    "دری اطاقه",
-    "څلور اطاقه",
-    "او یا هم پنځه اطاقه",
-    "په دې ځای کې یې ولیکئ",
-  ]);
+  const currentText = useTypewriter(placeholder);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();

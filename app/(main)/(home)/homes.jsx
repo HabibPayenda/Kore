@@ -47,12 +47,20 @@ const Homes = () => {
     }
   };
 
+  const inputPlaceholders = [
+    "د خوښې کور مو وپلټئ",
+    "دوه اطاقه",
+    "دری اطاقه",
+    "یا هم شپږ اطاقه",
+    "په دې ځای کې یې ولیکئ",
+  ];
+
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
     >
       <View style={{ paddingBottom: 6 }}>
-        <SearchInput placeholder="د خوښې کور مو وپلټئ" />
+        <SearchInput placeholder={inputPlaceholders} />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View

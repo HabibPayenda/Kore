@@ -28,12 +28,20 @@ const Lands = () => {
     }
   };
 
+  const inputPlaceholders = [
+    "د خوښې ځمکه مو وپلټئ",
+    "دوې بیسوې",
+    "دری بیسوې",
+    "یا هم یو جریب",
+    "په دې ځای کې یې ولیکئ",
+  ];
+
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
     >
       <View style={{ paddingBottom: 6 }}>
-        <SearchInput placeholder="د خوښې ځمکه مو وپلټئ" />
+        <SearchInput placeholder={inputPlaceholders} />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View

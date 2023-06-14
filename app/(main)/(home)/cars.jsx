@@ -1,79 +1,61 @@
-import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { SafeAreaView, ScrollView, View, Text } from "react-native";
+import { useFocusEffect } from "expo-router";
 
-import styles from "../../../styles/carsStyles";
-import { CarOfferList, CarsList } from "../../../components";
-import { useNavigation } from "expo-router";
+import { PopularCarsList, SearchInput } from "../../../components";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SIZES } from "../../../constants";
+import { getAllCars } from "../../../data/carsSlice/carsSlice";
 
-const DATA = [
-  {
-    id: "1",
-    make: "Toyota",
-    model: "Camry",
-    year: "2021",
-    price: "$20,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "2",
-    make: "Honda",
-    model: "Civic",
-    year: "2022",
-    price: "$18,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "3",
-    make: "Ford",
-    model: "Mustang",
-    year: "2020",
-    price: "$25,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "4",
-    make: "Chevrolet",
-    model: "Camaro",
-    year: "2021",
-    price: "$30,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-  {
-    id: "5",
-    make: "Nissan",
-    model: "Altima",
-    year: "2022",
-    price: "$22,000",
-    image: require("../../../assets/images/car.jpg"),
-  },
-];
 const Cars = () => {
-  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.cars.cars);
+  const loading = useSelector((state) => state.cars.loading);
 
-  const handleFilter = () => {
-    navigation.navigate("(main)/carFilter");
+  useFocusEffect(
+    useCallback(() => {
+      if (cars?.length < 1) {
+        dispatch(getAllCars());
+      }
+    }, [dispatch, cars])
+  );
+
+  const isLoading = () => {
+    if (loading === "loading") {
+      return <Text>Loading</Text>;
+    } else {
+      return (
+        <>
+          <PopularCarsList cars={cars} />
+        </>
+      );
+    }
   };
 
+  const inputPlaceholders = [
+    "د خوښې موټر مو وپلټئ",
+    "کرولا",
+    "سراچه",
+    "یا هم بنز",
+    "په دې ځای کې یې ولیکئ",
+  ];
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handleFilter}>
-          <Feather name="filter" size={24} color="#333" />
-        </TouchableOpacity>
-        <Text style={styles.title}>موټر</Text>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
+    >
+      <View style={{ paddingBottom: 6 }}>
+        <SearchInput placeholder={inputPlaceholders} />
       </View>
-      <ScrollView style={styles.scrollView}>
-        <CarOfferList />
-        <CarsList DATA={DATA} title="ټیټ ماډل" />
-        <CarsList DATA={DATA} title="مابینی ماډل" />
-        <CarsList DATA={DATA} title="لوړ ماډل" />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: SIZES.medium,
+          }}
+        >
+          {isLoading()}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
