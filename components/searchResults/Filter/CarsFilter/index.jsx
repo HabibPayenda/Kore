@@ -43,31 +43,13 @@ const SearchResultCarsFilters = () => {
           <Text style={styles.filterItemText}>قیمت</Text>
         </LinearGradient>
       </Pressable>
-      <Pressable onPress={() => router.push("homeRoomsFilter")}>
+      <Pressable onPress={() => router.push("fuelTypeFilter")}>
         <LinearGradient
           style={styles.filterItem}
           colors={["#fd8579", "#ff4d85"]}
         >
           <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
-          <Text style={styles.filterItemText}>{numberOfRoomsText}</Text>
-        </LinearGradient>
-      </Pressable>
-      <Pressable onPress={() => router.push("dealTypeFilter")}>
-        <LinearGradient
-          style={styles.filterItem}
-          colors={["#fd8579", "#ff4d85"]}
-        >
-          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
-          <Text style={styles.filterItemText}>{dealTypeText}</Text>
-        </LinearGradient>
-      </Pressable>
-      <Pressable onPress={() => router.push("locationFilter")}>
-        <LinearGradient
-          style={styles.filterItem}
-          colors={["#fd8579", "#ff4d85"]}
-        >
-          <FontAwesome5 name="chevron-down" size={12} color="#fafafa" />
-          <Text style={styles.filterItemText}>ځای</Text>
+          <Text style={styles.filterItemText}>تیل</Text>
         </LinearGradient>
       </Pressable>
     </View>

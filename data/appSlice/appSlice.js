@@ -4,6 +4,7 @@ const initialState = {
   searchTerm: "",
   dealType: "",
   numberOfRooms: null,
+  fuelType: "",
 };
 
 export const AppSlice = createSlice({
@@ -20,9 +21,12 @@ export const AppSlice = createSlice({
     setNumberOfRooms: (state, action) => {
       state.numberOfRooms = action.payload;
     },
+    setFuelType: (state, action) => {
+      state.fuelType = action.payload;
+    },
   },
 });
 
-export const { setSearchTerm, setDealType, setNumberOfRooms } =
+export const { setSearchTerm, setDealType, setNumberOfRooms, setFuelType } =
   AppSlice.actions;
 export default AppSlice.reducer;

@@ -65,6 +65,14 @@ const Layout = () => {
           animation: "slide_from_left",
         }}
       />
+      <Stack.Screen
+        name="fuelTypeFilter"
+        options={{
+          headerShown: false,
+          animation: "slide_from_bottom",
+          presentation: "transparentModal",
+        }}
+      />
     </Stack>
   );
 };
