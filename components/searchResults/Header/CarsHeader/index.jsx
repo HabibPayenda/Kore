@@ -9,6 +9,7 @@ import SearchResultFilters from "../../Filter";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../../../data/appSlice/appSlice";
+import SearchResultCarsFilters from "../../Filter/CarsFilter";
 
 const SearchResultsCarsHeader = () => {
   const searchTerm = useSelector((state) => state.app.searchTerm);
@@ -27,7 +28,7 @@ const SearchResultsCarsHeader = () => {
       >
         <View style={styles.containerTop}>
           <View style={styles.containerTopLeft}>
-            <Text style={styles.title}>د خوښې کور مو پیدا کړئ</Text>
+            <Text style={styles.title}>د خوښې موټر مو پیدا کړئ</Text>
             <TextInput
               style={styles.input}
               value={value}
@@ -40,7 +41,7 @@ const SearchResultsCarsHeader = () => {
             <Ionicons name="arrow-back" size={24} color="#fafafa" />
           </Pressable>
         </View>
-        <SearchResultFilters />
+        <SearchResultCarsFilters />
       </LinearGradient>
     </SafeAreaView>
   );
