@@ -11,11 +11,11 @@ import styles from "./PopularCarsListStyles";
 import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
 import { useNavigation } from "expo-router";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import CarCard from "../../common/cards/CarCard/CarCard";
 
 const PopularCarsList = ({ cars }) => {
   const navigation = useNavigation();
   const handleViewAll = () => {
-    // handle view all functionality here
     navigation.navigate("cars");
   };
 
@@ -25,7 +25,7 @@ const PopularCarsList = ({ cars }) => {
         onPress={() => navigation.navigate("carDetails", { id: item.id })}
       >
         <View style={styles.item}>
-          <PopularCarsCard data={item} />
+          <CarCard data={item} />
         </View>
       </Pressable>
     );
@@ -34,10 +34,7 @@ const PopularCarsList = ({ cars }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleViewAll}>
-          <Text style={styles.link}>ټول</Text>
-        </TouchableOpacity>
-        <Text style={styles.title}>مشهور موټر</Text>
+        <Text style={styles.title}>ډیر لیدل شوي موټر </Text>
       </View>
       <FlatList
         data={cars}

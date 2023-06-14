@@ -6,14 +6,17 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
     paddingHorizontal: 16,
+    paddingVertical: 3,
   },
   title: {
-    fontSize: SIZES.medium,
-    color: COLORS.secondary,
+    fontSize: 14,
     fontFamily: FONT.regular,
+    color: COLORS.primary,
+    paddingHorizontal: 3,
+    borderRadius: 10,
   },
   link: {
     fontSize: SIZES.small,
