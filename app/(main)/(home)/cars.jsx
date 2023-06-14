@@ -45,7 +45,10 @@ const Cars = () => {
       style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
     >
       <View style={{ paddingBottom: 6 }}>
-        <SearchInput placeholder={inputPlaceholders} />
+        <SearchInput
+          screenUrl="(search)/searchResultsCars"
+          placeholder={inputPlaceholders}
+        />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View

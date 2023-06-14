@@ -22,7 +22,7 @@ const Homes = () => {
       router.replace("(auth)/login");
     } else {
       dispatch(getUser(user?.id));
-      // router.replace("(search)/homeRoomsFilter");
+      // router.replace("/_sitemap");
     }
   }, [token]);
 
@@ -60,7 +60,10 @@ const Homes = () => {
       style={{ flex: 1, backgroundColor: "#fafafa", alignItems: "center" }}
     >
       <View style={{ paddingBottom: 6 }}>
-        <SearchInput placeholder={inputPlaceholders} />
+        <SearchInput
+          screenUrl="(search)/searchResults"
+          placeholder={inputPlaceholders}
+        />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View

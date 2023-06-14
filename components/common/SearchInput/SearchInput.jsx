@@ -2,21 +2,21 @@ import React from "react";
 import { View, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./searchInputStyles";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { useDispatch } from "react-redux";
 import { setSearchTerm } from "../../../data/appSlice/appSlice";
 import { useState } from "react";
 import { useTypewriter } from "../../../utils";
 
-const SearchInput = ({ placeholder }) => {
+const SearchInput = ({ placeholder, screenUrl }) => {
   const [value, setValue] = useState("");
   const currentText = useTypewriter(placeholder);
 
-  const navigation = useNavigation();
   const dispatch = useDispatch();
+  const router = useRouter();
   const handleSearch = () => {
     dispatch(setSearchTerm(value));
-    navigation.navigate("(search)");
+    router.push(screenUrl);
   };
   return (
     <View style={styles.container}>
