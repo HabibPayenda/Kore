@@ -1,23 +1,12 @@
 import React from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Pressable,
-} from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 
 import styles from "./PopularCarsListStyles";
-import PopularCarsCard from "../PopularCarsCard/PopularCarsCard";
 import { useNavigation } from "expo-router";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import CarCard from "../../common/cards/CarCard/CarCard";
 
 const PopularCarsList = ({ cars }) => {
   const navigation = useNavigation();
-  const handleViewAll = () => {
-    navigation.navigate("cars");
-  };
 
   const renderItem = ({ item }) => {
     return (
