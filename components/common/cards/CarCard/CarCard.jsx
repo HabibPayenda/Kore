@@ -3,12 +3,22 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import styles from "./CarCardStyles";
 
+import imagePlaceholder from "../../../../assets/images/imagePlaceholder.png";
+import { checkImageURL } from "../../../../utils";
+
 const CarCard = ({ data }) => {
-  const { make, brand, year, fuel, price, deal, image } = data;
+  const { make, brand, year, fuel, price, deal, image_url } = data;
 
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
+      <Image
+        source={
+          checkImageURL(image_url) ? { uri: image_url } : imagePlaceholder
+        }
+        style={
+          checkImageURL(image_url) ? styles.image : styles.placeholderImage
+        }
+      />
       <View style={styles.footer}>
         <View style={styles.fullItem}>
           <View style={styles.item}>

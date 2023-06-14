@@ -8,10 +8,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: "hidden",
     marginBottom: 16,
+    elevation: 2,
   },
   image: {
     height: 200,
     width: 200,
+    resizeMode: "contain",
+  },
+  placeholderImage: {
+    height: 200,
+    width: 200,
+    borderColor: "#fafafa",
+    borderWidth: 1,
     resizeMode: "contain",
   },
   footer: {
