@@ -7,7 +7,6 @@ import UserImage from "../../components/userProfile/UserImage/UserImage";
 const UserProfile = ({ name, email, phone, address }) => {
   return (
     <View style={styles.container}>
-      <UserImage />
       <View style={styles.fieldContainer}>
         <Text style={styles.fieldLabel}>Name:</Text>
         <Text style={styles.fieldValue}>{name}</Text>
