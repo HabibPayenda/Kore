@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
-
+import userImagePlaceholder from "../../../assets/images/userImagePlaceholder.png";
+import { checkImageURL } from "../../../utils";
 const UserImage = ({ uri, onChange }) => {
   const [imageUri, setImageUri] = useState(uri);
 
@@ -26,7 +27,10 @@ const UserImage = ({ uri, onChange }) => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: imageUri }} />
+      <Image
+        style={styles.image}
+        source={checkImageURL(uri) ? { uri: imageUri } : userImagePlaceholder}
+      />
       <View style={styles.iconContainer}>
         <TouchableOpacity onPress={handlePickImage}>
           <AntDesign name="camerao" size={24} color="black" />
@@ -45,6 +49,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
+    backgroundColor: "#fafafa",
   },
   iconContainer: {
     position: "absolute",
