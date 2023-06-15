@@ -142,6 +142,28 @@ export const addPushToken = createAsyncThunk(
   }
 );
 
+export const addUserHomeView = createAsyncThunk(
+  "user/userHomeView",
+  async ({ userId, homeId }) => {
+    // Code
+    try {
+      const response = await PropertiesApi.post(
+        `/user_home_views`,
+        { user_id: userId, home_id: homeId },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   user: {},
   token: null,
