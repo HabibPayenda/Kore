@@ -118,6 +118,30 @@ export const removeFavoriteHome = createAsyncThunk(
   }
 );
 
+export const addPushToken = createAsyncThunk(
+  "user/addPushToken",
+  async ({ id, push_token }) => {
+    // Code
+    try {
+      const response = await PropertiesApi.post(
+        `/users/posh_token/${id}`,
+        { push_token: push_token },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   user: {},
   token: null,
@@ -169,6 +193,10 @@ export const userSlice = createSlice({
 
     builder.addCase(addUser.fulfilled, (state, action) => {
       // Code
+    });
+    builder.addCase(addPushToken.fulfilled, (state, action) => {
+      // Code
+      state.user = action.payload.user;
     });
   },
 });

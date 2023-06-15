@@ -5,7 +5,7 @@ import { PopularHomesList, SearchInput } from "../../../components";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../../data/homesSlice";
-import { getUser } from "../../../data/userSlice/userSlice";
+import { addPushToken, getUser } from "../../../data/userSlice/userSlice";
 import { SIZES } from "../../../constants";
 import ForYouHomesList from "../../../components/home/ForYouHomes";
 import * as Notifications from "expo-notifications";
@@ -29,10 +29,12 @@ const Homes = () => {
       return;
     }
 
-    const { data: pushToken } = await Notifications.getExpoPushTokenAsync({
-      projectId: "6cd50489-3a11-4f77-8a8d-93c5ca58bdf8",
-    });
-    console.log(pushToken);
+    if (user?.push_token === null) {
+      const { data: pushToken } = await Notifications.getExpoPushTokenAsync({
+        projectId: "6cd50489-3a11-4f77-8a8d-93c5ca58bdf8",
+      });
+      dispatch(addPushToken({ id: user?.id, push_token: pushToken }));
+    }
   }
 
   useEffect(() => {
