@@ -20,6 +20,7 @@ import HomeAmenities from "../../components/homeDetails/HomeAmenities/HomeAmenit
 import HomeRestrictions from "../../components/homeDetails/HomeRestrictions/HomeRestrictions";
 import {
   addFavoriteHome,
+  addUserHomeView,
   removeFavoriteHome,
 } from "../../data/userSlice/userSlice";
 import { LinearGradient } from "expo-linear-gradient";
@@ -30,11 +31,14 @@ const HomeDetails = () => {
   const navigation = useNavigation();
 
   const home = useSelector((state) => state.homes.showHome);
+  const user = useSelector((state) => state.user.user);
   useEffect(() => {
     dispatch(getHome(id));
   }, [id]);
 
-  const user = useSelector((state) => state.user.user);
+  useEffect(() => {
+    dispatch(addUserHomeView({ homeId: home?.id, userId: user?.id }));
+  }, []);
 
   const liked = user?.homes?.some((item) => item?.id === home?.id);
   const handleFavorite = () => {
