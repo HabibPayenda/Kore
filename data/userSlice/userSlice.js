@@ -164,6 +164,28 @@ export const addUserHomeView = createAsyncThunk(
   }
 );
 
+export const addUserCarView = createAsyncThunk(
+  "user/userCarView",
+  async ({ userId, carId }) => {
+    // Code
+    try {
+      const response = await PropertiesApi.post(
+        `/user_car_views`,
+        { user_id: userId, car_id: carId },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   user: {},
   token: null,
