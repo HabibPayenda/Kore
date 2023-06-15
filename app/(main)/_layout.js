@@ -1,4 +1,5 @@
 import SearchResultsHeader from "../../components/searchResults/Header";
+import UserProfileHeader from "../../components/userProfile/Header/UserProfileHeader";
 import { COLORS } from "../../constants";
 import { Slot, Stack } from "expo-router";
 
@@ -26,6 +27,13 @@ const Layout = () => {
           name="homeDetails"
           options={{
             headerShown: false,
+            animation: "slide_from_left",
+          }}
+        />
+        <Stack.Screen
+          name="userProfile"
+          options={{
+            header: () => <UserProfileHeader />,
             animation: "slide_from_left",
           }}
         />
