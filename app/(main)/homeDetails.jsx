@@ -37,7 +37,7 @@ const HomeDetails = () => {
   }, [id]);
 
   useEffect(() => {
-    dispatch(addUserHomeView({ homeId: home?.id, userId: user?.id }));
+    dispatch(addUserHomeView({ homeId: id, userId: user?.id }));
   }, []);
 
   const liked = user?.homes?.some((item) => item?.id === home?.id);
