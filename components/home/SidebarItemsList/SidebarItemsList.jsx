@@ -16,7 +16,7 @@ import userImage from "../../../assets/images/user.jpg";
 import { COLORS, FONT, SIZES, colors } from "../../../constants";
 import { useNavigation, useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../../../data/userSlice/userSlice";
 import { Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -35,6 +35,7 @@ const SidebarItemsList = () => {
   const toggleCollapse = () => setCollapsed(!collapsed);
   const dispatch = useDispatch();
   const router = useRouter();
+  const user = useSelector((state) => state.user.user);
 
   const renderMenuItem = (title, icon, link) => (
     <TouchableOpacity
@@ -94,7 +95,7 @@ const SidebarItemsList = () => {
         colors={[colors.primary.main, colors.primary.dark1]}
         style={styles.userProfile}
       >
-        <Image source={userImage} style={styles.userImage} />
+        <Image source={{ uri: user?.image_url }} style={styles.userImage} />
         <View>
           <Text style={styles.userName}>{"Habib Payenda"}</Text>
           <Text style={styles.userLocation}>{"Kabul, Afghanistan"}</Text>
