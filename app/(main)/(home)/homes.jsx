@@ -5,7 +5,11 @@ import { PopularHomesList, SearchInput } from "../../../components";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../../data/homesSlice";
-import { addPushToken, getUser } from "../../../data/userSlice/userSlice";
+import {
+  addPushToken,
+  getUser,
+  updateUserLastLogin,
+} from "../../../data/userSlice/userSlice";
 import { SIZES } from "../../../constants";
 import ForYouHomesList from "../../../components/home/ForYouHomes";
 import * as Notifications from "expo-notifications";
@@ -53,6 +57,12 @@ const Homes = () => {
       }
     }, [dispatch, homes])
   );
+
+  useEffect(() => {
+    const date = new Date();
+    const localDateTimeString = date.toLocaleString();
+    dispatch(updateUserLastLogin({ id: user?.id, date: localDateTimeString }));
+  }, []);
 
   const isLoading = () => {
     if (loading === "loading") {

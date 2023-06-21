@@ -187,6 +187,28 @@ export const addUserCarView = createAsyncThunk(
   }
 );
 
+export const updateUserLastLogin = createAsyncThunk(
+  "user/updateUserLastLogin",
+  async ({ id, date }) => {
+    // Code
+    try {
+      const response = await PropertiesApi.post(
+        `/user_last_login/${id}`,
+        { last_login: date },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 export const addUserProfilePicture = createAsyncThunk(
   "user/addUserProfilePicture",
   async ({ image, id }) => {

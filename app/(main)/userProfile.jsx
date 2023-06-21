@@ -27,7 +27,7 @@ const UserProfile = () => {
 
       <View style={styles.fieldContainer}>
         <Text style={styles.fieldLabel}>Address:</Text>
-        <Text style={styles.fieldValue}>{user?.address}</Text>
+        <Text style={styles.fieldValue}>{user?.address?.city}</Text>
       </View>
     </View>
   );
