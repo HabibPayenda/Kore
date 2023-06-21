@@ -7,8 +7,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
 import HomeFilter from "../Filter/HomeFilter";
 import { useNavigation } from "expo-router";
+import { useSelector } from "react-redux";
 
 const HomeHeader = ({ setSidebarShown }) => {
+  const user = useSelector((state) => state.user.user);
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{ backgroundColor: "#fafafa" }}>
@@ -17,7 +19,7 @@ const HomeHeader = ({ setSidebarShown }) => {
         style={styles.container}
       >
         <View style={styles.containerTop}>
-          <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+          <ScreenHeaderBtn url={user?.image_url} dimension="100%" />
           <ScreenHeaderBtn
             iconUrl={images.menu}
             handlePress={() => navigation.navigate("sidebar")}
