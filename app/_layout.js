@@ -3,6 +3,17 @@ import { COLORS } from "../constants";
 import store from "../data";
 import { Provider } from "react-redux";
 import { Stack, SplashScreen, Slot } from "expo-router";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => {
+    return {
+      shouldPlaySound: false,
+      shouldSetBadge: true,
+      shouldShowAlert: true,
+    };
+  },
+});
 
 SplashScreen.preventAutoHideAsync();
 
