@@ -57,3 +57,20 @@ PropertiesApi.interceptors.request.use(
 );
 
 export default PropertiesApi;
+
+export const PropertiesApiImage = axios.create({
+  baseURL: "http://10.10.10.236:3000/api/v1",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "multipart/form-data",
+  },
+});
+
+PropertiesApiImage.interceptors.request.use(
+  async (config) => {
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error.response.message);
+  }
+);

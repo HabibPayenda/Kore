@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import PropertiesApi from "../../utils";
+import PropertiesApi, { PropertiesApiImage } from "../../utils";
+import axios from "axios";
 
 export const signIn = createAsyncThunk("user/signIn", async (data) => {
   // Code
@@ -186,6 +187,27 @@ export const addUserCarView = createAsyncThunk(
   }
 );
 
+export const addUserProfilePicture = createAsyncThunk(
+  "user/addUserProfilePicture",
+  async ({ image, id }) => {
+    try {
+      const response = await axios.post(
+        `http://10.10.10.236:3000/api/v1/user_profile_image/${id}`,
+        image,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Accept: "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const initialState = {
   user: {},
   token: null,
@@ -239,6 +261,11 @@ export const userSlice = createSlice({
       // Code
     });
     builder.addCase(addPushToken.fulfilled, (state, action) => {
+      // Code
+      state.user = action.payload.user;
+    });
+
+    builder.addCase(addUserProfilePicture.fulfilled, (state, action) => {
       // Code
       state.user = action.payload.user;
     });

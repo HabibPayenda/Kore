@@ -4,8 +4,14 @@ import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
 import userImagePlaceholder from "../../../assets/images/userImagePlaceholder.png";
 import { checkImageURL } from "../../../utils";
-const UserImage = ({ uri, onChange }) => {
-  const [imageUri, setImageUri] = useState(uri);
+import { useDispatch, useSelector } from "react-redux";
+import { addUserProfilePicture } from "../../../data/userSlice/userSlice";
+const UserImage = () => {
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  console.log(user);
+
+  const [imageUri, setImageUri] = useState(user?.image_url);
 
   const handlePickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -16,12 +22,24 @@ const UserImage = ({ uri, onChange }) => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 4],
       quality: 1,
     });
 
     if (!result.canceled) {
       setImageUri(result.assets[0].uri);
+      const extension = result.assets[0].uri.split(".").pop();
+      const filename = `${user?.name}__${JSON.stringify(
+        Math.floor(new Date().getTime() / 1000)
+      )}.${extension}`;
+      let formData = new FormData();
+      formData.append("image", {
+        uri: result.assets[0].uri,
+        name: filename,
+        type: `image/${extension}`,
+      });
+
+      dispatch(addUserProfilePicture({ image: formData, id: user?.id }));
     }
   };
 
@@ -29,7 +47,7 @@ const UserImage = ({ uri, onChange }) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={checkImageURL(uri) ? { uri: imageUri } : userImagePlaceholder}
+        source={imageUri ? { uri: imageUri } : userImagePlaceholder}
       />
       <View style={styles.iconContainer}>
         <TouchableOpacity onPress={handlePickImage}>
